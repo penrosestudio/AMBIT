@@ -49,6 +49,21 @@
 				setBgPosY('#toggle', curLeft===0 ? "-540px" : "-490px");
 			});
 			
+			/*
+				sidebar toggle 
+					always toggles sidebar in/out
+			
+				click on icon
+					if sidebar is open  
+						opens accordion section
+					if sidebar is closed 
+						opens accordion section and sidebar
+					
+			
+			
+			*/
+			
+			
 			// the accordion
 			
 			$('#sidebar h2 a').click( function(){
@@ -100,7 +115,7 @@
 <body>
 	<div id="sidebar">
 		<h1>ambit CORE CONTENT of the manual for ADOLESCENT MENTALIZATION BASED INTEGRATIVE TREATMENT</h1>
-		<div id="search">
+		<div id="search" class="panel">
 			<input type="text" placeholder="Search" />
 		</div>
 		<div class="panel closed margintopsmall">
