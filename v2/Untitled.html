@@ -1,0 +1,25 @@
+<!--{{{-->
+<div class='editToolbar'
+	macro='toolbar [[ToolbarCommands::EditToolbar]] icons:yes'>
+</div>
+<div class='heading editorHeading'>
+	<div class='editor title' macro='edit title'></div>
+	<div class='tagClear'></div>
+</div>
+<div class='annotationsBox' macro='annotations'>
+	<div class='editSpaceSiteIcon'
+		macro='tiddlerOrigin height:16 width:16 label:no interactive:no'>
+	</div>
+	<div class="privacyEdit" macro='setPrivacy label:no interactive:no'></div>
+	<div class='tagClear'></div>
+</div>
+<div class='editor' macro='edit text'></div>
+<div class='editorFooter'>
+	<div class='tagTitle'>tags</div>
+	<div class='editor' macro='edit tags'></div>
+	<div class='tagAnnotation'>
+		<span macro='message views.editor.tagPrompt'></span>
+		<span macro='tagChooser excludeLists'></span>
+	</div>
+</div>
+<!--}}}-->

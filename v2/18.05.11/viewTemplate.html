@@ -1,0 +1,38 @@
+<!--{{{-->
+<div class="paperSheet">
+	<div class="headingPanel">
+		<div class='toolbar' macro='toolbar [[ToolbarCommands::ViewToolbar]] icons:yes height:16 width:16 more:popup'></div>
+		<span class="right localOrNot" macro="localOrNot"></span>
+		<h2 class='title' macro='view title text'></h2>
+		<a href="#"><span class="left panelToggle">show related information</span></a>
+		<div class="infoPanel">
+			<ul>
+				<li><h4>Information:</h4></li>
+				<li>Edited by <span macro='view modifier link'></span></li>
+				<li>Edited on <span macro='view modified date "DDth MMM YYYY at hh:mm"'></span></li>
+				<li>Explore this topic's <span macro="ambitRevisions"></span></li>
+				<li>Explore this topic's <span macro="ambitReferences"></span></li>
+			</ul>
+			<ul>
+				<li><h4>Elsewhere:</h4></li>
+				<li>There are <span macro="ambitElsewhere"> other manuals</span> with different versions of this topic</li>
+			</ul>
+			<ul>
+				<li><h4>This topic contains these sub-topics:</h4></li>
+				<div macro="ambitTagging"></div>
+			</ul>
+			<ul>
+				<li><h4>This topic is a sub-topic of:</h4></li>
+				<div macro="ambitTags"></div>
+			</ul>
+		</div>
+		<!--<div class="meta" macro='viewRevisions page:5'>
+			last modified by <span class="modifier" macro="view modifier"></span> on <span macro="view modified date 'DDth MMM YYYY'"></span>
+		</div>-->
+	</div>
+	<div class="content">
+		<div class='viewer' macro='view text wikified'></div>
+		<br class="clearboth" />
+	</div>
+</div>
+<!--}}}-->

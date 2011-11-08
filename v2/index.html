@@ -1,0 +1,623 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<script id="versionArea" type="text/javascript">
+//<![CDATA[
+var version = {title: "TiddlyWiki", major: 2, minor: 6, revision: 2, date: new Date("Jan 6, 2011"), extensions: {}};
+//]]>
+</script>
+<script type="text/javascript" src="js/jquery-1.6.js"></script>
+<script type="text/javascript" src="js/aim.js"></script>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="copyright" content="
+TiddlyWiki created by Jeremy Ruston, (jeremy [at] osmosoft [dot] com)
+
+Copyright (c) Jeremy Ruston 2004-2007
+Copyright (c) UnaMesa Association 2007-2011
+
+Redistribution and use in source and binary forms, with or without modification,
+are permitted provided that the following conditions are met:
+
+Redistributions of source code must retain the above copyright notice, this
+list of conditions and the following disclaimer.
+
+Redistributions in binary form must reproduce the above copyright notice, this
+list of conditions and the following disclaimer in the documentation and/or other
+materials provided with the distribution.
+
+Neither the name of the UnaMesa Association nor the names of its contributors may be
+used to endorse or promote products derived from this software without specific
+prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS 'AS IS' AND ANY
+EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
+OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT
+SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
+TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
+BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
+ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH
+DAMAGE.
+" />
+<!--PRE-HEAD-START-->
+<!--{{{-->
+<link rel="shortcut icon" href="/recipes/ambit-theme_public/tiddlers/favicon.ico" />
+<link href="/bags/ambit-theme_public/tiddlers.atom" rel="alternate"
+	type="application/atom+xml" title="ambit-theme's public feed" />
+
+<link rel="stylesheet" href="styles.css" />
+
+<!--[if IE 6]>
+	<link rel="stylesheet" type="text/css" href="css/ie6.css" />
+<![endif]-->
+        
+<!--[if gte IE 8]>
+	<link rel="stylesheet" type="text/css" href="css/ie8.css">
+<![endif]-->
+
+
+<!--}}}-->
+<!--PRE-HEAD-END-->
+<title>
+ambit-theme - a TiddlySpace
+</title>
+<style id="styleArea" type="text/css">
+body { margin:0px }
+#saveTest {display:none;}
+#messageArea {display:none;}
+#copyright {display:none;}
+#storeArea {display:none;}
+#storeArea div {padding:0.5em; margin:1em 0em 0em 0em; border-color:#fff #666 #444 #ddd; border-style:solid; border-width:2px; overflow:auto;}
+#shadowArea {display:none;}
+#javascriptWarning {width:100%; text-align:center; font-weight:bold; background-color:#dd1100; color:#fff; padding:1em 0em;}
+</style>
+
+<!--POST-HEAD-START-->
+<link href='http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=PT+Sans+Caption:regular,bold' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Crimson+Text:regular,regularitalic,600,600italic,bold,bolditalic' rel='stylesheet' type='text/css'>
+<!--POST-HEAD-END-->
+</head>
+<body onload="main();" onunload="if(window.unload) unload();">
+<!--PRE-BODY-START-->
+<!--PRE-BODY-END-->
+<div id="copyright">
+Welcome to TiddlyWiki created by Jeremy Ruston; Copyright &copy; 2004-2007 Jeremy Ruston, Copyright &copy; 2007-2011 UnaMesa Association
+</div>
+<noscript>
+
+<div id="javascriptWarning">
+This page requires JavaScript to function properly.<br /><br />
+If you do not use JavaScript you may still <a href="http://ambit-theme.tiddlyspace.com/recipes/ambit-theme_private/tiddlers">browse
+the content of this wiki</a>.
+</div>
+
+</noscript>
+<div id="saveTest"></div>
+<div id="backstageCloak"></div>
+
+<div id="backstageButton"></div>
+<div id="backstageArea"><div id="backstageToolbar"></div></div>
+<div id="backstage">
+	<div id="backstagePanel"></div>
+</div>
+<div id="contentWrapper">
+	<div id="displayArea">
+	
+		<!-- AMBIT HTML build here -->
+		<div id="header"> <!-- Moved header outside of mainpane -->
+			<img id="logo" src="images/ambit_logo_dark.png" alt="AMBIT logo" />
+			<h1><span id="SiteTitle">ambit</span> <span id="SiteSubtitle">Adolescent Mentalization-Based Integrative Treatment</span></h1>
+			<img id="annafreudlogo" src="images/annafreud_logo_dark.png" alt="Anna Freud Centre logo" />
+		</div>
+		
+		<div id="searchResults">
+			<div class="jbasewrap">
+				<div class="overlay">
+					<a href="javascript:;" title="dismiss search results" class="button">close</a> <!-- Removed ids from buttons -->
+					<a href="javascript:;" title="open all search results" class="button">Open all</a>
+					<h3>Search Results</h3>
+					<strong>1 tiddlers found matching <span>'combat'</span>:</strong>
+					<br>
+					<ul>
+						<li> <a href="javascript:;" title="Roll with Resistance - psd, Thu Nov 25 16:35:39 2010" class="tiddlyLink tiddlyLinkExisting" refresh="link" tiddlylink="Roll with Resistance">Roll with Resistance</a></li>
+						<li> <a href="javascript:;" title="Roll with Resistance - psd, Thu Nov 25 16:35:39 2010" class="tiddlyLink tiddlyLinkExisting" refresh="link" tiddlylink="Roll with Resistance">Roll with Resistance</a></li>
+						<li> <a href="javascript:;" title="Roll with Resistance - psd, Thu Nov 25 16:35:39 2010" class="tiddlyLink tiddlyLinkExisting" refresh="link" tiddlylink="Roll with Resistance">Roll with Resistance</a></li>
+<li> <a href="javascript:;" title="Roll with Resistance - psd, Thu Nov 25 16:35:39 2010" class="tiddlyLink tiddlyLinkExisting" refresh="link" tiddlylink="Roll with Resistance">Roll with Resistance</a></li>
+<li> <a href="javascript:;" title="Roll with Resistance - psd, Thu Nov 25 16:35:39 2010" class="tiddlyLink tiddlyLinkExisting" refresh="link" tiddlylink="Roll with Resistance">Roll with Resistance</a></li>
+<li> <a href="javascript:;" title="Roll with Resistance - psd, Thu Nov 25 16:35:39 2010" class="tiddlyLink tiddlyLinkExisting" refresh="link" tiddlylink="Roll with Resistance">Roll with Resistance</a></li>
+<li> <a href="javascript:;" title="Roll with Resistance - psd, Thu Nov 25 16:35:39 2010" class="tiddlyLink tiddlyLinkExisting" refresh="link" tiddlylink="Roll with Resistance">Roll with Resistance</a></li>
+<li> <a href="javascript:;" title="Roll with Resistance - psd, Thu Nov 25 16:35:39 2010" class="tiddlyLink tiddlyLinkExisting" refresh="link" tiddlylink="Roll with Resistance">Roll with Resistance</a></li>
+<li> <a href="javascript:;" title="Roll with Resistance - psd, Thu Nov 25 16:35:39 2010" class="tiddlyLink tiddlyLinkExisting" refresh="link" tiddlylink="Roll with Resistance">Roll with Resistance</a></li>
+<li> <a href="javascript:;" title="Roll with Resistance - psd, Thu Nov 25 16:35:39 2010" class="tiddlyLink tiddlyLinkExisting" refresh="link" tiddlylink="Roll with Resistance">Roll with Resistance</a></li>
+<li> <a href="javascript:;" title="Roll with Resistance - psd, Thu Nov 25 16:35:39 2010" class="tiddlyLink tiddlyLinkExisting" refresh="link" tiddlylink="Roll with Resistance">Roll with Resistance</a></li>
+<li> <a href="javascript:;" title="Roll with Resistance - psd, Thu Nov 25 16:35:39 2010" class="tiddlyLink tiddlyLinkExisting" refresh="link" tiddlylink="Roll with Resistance">Roll with Resistance</a></li><li> <a href="javascript:;" title="Roll with Resistance - psd, Thu Nov 25 16:35:39 2010" class="tiddlyLink tiddlyLinkExisting" refresh="link" tiddlylink="Roll with Resistance">Roll with Resistance</a></li><li> <a href="javascript:;" title="Roll with Resistance - psd, Thu Nov 25 16:35:39 2010" class="tiddlyLink tiddlyLinkExisting" refresh="link" tiddlylink="Roll with Resistance">Roll with Resistance</a></li><li> <a href="javascript:;" title="Roll with Resistance - psd, Thu Nov 25 16:35:39 2010" class="tiddlyLink tiddlyLinkExisting" refresh="link" tiddlylink="Roll with Resistance">Roll with Resistance</a></li><li> <a href="javascript:;" title="Roll with Resistance - psd, Thu Nov 25 16:35:39 2010" class="tiddlyLink tiddlyLinkExisting" refresh="link" tiddlylink="Roll with Resistance">Roll with Resistance</a></li><li> <a href="javascript:;" title="Roll with Resistance - psd, Thu Nov 25 16:35:39 2010" class="tiddlyLink tiddlyLinkExisting" refresh="link" tiddlylink="Roll with Resistance">Roll with Resistance</a></li><li> <a href="javascript:;" title="Roll with Resistance - psd, Thu Nov 25 16:35:39 2010" class="tiddlyLink tiddlyLinkExisting" refresh="link" tiddlylink="Roll with Resistance">Roll with Resistance</a></li><li> <a href="javascript:;" title="Roll with Resistance - psd, Thu Nov 25 16:35:39 2010" class="tiddlyLink tiddlyLinkExisting" refresh="link" tiddlylink="Roll with Resistance">Roll with Resistance</a></li><li> <a href="javascript:;" title="Roll with Resistance - psd, Thu Nov 25 16:35:39 2010" class="tiddlyLink tiddlyLinkExisting" refresh="link" tiddlylink="Roll with Resistance">Roll with Resistance</a></li>
+					</ul>
+					<a href="javascript:;" title="dismiss search results" class="button">close</a>
+					<a href="javascript:;" title="open all search results" class="button" id="search_open">Open all</a>
+					
+				</div>
+			</div>
+		</div>
+		
+		<div id="mainpane"> <!-- Moved sidebar into mainpane -->
+			<div id="tiddlerDisplay">
+				<div class="tiddler">
+					<div class="paperSheet">
+						<div class="headingPanel">
+							<h2 class="title">AIM Form Static Build</h2>
+							<a href="#"><span class="left panelToggle">show related information</span></a>		
+						</div>
+						<div class="content">
+						
+							<div id="aimForm">
+								<div class="navigation left">
+									<a class="previous">Prev<span></span></a>
+									<a class="next">Next<span></span></a>
+								</div>
+									<ul class="AIMmenu">
+										<li class="done"><a href="#">Introduction</a></li>
+										 <li class="done"><a href="#">Young Person Daily Life</a></li>
+										 <li class="done"><a href="#">Socio-Economic</a></li>
+										 <li class="done"><a href="#">Family</a></li>
+										 <li class="done"><a href="#">Social</a></li>
+										 <li class="done"><a href="#">Mental State 1</a>
+											<ul>
+												<li><a href="#">Depression</a></li>
+												<li><a href="#">Deliberate Self Harm</a></li>
+												<li><a href="#">Eating problems</a></li>
+												<li><a href="#">Substance misuse</a></li>
+												<li><a href="#">Suicidality</a></li>
+												<li><a href="#">Defiance</a></li>
+												<li><a href="#">Destruction of Property</a></li>
+												<li><a href="#">Physical harm to others</a></li>
+												<li><a href="#">Problematic sexual behaviour</a></li>
+												<li class="active"><a href="#">Psychotic experiences</a></li>
+												<li><a href="#">Elated mood</a></li>
+												<li><a href="#">Mentalizing Capacity</a></li>
+			
+											</ul>
+										</li>
+										<li class="active"><a href="#">Mental State 2</a>
+											<ul>
+												 <li class="done"><a href="#">Depression</a></li>
+												 <li class="done"><a href="#">Deliberate Self Harm</a></li>
+												 <li class="done"><a href="#">Eating problems</a></li>
+												 <li class="done"><a href="#">Substance misuse</a></li>
+												 <li class="done"><a href="#">Suicidality</a></li>
+												 <li class="done"><a href="#">Defiance</a></li>
+												 <li class="done"><a href="#">Destruction of Property</a></li>
+												 <li class="done"><a href="#">Physical harm to others</a></li>
+												 <li class="done"><a href="#">Problematic sexual behaviour</a></li>
+												<li class="active"><a href="#">Psychotic experiences</a></li>
+												<li><a href="#">Elated mood</a></li>
+												<li><a href="#">Mentalizing Capacity</a></li>
+			
+											</ul>
+										</li>
+										<li><a href="#">Response to Situation</a></li>
+										<li><a href="#">Measure of Complexity</a></li>
+										<li><a href="#">Results</a></li>
+									</ul>
+									<div class="question">
+										<h3>Results</h3>
+										<a class="export marginbottomsmall">Export and Save AIM Data<span></span></a>
+										<br class="clearboth"/>
+										<p>Many of the young people AMBIT is designed for have high levels of Complexity and Comorbidities. The AMBIT AIM assessment can help you rank potentially useful interventions for the problems you have identified with your client. See also WhichInterventionWhen for other advice on how to sequence what to do, or I'm stuck: what next? if you are at a more general impasse.</p>
+	
+										<p>There are different ways to sort these suggestions, depending on whether you want to look at the whole spread of a young person's difficulties, or to focus on the most severe ones, and whether you want to limit your attention just to the KeyProblems. There is more explanation, at Interactive properties with manualized content. </p>
+										
+										<h3>AIM Suggested Interventions</h3>
+										<form>
+											<div class="choice">
+											<p>Display the AIM's suggested interventions, sorted according to:</p>
+												<input type="radio" name="rank" title="1" id="1" />
+												<label for="1"><strong>GLOBAL RANKING -</strong> each suggested intervention is ranked according to how many different problems (that is HCAMA items scoring greater than 2) the young person has which that particular intervention is relevant for. This is good for COVERING THE WHOLE SET OF PROBLEMS AND CAUSES.</label>
+											</div>
+	
+											<div class="choice">
+												<input type="radio" name="rank" title="2" id="2" />
+												<label for="2"><strong>FOCAL RANKING -</strong> each suggested intervention is ranked in order of how SEVERE the set of problems are (their averaged HCAMA scores) that indicate that particular intervention. This is good for FOCUSING ON THE MOST SEVERE PROBLEMS.</label>
+											</div>
+											<div class="choice">
+												<input type="checkbox" name="rank" title="3" id="3" />
+												<label for="3"><strong>LIMIT</strong> the displayed interventions only to those relevant for items identified as KEY PROBLEMS.</label>
+											</div>
+										</form>
+										<h4>Intervention Results:</h4>
+										<p>Click a title below to open the article, or <a href="#">Click here</a> to open all articles.</p>
+										<ul>
+											<li><a href="#">Working with the Professional Network</a> (4 Average Score) <a href="#">View AIM items</a>
+												<ul>
+													<li><a href="#">40 Measure of Complexity - Pervasiveness </a> (Rating 4)</li>
+												</ul>
+											</li>
+											<li><a href="#">Working with the Unprofessional Network</a> (2 Average Score) <a href="#">View AIM items</a>
+											</li>
+											<li><a href="#">Working with the Network</a> (1 Average Score) <a href="#">View AIM items</a>
+											</li>
+										</ul>									
+										
+										<!--<form>
+											<h3>34 - Psychotic Experiences</h3>
+											<p>Presence of psychotic symptoms, such as Delusions (firmly held false beliefs held without objective evidence, often impossible or highly improbable. Delusions are not affected by rational argument or evidence to the contrary, and are not a conventional belief in the context of the person's social or cultural background) or Hallucinations (any experience of objectively unrealistic perceptions, such as hearing, seeing, hallucinations of touch or smelling things that others do not, when NOT under the influence of intoxicating substances. Rate descriptively only, not based on presumed cause. Rate flashbacks only if they are experienced as real, rather than as intense memory.)</p>
+											<div class="choice">
+												<input type="radio" name="question" title="1" id="1" />
+												<label for="1"><strong>0 - No problems involving psychotic symptoms.</strong> Distortions and misperceptions just before or after sleep that are not persistent or repeatedly disturbing are counted as normal.</label>
+											</div>
+											<div class="choice">
+												<input type="radio" name="question" title="2" id="2" />
+												<label for="2"><strong>1 - Mild.</strong> Circumscribed delusions that do not affect daily behaviour, e.g. believes that dead grandmother is actually alive, in spite of having attended the funeral and many attempts to convince otherwise. Repeatedly distorts perceptions in ways that cause or fuel anxiety, e.g. sees frightening figures at dusk, interprets sounds as voices.</label>
+											</div>
+											<div class="choice">
+												<input type="radio" name="question" title="3" id="3" />
+												<label for="3"><strong>2 - Moderate.</strong> Delusional beliefs affect behaviour, but impact is confined to a specific arena e.g. believes she may contract syphilis from eating utensils, and will only use disposable tableware. Persistently claims to hear or see things others cannot, e.g. flashbacks to traumatic experiences, but does not react or respond to hallucinations.</label>
+											</div>
+		<div class="choice">
+												<input type="radio" name="question" title="4" id="4" />
+												<label for="4"><strong>3 - Severe.</strong> Delusional beliefs play a major role in daily behaviour, influencing behaviour, attitudes, and communication e.g. believes is the son of God and talks about this constantly to peers and adults. Can be observed to be responding to apparent hallucinations, which interfere with normal functioning.</label>
+											</div>
+		<div class="choice">
+												<input type="radio" name="question" title="5" id="5" />
+												<label for="5"><strong>4 - Very severe.</strong> Behaviour dominated by response to delusional beliefs, e.g. cannot leave own room for fear of persecution by enemies. Vivid apparent hallucinations that cause distress, or issue destructive commands (e.g. suicidal or homicidal).</label>
+												
+												<input type="checkbox" id="key" title="key" />
+												<label for="key"><strong>Key Problem?</strong> Check the box if this is a key problem.</label>
+											</form>
+										</div>-->
+										<div class="navigation">
+											<a class="next">Next<span></span></a>
+										</div>
+										
+									</div>
+							</div>
+							
+						</div>
+					</div>
+				</div><!-- END PAPER DIV -->
+				<div class="tiddler">
+					<div class="paperSheet">
+						<div class="headingPanel">
+							<h2 class="title">Start Here: Mark the Task</h2>
+							<a href="#"><span class="left panelToggle">show related information</span></a>
+							
+							<!-- <div class="infoPanel">
+								<ul>
+									<li><h4>Information:</h4></li>
+									<li>Edited by <a href="#">Dickon</a></li>
+									<li>Last Modified on 12.01.11</li>
+									<li>This topic has been <a href="#">edited 4 times</a></li>
+									<li>This topic is linked to by <a href="#">8 other topics</a></li>
+								</ul>
+								<ul>
+									<li><h4>Elsewhere:</h4></li>
+									<li>There are <a href="#">4 other manuals</a> which have different versions of this topic</li>
+								</ul>
+								<ul>
+									<li><h4>This topic contains these sub-topics:</h4></li>
+									<li><a href="#">Boundaries</a></li>
+									<li><a href="#">Case discussion</a></li>
+									<li><a href="#">Customising your local TeamTemplate</a></li>
+									<li><a href="#">Dis-integrative processes in a Multi Disciplinary Team</a></li>
+									<li><a href="#">Dive Boat</a></li>
+									<li><a href="#">DOMAINS and LEVELS of dis-integration</a></li>
+									<li><a href="#">Individual Differences</a></li>
+									<li><a href="#">Inducting new team members</a></li>
+									<li><a href="#">Keyworker well-connected to wider team</a></li>
+									<li><a href="#">MetaTeam</a></li>
+									<li><a href="#">MultiDisciplinaryTeam</a></li>
+									<li><a href="#">New referral</a></li>
+								</ul>
+								<ul>
+									<li><h4>This topic is a sub-topic of:</h4></li>
+									<li><a href="#">What is our team?</a></li>
+									<li><a href="#">What to do?</a></li>
+								</ul>
+							
+							
+							</div> -->
+							
+							
+						<!-- <div class="meta">last modified by <span class="modifier">Dickon</span> on <span class="modified">13th January 2011</span></div> -->
+						</div>
+						<div class="content">
+							<h3>Welcome</h3>
+							<h3>heading three</h3>
+							<h4>heading four</h4>
+							<h5>heading five</h5>
+							<h6>heading six</h6>
+							
+							
+							<p>The manual is not just a text that you read from cover to cover but something you refer in order to find something out or get something done. Basically it is something you <strong><em>use</em></strong> rather than just read. So, the most important thing is to know what you want to use it for.</p>
+							<p>Just as getting to know a person takes a little while, so getting to know your way around this manual is not instant.  A useful tiddler is <a href="javascript:;" title="Sitemap - dickon, Mon Jan 17 00:30:59 2011" class="tiddlyLink tiddlyLinkExisting" refresh="link" tiddlylink="Sitemap" tiddlyfields="server.workspace:&quot;bags/ambit-content_public&quot; server.type:&quot;tiddlyweb&quot; server.host:&quot;http://ambit.tiddlyspace.com/&quot;">Sitemap</a>. When you visit the manual, we recommend that you try to make clear in your own mind your <em>intentions</em> in visiting it (which is an example of 'marking the task').   </p>
+							<h3>Why am I here, where do I go now?</h3>
+							<p>What is your intention in visiting this manual right now? How long do you have available to spend doing this? How will you know if and when you have got what you came for?</p>
+							<p>In AMBIT we emphasise the importance of <a href="javascript:;" title="Marking the Task - psd, Thu Nov 25 16:34:48 2010" class="tiddlyLink tiddlyLinkExisting active" refresh="link" tiddlylink="Marking the Task" tiddlyfields="server.workspace:&quot;bags/ambit-content_public&quot; server.type:&quot;tiddlyweb&quot; server.host:&quot;http://ambit.tiddlyspace.com/&quot;">Marking the Task</a> as a key first step in any working interaction, and interacting with this manual is no different.  Here are some of the commonest reasons for coming to the manual.  Choose the one that best fits your purpose:</p>
+							<ul>
+								<strong>
+								<li><a href="javascript:;" title="I want a brief introduction to AMBIT - dickon, Mon Jan 17 01:02:05 2011" class="tiddlyLink tiddlyLinkExisting" refresh="link" tiddlylink="I want a brief introduction to AMBIT" tiddlyfields="server.workspace:&quot;bags/ambit-content_public&quot; server.type:&quot;tiddlyweb&quot; server.host:&quot;http://ambit.tiddlyspace.com/&quot;">I want a brief introduction to AMBIT</a></li>
+								<li><a href="javascript:;" title="I am starting work with a client - peterf, Sun Jan 16 13:05:06 2011" class="tiddlyLink tiddlyLinkExisting" refresh="link" tiddlylink="I am starting work with a client" tiddlyfields="server.workspace:&quot;bags/ambit-content_public&quot; server.type:&quot;tiddlyweb&quot; server.host:&quot;http://ambit.tiddlyspace.com/&quot;">I am starting work with a client</a></li>
+								<li><a href="javascript:;" title="I am already working with a client; where next? - psd, Thu Nov 25 16:34:28 2010" class="tiddlyLink tiddlyLinkExisting" refresh="link" tiddlylink="I am already working with a client; where next?" tiddlyfields="server.workspace:&quot;bags/ambit-content_public&quot; server.type:&quot;tiddlyweb&quot; server.host:&quot;http://ambit.tiddlyspace.com/&quot;">I am already working with a client; where next?</a></li>
+								<li><a href="javascript:;" title="Find your way around - psd, Thu Nov 25 16:41:06 2010" class="tiddlyLink tiddlyLinkExisting" refresh="link" tiddlylink="Find your way around" tiddlyfields="server.workspace:&quot;bags/ambit-content_public&quot; server.type:&quot;tiddlyweb&quot; server.host:&quot;http://ambit.tiddlyspace.com/&quot;">I just want to look up a specific piece of information</a></li><li><a href="javascript:;" title="Find your way around - psd, Thu Nov 25 16:41:06 2010" class="tiddlyLink tiddlyLinkExisting" refresh="link" tiddlylink="Find your way around" tiddlyfields="server.workspace:&quot;bags/ambit-content_public&quot; server.type:&quot;tiddlyweb&quot; server.host:&quot;http://ambit.tiddlyspace.com/&quot;">I just want to surf and browse</a></li>
+								<li><a href="javascript:;" title="Using the Manual - peterf, Thu Jan 13 20:08:18 2011" class="tiddlyLink tiddlyLinkExisting" refresh="link" tiddlylink="Using the Manual" tiddlyfields="server.workspace:&quot;bags/ambit-content_public&quot; server.type:&quot;tiddlyweb&quot; server.host:&quot;http://ambit.tiddlyspace.com/&quot;">I want to learn about using this TiddlyManual</a></li>
+								<li><a href="javascript:;" title="I've downloaded a copy to use as an INTERACTIVE CASE RECORDING 'workbook' for a client - psd, Thu Nov 25 16:34:31 2010" class="tiddlyLink tiddlyLinkExisting" refresh="link" tiddlylink="I've downloaded a copy to use as an INTERACTIVE CASE RECORDING 'workbook' for a client" tiddlyfields="server.workspace:&quot;bags/ambit-content_public&quot; server.type:&quot;tiddlyweb&quot; server.host:&quot;http://ambit.tiddlyspace.com/&quot;">I've downloaded a copy to use as an INTERACTIVE CASE RECORDING 'workbook' for a client</a></li>
+								<li><a href="javascript:;" title="I am authorised to make customised edits to our local team's manual - psd, Thu Nov 25 16:41:06 2010" class="tiddlyLink tiddlyLinkExisting" refresh="link" tiddlylink="I am authorised to make customised edits to our local team's manual" tiddlyfields="server.workspace:&quot;bags/ambit-content_public&quot; server.type:&quot;tiddlyweb&quot; server.host:&quot;http://ambit.tiddlyspace.com/&quot;">I am authorised to make customised edits to our local team's manual</a></li>
+								<li><a href="javascript:;" title="None of the above! - psd, Thu Nov 25 16:35:12 2010" class="tiddlyLink tiddlyLinkExisting" refresh="link" tiddlylink="None of the above!" tiddlyfields="server.workspace:&quot;bags/ambit-content_public&quot; server.type:&quot;tiddlyweb&quot; server.host:&quot;http://ambit.tiddlyspace.com/&quot;">None of the above!</a></li>
+								</strong>
+							</ul>
+							<h4>Important Legal stuff:</h4>
+							<p>There are important issues relating to <a href="javascript:;" title="Security and authorization - peterf, Thu Jan 13 20:00:00 2011" class="tiddlyLink tiddlyLinkExisting" refresh="link" tiddlylink="Security and authorization" tiddlyfields="server.workspace:&quot;bags/ambit-content_public&quot; server.type:&quot;tiddlyweb&quot; server.host:&quot;http://ambit.tiddlyspace.com/&quot;">Security and authorization</a> to use this manual, and by going on into the manual you are agreeing to abide by the rules laid out.</p>
+							<h4>Feedback:</h4>
+							<p>You are invited to give <a href="javascript:;" title="Feedback please! - peterf, Thu Jan 13 18:34:00 2011" class="tiddlyLink tiddlyLinkExisting" refresh="link" tiddlylink="Feedback please!" tiddlyfields="server.workspace:&quot;bags/ambit-content_public&quot; server.type:&quot;tiddlyweb&quot; server.host:&quot;http://ambit.tiddlyspace.com/&quot;">Feedback please!</a></p>
+						</div>
+						<!-- <div class="tags">
+							<div class="tiddlerTags">
+								<p>This entry is in these topics:</p>
+								<ul>
+									<li><a>What is our team?</a></li>
+									<li><a>What to do?</a></li>
+								</ul>
+							</div>
+							<div class="tagging">
+								<p>This topic contains these topics:</p>
+								<ul>
+									<li><a>Boundaries</a></li>
+									<li><a>Case discussion</a></li>
+									<li><a>Customising your local TeamTemplate</a></li>
+									<li><a>Dis-integrative processes in a Multi Disciplinary Team</a></li>
+									<li><a>Dive Boat</a></li>
+									<li><a>DOMAINS and LEVELS of dis-integration</a></li>
+									<li><a>Individual Differences</a></li>
+									<li><a>Inducting new team members</a></li>
+									<li><a>Keyworker well-connected to wider team</a></li>
+									<li><a>MetaTeam</a></li>
+									<li><a>MultiDisciplinaryTeam</a></li>
+									<li><a>New referral</a></li>
+									<li><a>Passed-outwards Discussion</a></li>
+									<li><a>Psychiatrist</a></li>
+									<li><a>Reflective Quorum</a></li>
+									<li><a>Ripples in a Pond</a></li>
+									<li><a>Rituals and Disciplines</a></li>
+									<li><a>Starting an AMBIT service</a></li>
+									<li><a>TakeHomeMessages</a></li>
+									<li><a>Team Meetings</a></li>
+									<li><a>Team members</a></li>
+									<li><a>Team reflection and manualization</a></li>
+									<li><a>TeamTemplate</a></li>
+									<li><a>Thinking Together</a></li>
+									<li><a>Why name team members in an individual client record?</a></li>
+								</ul>
+							</div>
+						</div> -->
+					</div>
+				</div>
+				<div class="tiddler">
+					<div class="paperSheet">
+						<div class="headingPanel">
+							<h2 class="title">Introduction</h2>
+							<a href="#"><span class="left panelToggle">show related information</span></a>
+							
+							<div class="infoPanel">
+								<ul>
+									<li><h4>Information:</h4></li>
+									<li>Edited by <a href="#">Dickon</a></li>
+									<li>Last Modified on 12.01.11</li>
+									<li>This topic has been <a href="#">edited 4 times</a></li>
+									<li>This topic is linked to by <a href="#">8 other topics</a></li>
+								</ul>
+								<ul>
+									<li><h4>Elsewhere:</h4></li>
+									<li>There are <a href="#">4 other manuals</a> which have different versions of this topic</li>
+								</ul>
+								<ul>
+									<li><h4>This topic contains these sub-topics:</h4></li>
+									<li><a href="#">Boundaries</a></li>
+									<li><a href="#">Case discussion</a></li>
+									<li><a href="#">Customising your local TeamTemplate</a></li>
+									<li><a href="#">Dis-integrative processes in a Multi Disciplinary Team</a></li>
+									<li><a href="#">Dive Boat</a></li>
+									<li><a href="#">DOMAINS and LEVELS of dis-integration</a></li>
+									<li><a href="#">Individual Differences</a></li>
+									<li><a href="#">Inducting new team members</a></li>
+									<li><a href="#">Keyworker well-connected to wider team</a></li>
+									<li><a href="#">MetaTeam</a></li>
+									<li><a href="#">MultiDisciplinaryTeam</a></li>
+									<li><a href="#">New referral</a></li>
+								</ul>
+								<ul>
+									<li><h4>This topic is a sub-topic of:</h4></li>
+									<li><a href="#">What is our team?</a></li>
+									<li><a href="#">What to do?</a></li>
+								</ul>
+							
+							
+							</div> 
+							
+							
+						<!-- <div class="meta">last modified by <span class="modifier">Dickon</span> on <span class="modified">13th January 2011</span></div> -->
+						</div>
+						<div class="content">
+							<h3>Welcome</h3>
+							<p>The manual is not just a text that you read from cover to cover but something you refer in order to find something out or get something done. Basically it is something you <strong><em>use</em></strong> rather than just read. So, the most important thing is to know what you want to use it for.</p>
+							<p>Just as getting to know a person takes a little while, so getting to know your way around this manual is not instant.  A useful tiddler is <a href="javascript:;" title="Sitemap - dickon, Mon Jan 17 00:30:59 2011" class="tiddlyLink tiddlyLinkExisting" refresh="link" tiddlylink="Sitemap" tiddlyfields="server.workspace:&quot;bags/ambit-content_public&quot; server.type:&quot;tiddlyweb&quot; server.host:&quot;http://ambit.tiddlyspace.com/&quot;">Sitemap</a>. When you visit the manual, we recommend that you try to make clear in your own mind your <em>intentions</em> in visiting it (which is an example of 'marking the task').   </p>
+							<h5>Why am I here, where do I go now?</h5>
+							<p>What is your intention in visiting this manual right now? How long do you have available to spend doing this? How will you know if and when you have got what you came for?</p>
+							<p>In AMBIT we emphasise the importance of <a href="javascript:;" title="Marking the Task - psd, Thu Nov 25 16:34:48 2010" class="tiddlyLink tiddlyLinkExisting" refresh="link" tiddlylink="Marking the Task" tiddlyfields="server.workspace:&quot;bags/ambit-content_public&quot; server.type:&quot;tiddlyweb&quot; server.host:&quot;http://ambit.tiddlyspace.com/&quot;">Marking the Task</a> as a key first step in any working interaction, and interacting with this manual is no different.  Here are some of the commonest reasons for coming to the manual.  Choose the one that best fits your purpose:</p>
+							<ul>
+								<li><a href="javascript:;" title="I want a brief introduction to AMBIT - dickon, Mon Jan 17 01:02:05 2011" class="tiddlyLink tiddlyLinkExisting" refresh="link" tiddlylink="I want a brief introduction to AMBIT" tiddlyfields="server.workspace:&quot;bags/ambit-content_public&quot; server.type:&quot;tiddlyweb&quot; server.host:&quot;http://ambit.tiddlyspace.com/&quot;">I want a brief introduction to AMBIT</a></li>
+								<li><a href="javascript:;" title="I am starting work with a client - peterf, Sun Jan 16 13:05:06 2011" class="tiddlyLink tiddlyLinkExisting" refresh="link" tiddlylink="I am starting work with a client" tiddlyfields="server.workspace:&quot;bags/ambit-content_public&quot; server.type:&quot;tiddlyweb&quot; server.host:&quot;http://ambit.tiddlyspace.com/&quot;">I am starting work with a client</a></li>
+								<li><a href="javascript:;" title="I am already working with a client; where next? - psd, Thu Nov 25 16:34:28 2010" class="tiddlyLink tiddlyLinkExisting" refresh="link" tiddlylink="I am already working with a client; where next?" tiddlyfields="server.workspace:&quot;bags/ambit-content_public&quot; server.type:&quot;tiddlyweb&quot; server.host:&quot;http://ambit.tiddlyspace.com/&quot;">I am already working with a client; where next?</a></li>
+								<li><a href="javascript:;" title="Find your way around - psd, Thu Nov 25 16:41:06 2010" class="tiddlyLink tiddlyLinkExisting" refresh="link" tiddlylink="Find your way around" tiddlyfields="server.workspace:&quot;bags/ambit-content_public&quot; server.type:&quot;tiddlyweb&quot; server.host:&quot;http://ambit.tiddlyspace.com/&quot;">I just want to look up a specific piece of information</a></li><li><a href="javascript:;" title="Find your way around - psd, Thu Nov 25 16:41:06 2010" class="tiddlyLink tiddlyLinkExisting" refresh="link" tiddlylink="Find your way around" tiddlyfields="server.workspace:&quot;bags/ambit-content_public&quot; server.type:&quot;tiddlyweb&quot; server.host:&quot;http://ambit.tiddlyspace.com/&quot;">I just want to surf and browse</a></li>
+								<li><a href="javascript:;" title="Using the Manual - peterf, Thu Jan 13 20:08:18 2011" class="tiddlyLink tiddlyLinkExisting" refresh="link" tiddlylink="Using the Manual" tiddlyfields="server.workspace:&quot;bags/ambit-content_public&quot; server.type:&quot;tiddlyweb&quot; server.host:&quot;http://ambit.tiddlyspace.com/&quot;">I want to learn about using this TiddlyManual</a></li>
+								<li><a href="javascript:;" title="I've downloaded a copy to use as an INTERACTIVE CASE RECORDING 'workbook' for a client - psd, Thu Nov 25 16:34:31 2010" class="tiddlyLink tiddlyLinkExisting" refresh="link" tiddlylink="I've downloaded a copy to use as an INTERACTIVE CASE RECORDING 'workbook' for a client" tiddlyfields="server.workspace:&quot;bags/ambit-content_public&quot; server.type:&quot;tiddlyweb&quot; server.host:&quot;http://ambit.tiddlyspace.com/&quot;">I've downloaded a copy to use as an INTERACTIVE CASE RECORDING 'workbook' for a client</a></li>
+								<li><a href="javascript:;" title="I am authorised to make customised edits to our local team's manual - psd, Thu Nov 25 16:41:06 2010" class="tiddlyLink tiddlyLinkExisting" refresh="link" tiddlylink="I am authorised to make customised edits to our local team's manual" tiddlyfields="server.workspace:&quot;bags/ambit-content_public&quot; server.type:&quot;tiddlyweb&quot; server.host:&quot;http://ambit.tiddlyspace.com/&quot;">I am authorised to make customised edits to our local team's manual</a></li>
+								<li><a href="javascript:;" title="None of the above! - psd, Thu Nov 25 16:35:12 2010" class="tiddlyLink tiddlyLinkExisting" refresh="link" tiddlylink="None of the above!" tiddlyfields="server.workspace:&quot;bags/ambit-content_public&quot; server.type:&quot;tiddlyweb&quot; server.host:&quot;http://ambit.tiddlyspace.com/&quot;">None of the above!</a></li>
+							</ul>
+							<h4>Important Legal stuff:</h4>
+							<p>There are important issues relating to <a href="javascript:;" title="Security and authorization - peterf, Thu Jan 13 20:00:00 2011" class="tiddlyLink tiddlyLinkExisting" refresh="link" tiddlylink="Security and authorization" tiddlyfields="server.workspace:&quot;bags/ambit-content_public&quot; server.type:&quot;tiddlyweb&quot; server.host:&quot;http://ambit.tiddlyspace.com/&quot;">Security and authorization</a> to use this manual, and by going on into the manual you are agreeing to abide by the rules laid out.</p>
+							<h4>Feedback:</h4>
+							<p>You are invited to give <a href="javascript:;" title="Feedback please! - peterf, Thu Jan 13 18:34:00 2011" class="tiddlyLink tiddlyLinkExisting" refresh="link" tiddlylink="Feedback please!" tiddlyfields="server.workspace:&quot;bags/ambit-content_public&quot; server.type:&quot;tiddlyweb&quot; server.host:&quot;http://ambit.tiddlyspace.com/&quot;">Feedback please!</a></p>
+						</div>
+						<!-- <div class="tags">
+							<div class="grid2col first left">
+								<strong>This topic contains these sub-topics:</strong>
+								<ul>
+									<li><a>Boundaries</a></li>
+									<li><a>Case discussion</a></li>
+									<li><a>Customising your local TeamTemplate</a></li>
+									<li><a>Dis-integrative processes in a Multi Disciplinary Team</a></li>
+									<li><a>Dive Boat</a></li>
+									<li><a>DOMAINS and LEVELS of dis-integration</a></li>
+									<li><a>Individual Differences</a></li>
+									<li><a>Inducting new team members</a></li>
+									<li><a>Keyworker well-connected to wider team</a></li>
+									<li><a>MetaTeam</a></li>
+									<li><a>MultiDisciplinaryTeam</a></li>
+									<li><a>New referral</a></li>
+									<li><a>Passed-outwards Discussion</a></li>
+									<li><a>Psychiatrist</a></li>
+									<li><a>Reflective Quorum</a></li>
+									<li><a>Ripples in a Pond</a></li>
+									<li><a>Rituals and Disciplines</a></li>
+									<li><a>Starting an AMBIT service</a></li>
+									<li><a>TakeHomeMessages</a></li>
+									<li><a>Team Meetings</a></li>
+									<li><a>Team members</a></li>
+									<li><a>Team reflection and manualization</a></li>
+									<li><a>TeamTemplate</a></li>
+									<li><a>Thinking Together</a></li>
+									<li><a>Why name team members in an individual client record?</a></li>
+								</ul>
+								<strong>This topic is in these sub-topics:</strong>
+								<ul>
+									<li><a>What is our team?</a></li>
+									<li><a>What to do?</a></li>
+								</ul>
+							</div>
+							<div class="grid2col left">
+								<strong>Information:</strong>
+								<ul>
+									<li>Edited by <a>Dickon</a></li>
+									<li>Edited on 12.09.11 at 12:45</li>
+									<li>This topic has been <a>edited 4 times</a></li>
+									<li>This topic is linked to by <a>8 other topics</a></li>
+								</ul>
+								<strong>Elsewhere:</strong>
+								<ul>
+									<li>There are <a>4 other manuals</a> with different versions of this topic</li>
+								</ul>
+							</div>
+						</div>-->
+					</div>
+				</div>
+			</div> <!-- tiddlerDisplay -->
+			
+			<div id="sidebar">
+				<div class="tools">
+					<button>Permaview</button>
+					<h2>Tools</h2>
+				</div>
+				<div class="wrap">
+					<div id="search" class="module">
+						<h2>Search</h2>
+						<div class="moduleContent">
+							<input type="search" />
+						</div>
+					</div>
+					<div id="history" class="module">
+						<h2>History</h2>
+						<div class="moduleContent">
+							<div class="historyBox">
+								<div class="scrollBar">
+									<span class="up">scroll up</span>
+									<span class="down">scroll down</span>
+								</div>
+								<ul>
+									<li><a>Start here: Mark the task</a></li>
+									<li><a>What is our team?</a></li>
+									<li class="active"><a>CheckLists</a></li>
+									<li><a>Working with the Professional Network</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div id="contents" class="module">
+						<h2>Contents</h2>
+						<div class="moduleContent">
+							<ul>
+								<li>
+									<span class="open">+</span><a><h3>Introduction</h3></a>
+									<ul>
+										<li><a>Overview of AMBIT</a></li>
+										<li><a>Core Features of Ambit</a></li>
+										<li><a>Feedback Please!</a></li>
+										<li><a>Find your way around</a></li>
+										<li><a>Security and authorisation</a></li>
+										<li><a>Start here: Mark the task</a></li>
+										<li><a>Using the Manual</a></li>
+										<li><a>Videos</a></li>
+									</ul>
+								</li>
+								<li><span>+</span><a><h3>What is our team?</h3></a>
+									<ul class="closed">
+										<li><a>Sample link</a></li>
+									</ul>
+								</li>
+								<li><span>+</span><a><h3>What's the problem?</h3></a>
+									<ul class="closed">
+										<li><a>Sample link</a></li>
+									</ul>
+								</li>
+								<li><span>+</span><a><h3>what to do?</h3></a>
+									<ul class="closed">
+										<li><a>Sample link</a></li>
+									</ul>
+								</li>
+								<li><span>+</span><a><h3>Who does what?</h3></a>
+									<ul class="closed">
+										<li><a>Sample link</a></li>
+									</ul>
+								</li>
+								<li><span>+</span><a><h3>Why do this?</h3></a>
+									<ul class="closed">
+										<li><a>Sample link</a></li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div id="youAreReading" class="module">
+						<h2>You are reading</h2>
+						<div class="moduleContent">
+							<ul>
+								<li class="active"><span class="close">&#215</span><a>Start here: Mark the task</a></li>
+								<li><span class="close">&#215</span><a>Sitemap</a></li>
+								<li><span class="close">&#215</span><a>Feedback please!</a></li>
+								<li><span class="close">&#215</span><a>Manualisation</a></li>
+								<li><span class="close">&#215</span><a>DefaultTiddler</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>	
+			</div> <!-- sidebar -->
+		</div> <!-- mainpane -->
+	</div> <!-- displayArea -->
+</div>
+<div id="contentStash"></div>
+<div id="shadowArea">
+
+</div>
+<!--POST-SHADOWAREA-->
+<div id="storeArea">
+
+</div>
+<!--POST-STOREAREA-->
+<!--POST-BODY-START-->
+<!--POST-BODY-END-->
+
+<!--POST-SCRIPT-START-->
+<!--POST-SCRIPT-END-->
+
+</body>
+</html>

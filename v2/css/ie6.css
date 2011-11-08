@@ -1,0 +1,51 @@
+
+
+.ie6 .tiddler h3 {
+	margin-left: -90px;
+}
+
+.ie6 .content {
+	position: relative;
+}
+
+.ie6 .headingPanel, .infoPanel {
+	position: relative;
+	zoom: 1;
+}
+
+.ie6 #sidebar .wrap {
+	padding-top: 10px;
+	position: relative;
+	top: 0px;
+}
+
+.ie6 #contents ul li span {
+	line-height: 0px;
+}
+
+.ie6 #mainpane {
+	padding-top: 0px;
+}
+
+.ie6 #sidebar {
+	margin-top: 0px;
+}
+
+.ie6 #header {
+	position: relative;
+	left:0%;
+	width:95%;
+}
+
+
+
+#aimForm ul li ul {
+	width:143px;
+}
+#aimForm .question {
+	width:464px;
+}
+
+#aimForm .question label {
+	width: 434px;
+}

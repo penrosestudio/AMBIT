@@ -1,0 +1,12 @@
+/*{{{*/
+for (var i in config.shadowTiddlers) { if(i.indexOf('StyleSheet')===0) { config.shadowTiddlers[i] = ""; } }
+
+jQuery('head')
+	.append('<link rel="stylesheet" href="http://dl.dropbox.com/u/331606/Ambit/css/reset.css" type="text/css" />')
+	.append('<link rel="stylesheet" href="http://dl.dropbox.com/u/331606/Ambit/css/jbase.css" type="text/css" />')
+	//.append('<link rel="stylesheet" href="http://dl.dropbox.com/u/331606/Ambit/styles.css" type="text/css" />')
+	.append("<link href='http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic' rel='stylesheet' type='text/css'>")
+	.append("<link href='http://fonts.googleapis.com/css?family=PT+Sans+Caption:regular,bold' rel='stylesheet' type='text/css'>");
+
+// if this wasn't a plugin you would need to refreshAll();
+/*}}}*/
