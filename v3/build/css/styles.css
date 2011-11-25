@@ -12,7 +12,7 @@ dark grey:	#303030;
 */
 
 body {
-	font-family: Helvetica Neue;
+	font-family: "Helvetica Neue", Helvetica;
 	background: #ddb78c;
 	background-image: url(../images/wood-texture.jpg);
 	background-attachment: fixed;
@@ -23,6 +23,58 @@ a {
 	color: #ff2b2b;
 }
 
+a:hover {
+	text-decoration: underline;
+}
+
+button, a.button {
+	font-size: 11px;
+	font-family: "Helvetica Neue", Helvetica;
+	font-weight: bold;
+	letter-spacing: 0.04em;
+	border: 1px solid #dadada;
+	line-height: 30px;
+	padding: 0px 6px;
+	color: #303030;
+	
+  -webkit-border-radius: 2px; 
+     -moz-border-radius: 2px; 
+          border-radius: 2px;       
+  -moz-background-clip: padding; -webkit-background-clip: padding-box; background-clip: padding-box; 
+  
+	background: #eeeeee;
+	background: -moz-linear-gradient(top,  #ffffff 0%, #f3f3f3 14%, #ededed 51%, #eaeaea 97%, #e0e0e0 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(14%,#f3f3f3), color-stop(51%,#ededed), color-stop(97%,#eaeaea), color-stop(100%,#e0e0e0));
+	background: -webkit-linear-gradient(top,  #ffffff 0%,#f3f3f3 14%,#ededed 51%,#eaeaea 97%,#e0e0e0 100%);
+	background: -o-linear-gradient(top,  #ffffff 0%,#f3f3f3 14%,#ededed 51%,#eaeaea 97%,#e0e0e0 100%);
+	background: -ms-linear-gradient(top,  #ffffff 0%,#f3f3f3 14%,#ededed 51%,#eaeaea 97%,#e0e0e0 100%);
+	background: linear-gradient(top,  #ffffff 0%,#f3f3f3 14%,#ededed 51%,#eaeaea 97%,#e0e0e0 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e0e0e0',GradientType=0 );
+	
+	
+}
+
+button:hover, a.button:hover {
+	border-color: #999;
+	cursor: pointer;
+	-webkit-box-shadow: 0px 1px 2px #c8c8c8; 
+	-moz-box-shadow: 0px 1px 2px #c8c8c8; 
+	box-shadow: 0px 1px 2px #c8c8c8; 
+	background: #f5f5f5;
+	text-decoration: none;
+}
+
+button:active, a.button:active {
+	box-shadow: none;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	border: #ccc 1px solid;
+}
+
+a.button {
+	display: inline-block;
+}
+
 #sidebar {
 	background-color: #303030;
 	color: #fcfcfc;
@@ -30,6 +82,7 @@ a {
 	height: 100%;
 	width: 230px;
 	padding: 20px;
+	z-index: 10;
 }
 
 #sidebar h1 {
@@ -37,11 +90,33 @@ a {
 	line-height: 20px;
 }
 
-#search input {
+div#searchBox {
+	background-color: #303030;
+	margin-bottom: 10px;
+}
+
+#screenWidth {
+	width: 100%;
+	position: absolute;
+	z-index: 0;
+	right:0px;
+}
+
+input {
+	background-color: #fcfcfc;
+	border: none;
+	padding: 5px;
+	font-weight: bold;
+	font-family: Helvetica Neue;
+	font-size: 13px;
+	margin-bottom: 10px;
+}
+
+#searchBox input {
 	background-color: #fcfcfc;
 	border: none;
 	width: 220px;
-	height: 20px;
+	height: 18px;
 	padding: 5px;
 	font-weight: bold;
 	font-family: Helvetica Neue;
@@ -50,6 +125,7 @@ a {
 	background-image: url(../images/v3sprite.png;);
 	background-position: 209px -42px;
 	background-repeat: no-repeat;
+	margin-bottom: 0px;
 }
 
 #sidebar .panel h2 {
@@ -67,11 +143,14 @@ a {
 	background-position: 5px -439px;
 }
 
-
 #sidebar .panel h2 a {
 	color: #fcfcfc;
 	display: block;
 	padding: 0px 0px 0px 20px;
+}
+
+#sidebar .panel h2 a:hover {
+	text-decoration: none;
 }
 
 #sidebar .closed ul {
@@ -112,15 +191,24 @@ a {
 	
 }
 
-#statusPanel {
+#rightPanel {
 	position: fixed;
 	right: 0px;
 	width: 210px;
+}
+
+#statusPanel, #syncPanel {
+	position: relative;
+	width: 210px;
 	top: 20px;
-	background-color: #fcfcfc;
+	background-color: rgba(251,251,251,0.9);
 	font-size: 13px;
 	padding-left: 10px;
 	font-weight: bold;
+	z-index: 10;
+	-webkit-box-shadow: 0px 1px 2px #000; 
+     -moz-box-shadow: 0px 1px 2px #000; 
+          box-shadow: 0px 1px 2px #000; 
 }
 
 #statusPanel .title {
@@ -131,9 +219,86 @@ a {
 #statusPanel a {
 	background-image: url(../images/v3sprite.png;);
 	background-repeat: no-repeat;
-	background-position: right -592px;	
+	background-position: 90px -592px;	
 	display: inline-block;
-	width: 110px;
+	width: 116px;
+}
+
+#statusPanel a.open {
+	background-position: 90px -692px;	
+}
+
+#statusPanel a:hover {
+	text-decoration: none;
+}
+
+#statusPanel .dropDown {
+	position: relative;
+	background-color: transparent;
+	width: 200px;
+	padding-left: 84px;	
+}
+
+#statusPanel .dropDown {
+	display: none;
+}
+
+#statusPanel a.browsing {
+	color: #74c276;
+}
+
+#statusPanel .dropDown a {
+	background-image: none;
+	padding-left: 10px;
+}
+
+#statusPanel .dropDown a:hover {
+	background-color: #303030;
+	color: #fff;
+}
+
+#syncPanel { 
+	top: 40px;
+	padding-bottom: 10px;
+}
+
+#syncPanel h3 { 
+	font-size: 13px;
+	font-weight: bold;	
+	padding-right: 10px;
+	margin-bottom: 0px;
+}
+
+#syncPanel p { 
+	font-size: 12px;
+	line-height: 18px;
+	font-weight: normal;
+	padding-right: 10px;
+	margin-bottom: 0px;
+}
+
+#syncPanel ul { 
+	padding-right: 10px;
+	margin: 8px 0px 10px 20px;
+}
+
+#syncPanel span {
+	background-image: url("../images/v3sprite.png;");
+    background-position: 0 -749px;
+    background-repeat: no-repeat;
+    display: block;
+    float: left;
+    height: 15px;
+    margin-top: 8px;
+    margin-right: 5px;
+    width: 15px;
+    text-indent: -999px;
+    overflow: hidden;
+}
+
+#syncPanel .negative span {
+    background-position: 0 -799px;
+    margin-top: 7px;
 }
 
 .jbasewrap {
@@ -148,6 +313,7 @@ a {
 .tiddler {
 	background: #fcfcfc;
 	position: relative;	
+	margin-bottom: 40px;
 	
   -webkit-box-shadow: 0px 1px 2px #000; 
      -moz-box-shadow: 0px 1px 2px #000; 
@@ -159,13 +325,18 @@ a {
 	position: absolute;
 	width: 220px;
 	left: 490px;
-	top: 50px;
-	font-size: 13px;
+	top: 40px;
+	font-size: 12px;
 }
 
 .watermark .title {
-	width: 50px;
+	width: 80px;
 	display: inline-block;
+}
+
+.watermark p {
+	font-size: 11px;
+	margin-top: -5px;
 }
 
 .tiddler h2 {
@@ -175,6 +346,190 @@ a {
 	padding-left: 50px;
 }
 
+/* 
+---------------------- AIM Form
+*/
+
+
+#AIM-Form {
+	background-color: #fffada;
+}
+
+#AIM-Form .watermark, #AIM-Form .infoToggle, #AIM-Form .infoBorder {
+	display: none;
+}
+
+#AIM-Form .article {
+	padding: 0px 0px 30px 0px;
+	margin-top: 40px;
+	position: relative;
+	overflow: hidden;
+}
+
+#AIM-Form .question {
+	background-color: #fff297;
+	width: 500px;
+	padding: 20px 20px 40px;
+	float: right;
+}
+
+ul.AIMmenu {
+	float: left;
+	width: 150px;
+	margin: 50px 0px 0px 30px;
+	font-size: 13px;
+}
+
+ul.AIMmenu ul {
+	margin: 0px;
+	border-left: 2px solid #fff297;
+	border-bottom: 2px solid #fff297;
+}
+
+.AIMmenu li {
+	list-style: none;
+	overflow: hidden;
+}
+
+.AIMmenu li a {
+	color: #333;
+	line-height: 20px;
+	padding: 10px 10px;
+	display: block;
+}
+
+.AIMmenu li.done a {
+	color: #5f973a;
+}
+
+.AIMmenu li.active {
+	
+}
+
+.AIMmenu li.active a {
+	background-color: #fff297;
+}
+
+.AIMmenu li.active ul  a {
+	background-color: transparent;
+}
+
+.AIMmenu li.active ul  li.active a {
+	background-color: #fff5ad;
+}
+
+#AIM-Form .navigation {
+	position: absolute;
+	width: 150px;
+	left: 30px;
+	top: 10px;
+	text-align: center;
+}
+
+#AIM-Form .navigation a {
+	margin-right: 5px;
+	padding-right: 20px;
+	position: relative;
+}
+
+#AIM-Form .navigation a.previous {
+	padding: 0px 5px 0px 20px;
+}
+
+#AIM-Form .navigation a span {
+	background-image: url("../images/v3sprite.png;");
+    background-position: 0px -650px;
+    background-repeat: no-repeat;
+    display: block;
+    position: absolute;
+    width: 10px;
+    height: 12px;
+    text-indent: -999px;
+    overflow: hidden;
+    top: 9px;
+    right: 3px;
+}
+
+#AIM-Form .navigation a.previous span {
+	background-position: 0px -849px;
+	left: 8px;
+}
+
+#AIM-Form h3, #AIM-Form h4, #AIM-Form h5 {
+	font-weight: bold;
+	color: #333;
+	letter-spacing: 0.02em;
+}
+
+#AIM-Form h3 {
+	font-size: 22px;
+}
+
+#AIM-Form h4 {
+	font-size: 18px;
+}
+
+#AIM-Form h5 {
+	font-size: 14px;
+}
+
+#AIM-Form .choice {
+	position: relative;
+	border-bottom: 1px solid #fafafa;
+	font-size: 13px;
+}
+
+#AIM-Form .choice input {
+	position: absolute;
+	top: 50%;
+	margin-top: -10px;
+	right: 10px;
+}
+
+#AIM-Form .choice label {
+	cursor: pointer;
+	display: block;
+	padding: 10px 35px 10px 140px;
+	letter-spacing: 0.02em;
+}
+
+#AIM-Form .choice label:hover {
+	background-color: #fffad9;
+}
+
+#AIM-Form .choice label strong {
+	display: block;
+	width: 130px;
+	float: left;
+	margin-left: -130px;
+	font-size: 14px;
+}
+
+ol li {
+	list-style: decimal;
+}
+
+ol ol li {
+	list-style: lower-alpha;
+}
+
+#AIM-Form input {
+	margin-left: 20px;
+	font-weight: normal;
+}
+
+#AIM-Form .question .navigation {
+	right: 20px;
+	bottom: 40px;
+	left: auto;
+	top: auto;
+	width: 50px
+}
+
+#AIM-Form .item {
+	margin-bottom: 20px;
+}
+	
 
 /* 
 ---------------------- Jbase overrides for tiddler headers starting at h3
@@ -239,6 +594,7 @@ hr.infoBorder {
 	float: left;
 	width: 150px;
 	margin-left: 20px;
+	margin-bottom: 20px;
 }
 
 .info h3 {
