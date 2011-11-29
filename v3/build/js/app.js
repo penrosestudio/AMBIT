@@ -1,33 +1,55 @@
 //background position functions
 		
 		function getBgPosY(elem) {
-			return $(elem).css('backgroundPosition').split(" ")[1];
+			var bgPos = $(elem).css('backgroundPosition');
+			if(bgPos) {
+				return bgPos.split(" ")[1];
+			}
 		}
 		function setBgPosY(elem, pos) {
-			var posX = $(elem).css('backgroundPosition').split(" ")[0];
-			$(elem).css('backgroundPosition', posX+" "+pos);
+			var bgPos = $(elem).css('backgroundPosition'),
+				posX;
+			if(bgPos) {
+				posX = bgPos.split(" ")[0];
+				$(elem).css('backgroundPosition', posX+" "+pos);
+			}
 		}
 	
 		$(document).ready(function() {
 			
 			// the sidebar
 			
-			$('#sidebarIcons').bind("click", function(e) {
+			$('#sidebarIcons').click(function(e) {
 				e.preventDefault();
 				var curLeft = parseInt($('#sidebar').css('left'),10),
-					viewportWidth = $(window).width();
-				
-				$('#sidebar').animate( {
-					left: curLeft===0 ? "-260px" : "0px"
-				}, 200);
-				
-				if (viewportWidth>=1260) { // determine whether the screen is wide enough to centre between the statuspanel and sidebar
-					$('#screenWidth').animate( {
-					width: curLeft===0 ? viewportWidth-240 : viewportWidth-540,
-					right: curLeft===0 ? "240px" : "240px"
-				}, 200);
+					open = curLeft===0,
+					viewportWidth = $(window).width(),
+					$target = $(e.target),
+					$panel = $('#sidebar').find('.panel').eq($target.index()-1);
+				if($target.attr('id')==="toggle") {				
+					$('#sidebar').animate( {
+						left: open ? "-260px" : "0px"
+					}, 200);
+					// determine whether the screen is wide enough to centre between the statuspanel and sidebar
+					if (viewportWidth>=1260) {
+						$('#screenWidth').animate( {
+							width: open ? viewportWidth-240 : viewportWidth-540,
+							right: open ? "240px" : "240px"
+						}, 200);
+					}
+					setBgPosY('#toggle', open ? "-540px" : "-490px");
+				} else {
+					if(!open) {
+						$('#toggle').click();
+					}
+					if($target.attr('id')==="search") {
+						$('#searchBox').children('input').click().focus();
+					} else {
+						if($panel.hasClass("closed")) {
+							$panel.children('h2').click();
+						}
+					}
 				}
-				setBgPosY('#toggle', curLeft===0 ? "-540px" : "-490px");
 			});
 			
 			/*
@@ -69,21 +91,39 @@
 			
 			// the accordion
 			
-			$('#sidebar h2 a').click( function(){
-				var $thisPanel = $(this).closest('.panel'),
-					$uls = $('#sidebar .panel').not($thisPanel).find('ul.browsingTool'),
-					$thisHeader = $(this).parent('h2'),
-					$headers = $('#sidebar h2').not($thisHeader),
-					viewportHeight = $(window).height() / 3;
-				$uls.animate({
-					height: "0px"
+			$('#sidebar .panel h2, #sidebar #searchBox input').click( function(e){
+				var $thisPanel = $(this).parent('.panel'),
+					$otherPanels = $('#sidebar .panel').not($thisPanel),
+					viewportHeight = $(window).height() / 3,
+					isClosed = $thisPanel.hasClass('closed');
+				// make sure all other panels are closed
+				$otherPanels.each(function() {
+					var $panel = $(this),
+						$ul = $panel.find('ul.browsingTool'),
+						panelClosed = $panel.hasClass('closed');
+					if(!$ul.length) {
+						return;
+					}
+					if(!panelClosed) {
+						$ul.stop().animate({
+							height: 0
+						}, function() {
+							$panel.addClass('closed');
+						});
+						setBgPosY($panel.find('h2'), "-391px");
+					}
 				});
-				setBgPosY($headers, "-391px");
-				$thisPanel.find("ul.browsingTool").animate({
-					height: viewportHeight
+				// toggle this panel
+				$thisPanel.find("ul.browsingTool").stop().animate({
+					height: isClosed ? viewportHeight : 0
+				}, function() {
+					if(isClosed) {
+						$thisPanel.removeClass('closed');
+					} else {
+						$thisPanel.addClass('closed');
+					}
 				});
-				setBgPosY($thisHeader, "-437px");
-					
+				setBgPosY($thisPanel.find('h2'), isClosed ? "-437px" : "-391px");
 			});
 			
 			// horizontal positioning (I was going to alter the H position of the main page when the sidebar was open)

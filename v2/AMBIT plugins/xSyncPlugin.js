@@ -1,5 +1,5 @@
+/*{{{*/
 /*
-
 Summary:
 It turns out that syncing via a queue is more complicated than it appears at first glance. The unexpected problem comes from the choice of where in the AJAX function stack you choose to intercept and queue; the problem itself is with AJAX callback functions. This is down to the nature of JavaScript functions - references from functions to properties sitting outside the function (and closures) mean that a round-trip stringification and re-evaluation of a function does not necessarily give you back what you started with. Couple this with local storage that only stores strings, and you have the problem: storage does not store function state. In this implementation, I chose to intercept at $.ajax, which is several levels down the call stack from where the AJAX journey starts - this means the callbacks that are expected to be called on a successful or failed AJAX request have to be re-created in this plugin. An alternative implementation could intercept at a different level in the stack - it is tempting to experiment with intercepting at the very first function call in the AJAX journey, effectively just storing the new data, before the asynchronous dance of functions and callbacks has begun.
 
@@ -44,8 +44,6 @@ SYNC module
 - getUnsynced: it should return the unsynced list
 
 */
-
-/*{{{*/
 (function($) {
 
 	var SyncPlugin = function() {
@@ -118,8 +116,21 @@ SYNC module
 
 	// now for the Tiddly bits and app logic - you would normally have this in a separate file
 	var statusMessage = {
+		messages: {
+			syncing: store.getTiddlerSlice('SyncPluginMessages', 'syncing'),
+			error: store.getTiddlerSlice('SyncPluginMessages', 'error'),
+			flush: store.getTiddlerSlice('SyncPluginMessages', 'flush'),
+			complete: store.getTiddlerSlice('SyncPluginMessages', 'complete'),
+			unsyncedNote: store.getTiddlerSlice('SyncPluginMessages', 'unsyncedNote')
+		},
 		// all tiddlers will show the same message box
 		getStatusBoxes: function() {
+			// first of all, make sure each tiddler has a status box - it's possible that there isn't one yet
+			$('.tiddler').each(function() {
+				if(!$(this).find('.statusBox').length) {
+					insertStatusBox(this);
+				}
+			});
 			return $('.statusBox');
 		},
 		getTiddlerFromURL: function(url) {
@@ -131,13 +142,14 @@ SYNC module
 			switch(status) {
 				case "syncing":
 					$boxes.removeClass('error success').addClass('pending')
-						.find('.syncTitle').text('Syncing to online manual').end()
+						.find('.syncTitle').text(statusMessage.messages.syncing).end()
 						.show();
 					this.updateSyncList();
+					//console.log('syncing',$boxes.find('.syncTitle').text());
 					break;
 				case "error":
 					$boxes.removeClass('pending success').addClass('error')
-						.find('.syncTitle').text('Error syncing to online manual').end()
+						.find('.syncTitle').text(statusMessage.messages.error).end()
 						.find('.syncNote').show().end()
 						.find('.syncButton, .syncCancelButton').show().end()
 						.show();
@@ -145,7 +157,7 @@ SYNC module
 					break;
 				case "flush":
 					$boxes.removeClass("pending error").addClass("success")
-						.find('.syncTitle').text('Cleared all unsynced items').end()
+						.find('.syncTitle').text(statusMessage.messages.flush).end()
 						.find('.syncNote').hide().end()
 						.find('.syncButton, .syncCancelButton').hide().end()
 						.show();
@@ -156,7 +168,7 @@ SYNC module
 					break;
 				case "complete":
 					$boxes.removeClass('pending error').addClass('success')
-						.find('.syncTitle').text('Syncing to online manual complete').end()
+						.find('.syncTitle').text(statusMessage.messages.complete).end()
 						.find('.syncNote').hide().end()
 						.find('.syncButton, .syncCancelButton').hide().end()
 						.show();
@@ -172,7 +184,7 @@ SYNC module
 		updateSyncList: function() {
 			var unsynced = config.extensions.syncPlugin.getUnsynced(),
 				$boxes = this.getStatusBoxes(),
-				syncNote = unsynced.length ? 'The following items were not synced to the online manual. They can be synced from your browser when you have an internet connection' : '',
+				syncNote = unsynced.length ? statusMessage.messages.unsyncedNote : '',
 				unsyncedList = [];
 			$(unsynced).each(function() {
 				unsyncedList.push("<li>"+statusMessage.getTiddlerFromURL(this)+"</li>");
@@ -213,8 +225,8 @@ SYNC module
 		};
 
 		$(document).bind("syncStart", function(e, item) {
-			statusMessage.syncing();
 			//console.log("I am a message about starting sync!",item);
+			statusMessage.syncing();
 		});
 		
 		$(document).bind("syncFail", function(e, item, jqXHR, textStatus, errorThrown) {
@@ -277,6 +289,35 @@ SYNC module
 			//plugin.sync();
 		}
 	});
+
+	// hijack displayTiddler to insert the sync status box
+	function insertStatusBox(elem) {
+		var html = '<div class="statusBoxWrapper">' +
+				'<div class="statusBox">' +
+					'<strong class="syncTitle"></strong>' +
+					'<p class="syncNote"></p>' +
+					'<ul class="statusList"></ul>' +
+					'<button class="syncButton">Sync Now</button>' +
+					'<button class="syncCancelButton">Discard changes</button>' +
+				'</div>' +
+			'</div>';
+		if(elem && !$(elem).find('.statusBox').length) {
+			$(elem).find(".content").before(html);
+		}
+	}
+	var tmp_displayTiddler = Story.prototype.displayTiddler;
+	Story.prototype.displayTiddler = function(target, title) {
+		tmp_displayTiddler.apply(this,arguments);
+		if(title instanceof Tiddler) {
+			title = title.title;
+		}
+		var tiddlerElem = this.getTiddler(title);
+		//console.log('inserting box');
+		insertStatusBox(tiddlerElem);
+	};
+	
+	// add styles
+	setStylesheet(store.getRecursiveTiddlerText("SyncPluginStylesheet","",10),"SyncPluginStylesheet");
 	
 }(jQuery));
 /*}}}*/

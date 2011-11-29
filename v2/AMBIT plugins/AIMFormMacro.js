@@ -1,15 +1,14 @@
-/* TO-DO: on opening of form tiddler, apply "done" to any done items and categories */
-
 /*{{{*/
 var $ = jQuery;
 config.macros.AIMForm = {
-	categories: {},
+	categories: null,
+	$activeItem: null,
 	parseItemTitleRegex: new RegExp('(\\d\\d) (.*) - (.*)'),
 	parseItemTitle: function(item) {
 		// item.title is like "04 Young person daily life - Other talents and abilities"
 		var regex = config.macros.AIMForm.parseItemTitleRegex,
-			matches = regex.exec(item);
-		var tiddlerTitle = matches[0],
+			matches = regex.exec(item),
+			tiddlerTitle = matches[0],
 			number = matches[1],
 			category = matches[2],
 			label = matches[3],
@@ -30,25 +29,38 @@ config.macros.AIMForm = {
 			htmlToAdd = ['<li class="category"><a href="#">'+aimIntro.title+'</a></li>\n'],
 			itemData,
 			category,
+			categories = config.macros.AIMForm.categories;
+		if(!categories) {
 			categories = {};
-		$.each(items, function(i, item) {
-			itemData = config.macros.AIMForm.parseItemTitle(item.title);
-			category = itemData.category;
-			if(!categories[category]) {
-				categories[category] = [];
-			}
-			categories[category].push(itemData);
+			$.each(items, function(i, item) {
+				itemData = config.macros.AIMForm.parseItemTitle(item.title);
+				category = itemData.category;
+				if(!categories[category]) {
+					categories[category] = [];
+				}
+				categories[category].push(itemData);
+			});
+			config.macros.AIMForm.categories = categories;
+		}
+		$.each(categories, function(category, categoryItems) {
+			categoryItems.done = true;
+			$.each(categoryItems, function(j, item) {
+				if(!item.value) {
+					delete categoryItems.done;
+				}
+			});
 		});
 		$.each(categories, function(category, categoryItems) {
-			htmlToAdd.push('<li class="category"><a href="#">'+category+'</a>\n<ul>');
+			var categoryClass = categoryItems.done ? ' class="category done"' : ' class="category"';
+			htmlToAdd.push('<li'+categoryClass+'><a href="#">'+category+'</a>\n<ul>');
 			$.each(categoryItems, function(i, item) {
-				htmlToAdd.push('<li><a href="#">'+item.label+'</a></li>');
+				var itemClass = item.value ? (item.isKeyProblem ? ' class="done keyProblem"' : ' class="done"') : "";
+				htmlToAdd.push('<li'+itemClass+'><a href="#">'+item.label+'</a></li>');
 			});
 			htmlToAdd.push('</ul>\n</li>');
 		});
 		htmlToAdd.push('<li><a href="#">'+aimResults.title+'</a></li>'),
 		$aimMenu.html(htmlToAdd.join('\n'));
-		config.macros.AIMForm.categories = categories;
 	},
 	displayItem: function(tiddler, item) {
 		var heading = item.number+" - "+item.label,
@@ -83,7 +95,7 @@ config.macros.AIMForm = {
 		$item.next('div.error').remove();
 		$item.html(content);
 		if(existingValue) {
-			$item.find('input[value='+existingValue+']').attr('checked','checked');
+			$item.find('input[value="'+existingValue+'"]').attr('checked','checked');
 		}
 		if(isKeyProblem) {
 			$item.find('input[type=checkbox]').attr('checked','checked');
@@ -103,9 +115,13 @@ config.macros.AIMForm = {
 					this.checked = false;
 				} else {
 					plugin.keyProblemCount = ++keyProblemCount;
+					// make the item active
+					config.macros.AIMForm.$activeItem.addClass("keyProblem");
 				}
 			} else {
 				plugin.keyProblemCount = --keyProblemCount;
+				// make the item inactive
+				config.macros.AIMForm.$activeItem.removeClass("keyProblem");
 			}
 		});
 	},
@@ -162,7 +178,7 @@ config.macros.AIMForm = {
 			$navArrows = $container.find('.navigation').find('a'),
 			$categories = $container.children('ul').children('li'),
 			$items = $categories.children('ul').children('li'),
-			$activeItem,
+			plugin = config.macros.AIMForm,
 			$itemHolder = $container.find('div.question'),
 			clickedPrev,
 			openAimItem = function($item) {
@@ -172,15 +188,15 @@ config.macros.AIMForm = {
 			},
 			findToOpen = function(selector) {
 				var move = $(selector).hasClass('next') ? 'next' : 'prev',
-					$toOpen = $activeItem[move](),
+					$toOpen = plugin.$activeItem[move](),
 					$newCategory;
 				if($toOpen.length) {
 					return $toOpen;
 				} else {
-					if($activeItem.hasClass('category')) {
-						$newCategory = $activeItem[move]();
+					if(plugin.$activeItem.hasClass('category')) {
+						$newCategory = plugin.$activeItem[move]();
 					} else {
-						$newCategory = $activeItem.parent().parent()[move](); // assumes a li inside a ul inside a li
+						$newCategory = plugin.$activeItem.parent().parent()[move](); // assumes a li inside a ul inside a li
 					}
 					if($newCategory.length) {
 						return $newCategory;
@@ -198,7 +214,7 @@ config.macros.AIMForm = {
 			};
 	
 		$navArrows.click(function() {
-			if(!$activeItem) {
+			if(!plugin.$activeItem) {
 				return false;
 			}
 			var $toOpen = findToOpen(this);
@@ -230,11 +246,11 @@ config.macros.AIMForm = {
 				$items.eq(clickIndex).click();
 			} else {
 				// it has no children, so it's probably the intro or results
-				config.macros.AIMForm.closeItem($activeItem);
+				config.macros.AIMForm.closeItem(plugin.$activeItem);
 				title = $(this).find('a').text();
 				tiddler = store.getTiddler(title);
-				$activeItem = $(this).addClass('active');
-				$activeItem
+				plugin.$activeItem = $(this).addClass('active');
+				plugin.$activeItem
 					.siblings()
 					.removeClass('active');
 				/*content = wikifyStatic('!~'+tiddler.title+"\n",null,tiddler) +
@@ -254,12 +270,12 @@ config.macros.AIMForm = {
 		});
 		
 		$items.click(function(e) {
-			config.macros.AIMForm.closeItem($activeItem);
-			$activeItem = $(this).addClass('active');
-			$activeItem
+			config.macros.AIMForm.closeItem(plugin.$activeItem);
+			plugin.$activeItem = $(this).addClass('active');
+			plugin.$activeItem
 				.siblings()
 				.removeClass('active');
-			openAimItem($activeItem);
+			openAimItem(plugin.$activeItem);
 			toggleNavArrows();
 			return false;
 		});

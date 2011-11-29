@@ -122,7 +122,7 @@ input {
 	font-family: Helvetica Neue;
 	font-size: 13px;
 	margin-top: 10px;
-	background-image: url(../images/v3sprite.png;);
+	background-image: url(../images/v3sprite.png);
 	background-position: 209px -42px;
 	background-repeat: no-repeat;
 	margin-bottom: 0px;
@@ -134,7 +134,7 @@ input {
 	border-top: 1px #fff solid;
 	background-color: #303030;
 	padding: 0px;
-	background-image: url(../images/v3sprite.png;);
+	background-image: url(../images/v3sprite.png);
 	background-position: 5px -391px;
 	background-repeat: no-repeat;
 }
@@ -217,7 +217,7 @@ input {
 }
 
 #statusPanel a {
-	background-image: url(../images/v3sprite.png;);
+	background-image: url(../images/v3sprite.png);
 	background-repeat: no-repeat;
 	background-position: 90px -592px;	
 	display: inline-block;
@@ -283,7 +283,7 @@ input {
 }
 
 #syncPanel span {
-	background-image: url("../images/v3sprite.png;");
+	background-image: url("../images/v3sprite.png");
     background-position: 0 -749px;
     background-repeat: no-repeat;
     display: block;
@@ -437,7 +437,7 @@ ul.AIMmenu ul {
 }
 
 #AIM-Form .navigation a span {
-	background-image: url("../images/v3sprite.png;");
+	background-image: url("../images/v3sprite.png");
     background-position: 0px -650px;
     background-repeat: no-repeat;
     display: block;
@@ -649,7 +649,7 @@ hr.infoBorder {
 }
 
 .tools a {
-	background-image: url(../images/v3sprite.png;);
+	background-image: url(../images/v3sprite.png);
 	background-repeat: no-repeat;
 	display: block;
 	text-indent: 999px;
@@ -685,7 +685,7 @@ a.close {
 
 #sidebarIcons a {
 	background-color: #303030;
-	background-image: url(../images/v3sprite.png;);
+	background-image: url(../images/v3sprite.png);
 	background-repeat: no-repeat;
 	display: block;
 	text-indent: -999px;
