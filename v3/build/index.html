@@ -35,7 +35,7 @@
 		<div id="searchBox" class="panel">
 			<input type="text" placeholder="Search" />
 		</div>
-		<div class="panel">
+		<div class="panel" id="historyPanel">
 			<h2>
 				<a href="#">History</a>
 			</h2>
@@ -43,47 +43,37 @@
 				<li><a href="#">Object</a></li>
 				<li><a href="#">Object</a></li>
 				<li><a href="#">Object</a></li>
-				<li><a href="#">Object</a>
-					<ul>
-						<li><a href="#">Sub layer</a></li>
-						<li><a href="#">Sub layer</a></li>
-					</ul>
-				</li>
+				<li><a href="#">Object</a></li>
 				<li><a href="#">Object</a></li>
 			</ul>
 		</div>
-		<div class="panel">
+		<div class="panel" id="currentlyOpenPanel">
 			<h2>
 				<a href="#">Currently Open</a>
 			</h2>
 			<ul class="browsingTool">
-				<li><a href="#">Object</a></li>
-				<li><a href="#">Object</a></li>
-				<li><a href="#">Object</a></li>
-				<li><a href="#">Object</a>
-					<ul>
-						<li><a href="#">Sub layer</a></li>
-						<li><a href="#">Sub layer</a></li>
-					</ul>
-				</li>
-				<li><a href="#">Object</a></li>
+				<li><span class="close">&#215;</span><a href="#">Object</a></li>
+				<li><span class="close">&#215;</span><a href="#">Object</a></li>
+				<li><span class="close">&#215;</span><a href="#">Object</a></li>
+				<li><span class="close">&#215;</span><a href="#">Object</a></li>
+				<li><span class="close">&#215;</span><a href="#">Object</a></li>
 			</ul>
 		</div>
-		<div class="panel">
+		<div class="panel" id="contentsPanel">
 			<h2>
 				<a href="#">Contents</a>
 			</h2>
 			<ul class="browsingTool">
-				<li><a href="#">Object</a></li>
-				<li><a href="#">Object</a></li>
-				<li><a href="#">Object</a></li>
-				<li><a href="#">Object</a>
+				<li><a href="#"><span class="closed"></span>Object</a></li>
+				<li><a href="#"><span class="closed"></span>Object</a></li>
+				<li><a href="#"><span class="closed"></span>Object</a></li>
+				<li><a href="#"><span class="opened"></span>Object</a>
 					<ul>
 						<li><a href="#">Sub layer</a></li>
 						<li><a href="#">Sub layer</a></li>
 					</ul>
 				</li>
-				<li><a href="#">Object</a></li>
+				<li><a href="#"><span class="closed"></span>Object</a></li>
 			</ul>
 		</div>
 		<div id="sidebarIcons">
