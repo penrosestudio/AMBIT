@@ -133,6 +133,25 @@
 				}
 				setBgPosY($thisPanel.find('h2'), isClosed ? "-437px" : "-391px");
 			});
+			$('#searchBox input').keyup(function() {
+				if($(this).val()) {
+					$('#clearSearch').show();
+				} else {
+					$('#clearSearch').click();
+				}
+			});
+			$('#clearSearch').click(function() {
+				var $searchBox = $('#searchBox'),
+					$clearSearch = $(this);
+				$clearSearch.hide();
+				$searchBox.children('input').val('');
+				$searchBox.find('ul.browsingTool').stop().animate({
+					height: 0
+				}, function() {
+					$searchBox.addClass('closed');
+					$(this).hide();
+				});
+			});
 			
 			// horizontal positioning (I was going to alter the H position of the main page when the sidebar was open)
 			
