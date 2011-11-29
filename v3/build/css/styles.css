@@ -144,7 +144,7 @@ div#searchBox {
 	border: none;
 	opacity: 0.6;
 	right: 45px;
-	top: 102px;
+	top: 103px;
 	font-size: 17px;
 	line-height: 17px;
 }
@@ -229,24 +229,32 @@ div#searchBox {
 	color: #ff2b2b;
 }
 
-#sidebar #contentsPanel li a span.closed:after {
+#sidebar #contentsPanel li span.closed:after {
 	content: '+';
 	font-weight: bold;
 	padding-right: 10px;
 	position: relative;
 	top: -1px;
 	background-color: #fcfcfc;
+	text-decoration: none;
+	padding-bottom: 4px;
 }
 
-#sidebar #contentsPanel li a span.opened:after {
+#sidebar #contentsPanel li span.opened:after {
 	content: '-';
 	font-weight: bold;
 	padding-right: 10px;
 	position: relative;
 	top: -1px;
 	background-color: #fcfcfc;
+	text-decoration: none;
+	padding-bottom: 4px;
 }
 
+#sidebar #contentsPanel li span:hover {
+	cursor: pointer;
+	color: #ff2b2b;
+}
 
 
 
