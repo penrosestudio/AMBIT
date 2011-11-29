@@ -105,21 +105,19 @@ div#searchBox {
 	margin-bottom: 10px;
 }
 
-#screenWidth {
-	width: 100%;
-	position: absolute;
-	z-index: 0;
-	right:0px;
+#searchBox ul {
+	margin: 0px 0px 10px 0px;
+	padding-left: 24px;
+	background-color: #fcfcfc;
 }
 
-input {
+#searchBox h3 {
+	margin: 1px 0px 0px 0px;
 	background-color: #fcfcfc;
-	border: none;
-	padding: 5px;
-	font-weight: bold;
-	font-family: Helvetica Neue;
-	font-size: 13px;
-	margin-bottom: 10px;
+	font-size: 11px;
+	padding: 0px 0px 0px 10px;
+	letter-spacing: 0.08em;
+	color: #aaa;
 }
 
 #searchBox input {
@@ -136,6 +134,26 @@ input {
 	background-position: 209px -42px;
 	background-repeat: no-repeat;
 	margin-bottom: 0px;
+}
+
+#searchBox button#clearSearch {
+	background: none;
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	border: none;
+	opacity: 0.6;
+	right: 45px;
+	top: 102px;
+	font-size: 17px;
+	line-height: 17px;
+}
+
+#searchBox button#clearSearch:hover {
+	background: none;
+	border: none;
+	box-shadow: none;
+	opacity: 1;
 }
 
 #sidebar .panel h2 {
@@ -167,7 +185,6 @@ input {
 }
 
 #sidebar .closed {
-	background-color: #fcfcfc;	
 	padding: 0px; 
 }
 
