@@ -95,7 +95,8 @@
 				var $thisPanel = $(this).parent('.panel'),
 					$otherPanels = $('#sidebar .panel').not($thisPanel),
 					viewportHeight = $(window).height() / 3,
-					isClosed = $thisPanel.hasClass('closed');
+					isClosed = $thisPanel.hasClass('closed'),
+					isSearch = $thisPanel.attr('id')==='searchBox';
 				// make sure all other panels are closed
 				$otherPanels.each(function() {
 					var $panel = $(this),
@@ -114,15 +115,22 @@
 					}
 				});
 				// toggle this panel
-				$thisPanel.find("ul.browsingTool").stop().animate({
-					height: isClosed ? viewportHeight : 0
-				}, function() {
-					if(isClosed) {
+				if(isClosed) {				
+					$thisPanel.find("ul.browsingTool").stop().animate({
+						height: viewportHeight
+					}, function() {
 						$thisPanel.removeClass('closed');
-					} else {
-						$thisPanel.addClass('closed');
+					});
+				} else {
+					// don't close if we clicked in the search input
+					if(!isSearch) {
+						$thisPanel.find("ul.browsingTool").stop().animate({
+							height: 0
+						}, function() {
+							$thisPanel.addClass('closed');
+						})
 					}
-				});
+				}
 				setBgPosY($thisPanel.find('h2'), isClosed ? "-437px" : "-391px");
 			});
 			
