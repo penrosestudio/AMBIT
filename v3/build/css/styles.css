@@ -11,6 +11,11 @@ dark grey:	#303030;
 
 */
 
+
+/* 
+----------------------------------- Generic
+*/
+
 body {
 	font-family: "Helvetica Neue", Helvetica;
 	background: #ddb78c;
@@ -74,6 +79,11 @@ button:active, a.button:active {
 a.button {
 	display: inline-block;
 }
+
+
+/* 
+----------------------------------- Sidebar
+*/
 
 #sidebar {
 	background-color: #303030;
@@ -188,8 +198,44 @@ input {
 
 #sidebar a {
 	color: #fcfcfc;
-	
 }
+
+#sidebar #currentlyOpenPanel li span.close {
+	padding-right: 10px;
+	position: relative;
+	top: -1px;
+	font-size: 13px;
+}
+
+#sidebar #currentlyOpenPanel li span.close:hover {
+	cursor: pointer;
+	color: #ff2b2b;
+}
+
+#sidebar #contentsPanel li a span.closed:after {
+	content: '+';
+	font-weight: bold;
+	padding-right: 10px;
+	position: relative;
+	top: -1px;
+	background-color: #fcfcfc;
+}
+
+#sidebar #contentsPanel li a span.opened:after {
+	content: '-';
+	font-weight: bold;
+	padding-right: 10px;
+	position: relative;
+	top: -1px;
+	background-color: #fcfcfc;
+}
+
+
+
+
+/* 
+----------------------------------- Status and Sync Panels 
+*/
 
 #rightPanel {
 	position: fixed;
