@@ -106,13 +106,13 @@ div#searchBox {
 }
 
 #searchBox ul {
-	margin: 0px 0px 10px 0px;
+	margin: 1px 0px 10px 0px;
 	padding-left: 24px;
 	background-color: #fcfcfc;
 }
 
 #searchBox h3 {
-	margin: 1px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
 	background-color: #fcfcfc;
 	font-size: 11px;
 	padding: 0px 0px 0px 10px;
