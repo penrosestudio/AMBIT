@@ -81,8 +81,13 @@ a.button {
 }
 
 
+#screenWidth {
+	width: 100%;
 	position: absolute;
+	z-index: 0;
 	right:0px;
+}
+
 /* 
 ----------------------------------- Sidebar
 */
