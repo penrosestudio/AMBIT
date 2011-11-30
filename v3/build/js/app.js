@@ -14,6 +14,44 @@
 				$(elem).css('backgroundPosition', posX+" "+pos);
 			}
 		}
+		var delay = (function(){
+		  var timer = 0;
+		  return function(callback, ms){
+		    clearTimeout (timer);
+		    timer = setTimeout(callback, ms);
+		  };
+		})();
+		function positionPage(open) {
+			var newLeft,
+				viewportWidth = $(window).width(),
+				sidebarWidth,
+				sidebarGutter = 30,
+				paperWidth = 720,
+				sidePanelWidth = 210;
+			if(open) {
+				sidebarWidth = 10;
+			} else {
+				sidebarWidth = 270;
+			}
+			if(viewportWidth >= sidebarWidth + paperWidth + sidePanelWidth) {
+				// center paper between sidebar and sidePanel
+				newLeft = (sidebarWidth+sidebarGutter)/2 + (viewportWidth-paperWidth-sidePanelWidth)/2;
+			} else if(viewportWidth >= sidebarWidth + paperWidth) {
+				// stick paper to sidebar
+				newLeft = sidebarWidth;
+			} else {
+				// let paper move to left side
+				newLeft = viewportWidth - paperWidth;
+				if(newLeft < 0) {
+					newLeft = 0;
+				}
+			}
+			if(newLeft) {
+				$('#screenWidth').stop(true,true).animate( {
+					left: newLeft
+				}, 200);
+			}
+		}
 	
 		$(document).ready(function() {
 			
@@ -23,7 +61,6 @@
 				e.preventDefault();
 				var curLeft = parseInt($('#sidebar').css('left'),10),
 					open = curLeft===0,
-					viewportWidth = $(window).width(),
 					$target = $(e.target),
 					$panel = $('#sidebar').find('.panel').eq($target.index()-1);
 				if($target.attr('id')==="toggle") {				
@@ -31,12 +68,7 @@
 						left: open ? "-260px" : "0px"
 					}, 200);
 					// determine whether the screen is wide enough to centre between the statuspanel and sidebar
-					if (viewportWidth>=1260) {
-						$('#screenWidth').animate( {
-							width: open ? viewportWidth-240 : viewportWidth-540,
-							right: open ? "240px" : "240px"
-						}, 200);
-					}
+					positionPage(open);
 					setBgPosY('#toggle', open ? "-540px" : "-490px");
 				} else {
 					if(!open) {
@@ -50,6 +82,12 @@
 						}
 					}
 				}
+			});
+			$(window).resize(function() {
+				delay(function() {
+					var open = parseInt($('#sidebar').css('left'),10)!==0;
+					positionPage(open);
+				}, 500);
 			});
 			
 			/*

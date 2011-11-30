@@ -82,10 +82,10 @@ a.button {
 
 
 #screenWidth {
-	width: 100%;
+	width: auto;
 	position: absolute;
 	z-index: 0;
-	right:0px;
+	left:330px;
 }
 
 /* 
@@ -612,6 +612,10 @@ ol ol li {
 /* 
 ---------------------- Jbase overrides for tiddler headers starting at h3
 */
+
+body {
+	min-width: 0;
+}
 
 .article h3 {
 	font-size: 32px;
