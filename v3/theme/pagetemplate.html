@@ -1,48 +1,106 @@
 <!--{{{-->
 <div id="displayArea">
-		<div id="messageArea"></div>
-		<!-- AMBIT HTML build here -->
-		<div id="header">
-			<span id="SiteIcon" macro="image SiteIcon"></span>
-			<h1><span id="SiteTitle" class='siteTitle' refresh='content' tiddler='SiteTitle'></span> <span id="SiteSubtitle" class='siteSubtitle' refresh='content' tiddler='SiteSubtitle'></span></h1>
-			<img id="logo" src="http://ambit-theme.tiddlyspace.com/ambit_logo_dark.png" alt="AMBIT logo" />			
-			<img id="annafreudlogo" src="http://ambit-theme.tiddlyspace.com/annafreud_logo_dark.png" alt="Anna Freud Centre logo" />
+	<div id="messageArea"></div>
+	<!-- AMBIT HTML build here -->
+	<div id="sidebar">
+		<h1>ambit CORE CONTENT of the manual for ADOLESCENT MENTALIZATION BASED INTEGRATIVE TREATMENT</h1>
+		<div id="searchBox" class="panel">
+			<input type="text" placeholder="Search" />
+			<button id="clearSearch">&#215;</button>
+			<!--<h3>showing 10 results&hellip;</h3>-->
+			<ul class="browsingTool">
+				<li><a href="#">Object</a></li>
+				<li><a href="#">Object</a></li>
+				<li><a href="#">Object</a></li>
+				<li><a href="#">Object</a></li>
+				<li><a href="#">Object</a></li>
+				<li><a href="#">Object</a></li>
+				<li><a href="#">Object</a></li>
+				<li><a href="#">Object</a></li>
+				<li><a href="#">Object</a></li>
+				<li><a href="#">Object</a></li>
+			</ul>
 		</div>
-		<div id="mainpane">
-			<div id="tiddlerDisplay">
-			</div> <!-- tiddlerDisplay -->
-			<div id="sidebar">
-				<div class="tools">
-					<div macro="buttonPermaviewMacro"></div>
-					<h2>Tools</h2>
+		<div class="panel" id="historyPanel">
+			<h2>
+				<a href="#">History</a>
+			</h2>
+			<ul class="browsingTool">
+				<li><a href="#">Object</a></li>
+				<li><a href="#">Object</a></li>
+				<li><a href="#">Object</a></li>
+				<li><a href="#">Object</a></li>
+				<li><a href="#">Object</a></li>
+			</ul>
+		</div>
+		<div class="panel" id="currentlyOpenPanel">
+			<h2>
+				<a href="#">Currently Open</a>
+			</h2>
+			<ul class="browsingTool">
+				<li><span class="close">&#215;</span><a href="#">Object</a></li>
+				<li><span class="close">&#215;</span><a href="#">Object</a></li>
+				<li><span class="close">&#215;</span><a href="#">Object</a></li>
+				<li><span class="close">&#215;</span><a href="#">Object</a></li>
+				<li><span class="close">&#215;</span><a href="#">Object</a></li>
+			</ul>
+		</div>
+		<div class="panel" id="contentsPanel">
+			<h2>
+				<a href="#">Contents</a>
+			</h2>
+			<ul class="browsingTool">
+				<li><span class="closed"></span><a href="#">Object</a></li>
+				<li><span class="closed"></span><a href="#">Object</a></li>
+				<li><span class="closed"></span><a href="#">Object</a></li>
+				<li><span class="opened"></span><a href="#">Object</a>
+					<ul>
+						<li><a href="#">Sub layer</a></li>
+						<li><a href="#">Sub layer</a></li>
+					</ul>
+				</li>
+				<li><span class="closed"></span><a href="#">Object</a></li>
+			</ul>
+		</div>
+		<div id="sidebarIcons">
+			<a id="toggle" href="#" title="Toggle Sidebar">Toggle Sidebar</a>
+			<a id="search" href="#" title="Search">Search</a>
+			<a id="history" href="#" title="History">History</a>
+			<a id="current" href="#" title="Currently Open">Currently Open <span>4</span></a>
+			<a id="contents" href="#" title="Contents">Contents</a>
+		</div>
+	</div> <!-- End #sidebar -->
+	<div id="rightPanel">
+		<div id="statusPanel">
+			<div>
+				<span class="title">Mode:</span>
+				<span class="value"><a class="browsing current" href="#">Browsing</a></span>
+				<div class="dropDown">
+					<span class="value"><a class="edit" href="#">Edit</a></span>
+					<span class="value"><a class="advanced" href="#">Advanced</a></span>
 				</div>
-				<div class="wrap">
-					<div id="search" class="module">
-						<h2>Search</h2>
-						<div class="moduleContent">
-							<span macro="searchBox"></span>
-						</div>
-					</div>
-					<div id="history" class="module">
-						<h2>History</h2>
-						<div class="moduleContent">
-							<div macro="history"></div>
-						</div>
-					</div>
-					<div id="youAreReading" class="module">
-						<h2>You are reading</h2>
-						<div class="moduleContent">
-							<div macro="youAreReading"></div>
-						</div>
-					</div>
-					<div id="contents" class="module">
-						<h2>Contents</h2>
-						<div class="moduleContent">
-							<div id='mainMenu' refresh='content' tiddler='MainMenu'></div>
-						</div>
-					</div>
-				</div>	
-			</div> <!-- sidebar -->
-		 </div> <!-- mainpane -->
-	</div> <!-- displayArea -->
+			</div>
+			<div>
+				<span class="title">Logged in as:</span>
+				<span class="value"><a class="current" href="#">Dickon</a></span>
+				<div class="dropDown">
+					<span class="value"><a class="edit" href="#">Log out</a></span>
+				</div>
+			</div>
+		</div><!-- End #statusPanel -->
+		<div id="syncPanel">
+			<h3>Error syncing to online manual</h3>
+			<p>The following items were not synced to the online manual. They can be synced from your browser when you have an internet connection</p>
+			<ul>
+				<li>+ Getting started</li>
+			</ul>
+			<button class="affirmative"><span>Sync</span>Sync</button>
+			<button class="negative"><span>Discard</span>Discard</button>
+		</div>
+	</div>
+	<div id="screenWidth">
+		<div id="tiddlerDisplay" class="jbasewrap">
+		</div> <!-- End #tiddlerDisplay -->
+	</div> <!-- End #screenWidth -->
+</div> <!-- #displayArea -->
 <!--}}}-->

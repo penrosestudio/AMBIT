@@ -1,0 +1,62 @@
+
+TIDDLY STUFF
+
+<span id="SiteTitle" class='siteTitle' refresh='content' tiddler='SiteTitle'></span>
+
+<span id="SiteSubtitle" class='siteSubtitle' refresh='content' tiddler='SiteSubtitle'></span>
+
+<span id="SiteIcon" macro="image SiteIcon"></span>
+
+<div id='mainMenu' refresh='content' tiddler='MainMenu'></div>
+
+<div class='toolbar' macro='toolbar [[ToolbarCommands::ViewToolbar]] icons:yes height:16 width:16 more:popup'></div>
+
+<h2 class='title' macro='view title text'></h2>
+
+<li>Edited by <span macro='view modifier link'></span></li>
+<li>Edited on <span macro='view modified date "DDth MMM YYYY at hh:mm"'></span></li>
+
+<div class='viewer' macro='view text wikified'></div>
+
+
+
+OUR STUFF
+
+<div macro="buttonPermaviewMacro"></div>
+
+<span macro="searchBox"></span>
+
+<div macro="history"></div>
+
+<div macro="youAreReading"></div>
+
+<span class="right localOrNot" macro="localOrNot"></span>
+
+<li>Explore this topic's <span macro="ambitRevisions"></span></li>
+<li>Explore this topic's <span macro="ambitReferences"></span></li>
+
+<li>There are <span macro="ambitElsewhere"> other manuals</span> with different versions of this topic</li>
+
+<li><h4>This topic contains these sub-topics:</h4></li>
+<div macro="ambitTagging"></div>
+<span macro="newHere label:'new sub-topic' title:'new sub-topic'"></span>
+
+<li><h4>This topic is a sub-topic of:</h4></li>
+<div macro="ambitTags"></div>
+
+
+SYNC SYSTEM
+
+<div class='statusBoxWrapper'>
+	<div class='statusBox'>
+		<strong class='syncTitle'></strong>
+		<p class='syncNote'></p>
+		<ul class='statusList'></ul>
+		<button class='syncButton'>Sync Now</button>
+		<button class='syncCancelButton'>Clear</button>
+	</div>
+</div>
+
+
+
+

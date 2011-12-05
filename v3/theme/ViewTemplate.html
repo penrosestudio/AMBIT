@@ -1,48 +1,69 @@
 <!--{{{-->
-<div class="paperSheet">
-	<div class="headingPanel">
-		<div class='toolbar' macro='toolbar [[ToolbarCommands::ViewToolbar]] icons:yes height:16 width:16 more:popup'></div>
-		<span class="right localOrNot" macro="localOrNot"></span>
-		<h2 class='title' macro='view title text'></h2>
-		<a href="#"><span class="left panelToggle">show related information</span></a>
-		<div class="infoPanel">
-			<ul>
-				<li><h4>Information:</h4></li>
-				<li>Edited by <span macro='view modifier link'></span></li>
-				<li>Edited on <span macro='view modified date "DDth MMM YYYY at hh:mm"'></span></li>
-				<li>Explore this topic's <span macro="ambitRevisions"></span></li>
-				<li>Explore this topic's <span macro="ambitReferences"></span></li>
-			</ul>
-			<ul>
-				<li><h4>Elsewhere:</h4></li>
-				<li>There are <span macro="ambitElsewhere"> other manuals</span> with different versions of this topic</li>
-			</ul>
-			<ul>
-				<li><h4>This topic contains these sub-topics:</h4></li>
-				<div macro="ambitTagging"></div>
-				<span macro="newHere label:'new sub-topic' title:'new sub-topic'"></span>
-			</ul>
-			<ul>
-				<li><h4>This topic is a sub-topic of:</h4></li>
-				<div macro="ambitTags"></div>
-			</ul>
-		</div>
-		<!--<div class="meta" macro='viewRevisions page:5'>
-			last modified by <span class="modifier" macro="view modifier"></span> on <span macro="view modified date 'DDth MMM YYYY'"></span>
-		</div>-->
+<h2 macro='view title text'></h2>
+<div class="tools">
+	<div class='toolbar' macro='toolbar [[ToolbarCommands::ViewToolbar]] icons:yes height:16 width:16 more:popup'></div>
+	<a class="close" title="Close this page" href="#">Close</a>
+	<a class="edit" title="Edit this page" href="#">Edit</a>
+	<a class="duplicate" title="Copy this page into your manual" href="#">Duplicate</a>
+</div>
+<div class="watermark">
+	<span class="title">Derived from:</span>
+	<span class="value"><a href="#">CASUS</a></span>
+	<p>
+		<a href="#">comparison</a> / <a href="#">original</a>
+	</p>
+</div>
+<span class="infoToggle"><a href="#"><span>+</span> show references & info</a></span>
+<hr class="infoBorder" />
+<div class="info">
+	<div class="column">
+		<h3>Information about this page:</h3>
+		<ul>
+			<li>Edited by <a href="#">Dickon</a></li>
+			<li>Edited 09:13 - 09/09/11 </li>
+			<li>Explore this topic's <a href="#">revisions</a></li>
+		</ul>
 	</div>
-	<div class='statusBoxWrapper'>
-		<div class='statusBox'>
-			<strong class='syncTitle'></strong>
-			<p class='syncNote'></p>
-			<ul class='statusList'></ul>
-			<button class='syncButton'>Sync Now</button>
-			<button class='syncCancelButton'>Clear</button>
-		</div>
+	<div class="column">
+		<h3>Versions of this page in other manuals:</h3>
+		<p>There are no other manuals with different versions of this topic</p>
 	</div>
-	<div class="content">
-		<div class='viewer' macro='view text wikified'></div>
-		<br class="clearboth" />
+	<div class="column">
+		<h3>This page contains These sub-topics:</h3>
+		<ul>
+			<li><a href="#">Active Planning</a></li>
+			<li><a href="#">CheckLists</a></li>
+			<li><a href="#">Engagement</a></li>
+			<li><a href="#">I'm stuck: what next?</a></li>
+			<li><a href="#">Interventions</a></li>
+			<li><a href="#">Tasks & Problems to manage</a></li>
+		</ul>
+		<a class="button">New Sub-Topic</a>
 	</div>
+	<div class="column">
+		<h3>This page is a sub-topic of:</h3>
+		<p>No Topics</p>
+	</div>
+</div>
+<div class="article">
+	<div class='viewer' macro='view text wikified'></div>
+	<h3>No man, I don't eat pork</h3>
+	<p>Hong Kong Phooey, number one super guy. Hong Kong Phooey, quicker than the human eye. He's got style, a groovy style, and a car that just won't stop. When the going gets tough, he's really rough, with a Hong Kong Phooey chop (Hi-Ya!). Hong Kong Phooey, number one super guy. Hong Kong Phooey, quicker than the human eye. Hong Kong Phooey, he's fan-riffic!</p>
+	
+	<h4>Hold on commando</h4>
+	<p>Ten years ago a crack commando unit was sent to prison by a military court for a crime they didn't commit. These men promptly escaped from a maximum security stockade to the Los Angeles underground. Today, still wanted by the government, they survive as soldiers of fortune. If you have a problem and no one else can help, and if you can find them, maybe you can hire the A-team.</p>
+	
+	<h5>I can do that</h5>
+	<p>80 days around the world, we'll find a pot of gold just sitting where the rainbow's ending. Time - we'll fight against the time, and we'll fly on the white wings of the wind. 80 days around the world, no we won't say a word before the ship is really back. Round, round, all around the world. Round, all around the world. Round, all around the world. Round, all around the world.</p>
+	
+	<h6>I can do that too</h6>
+	<ul>
+		<li>Some stuff in a list</li>
+		<li>Some stuff in a list</li>
+		<li>Some stuff in a list</li>
+		<li>Some stuff in a list</li>
+		<li>Some stuff in a list</li>
+		<li>Some stuff in a list</li>
+	</ul>
 </div>
 <!--}}}-->
