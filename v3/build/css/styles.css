@@ -383,7 +383,7 @@ div#searchBox {
 	width: 720px;
 }
 
-#content {
+#tiddlerDisplay {
 	padding: 40px 0px;
 	z-index: 1;	
 }
