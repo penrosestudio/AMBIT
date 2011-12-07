@@ -102,6 +102,7 @@ a:hover {
 #displayArea .viewer br {
 	margin-bottom: 24px;
 	content: '';
+	display: block;
 }
 
 #app-picker, #backstageButton {
