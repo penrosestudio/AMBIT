@@ -342,6 +342,31 @@ div#searchBox {
 
 #messageArea {
 	top: 50px;
+	margin: 0px;
+	padding: 10px;
+	border: none;
+	line-height: 18px;
+	font-size: 11px;
+	letter-spacing: 0.06em;
+	font-weight: normal;
+}
+
+#messageArea div {
+	margin-right: 20px;
+}	
+
+#messageArea .messageToolbar {
+	text-align: left;
+	padding: 0px;
+}
+
+#messageArea a.button {
+	margin-bottom: 10px;
+}
+
+#messageArea a {
+	text-decoration: none;	
+	
 }
 
 #syncPanel h3 { 
@@ -909,5 +934,9 @@ Editor Styles
 	padding: 5px 10px;
 	letter-spacing: 0.06em;
 	margin-bottom: 0px;
+}
+
+#backstagePanel a {
+	color: #303030;
 }
 

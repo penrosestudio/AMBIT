@@ -1,20 +1,20 @@
 Title: ColorPalette
 
 /*{{{*/
-Background: #fcfcfc
-Foreground: #303030
-PrimaryPale: #fff6ed
-PrimaryLight: #ede4c4
-PrimaryMid: #ffe683
-PrimaryDark: #ffc600
-SecondaryPale: #e2faff
-SecondaryLight: #e3c4ed
-SecondaryMid: #a8e7f4
-SecondaryDark: #53b6ca
-TertiaryPale: #fff8f5
-TertiaryLight: #ffe2d8
-TertiaryMid: #f2c1b0
-TertiaryDark: #f48f78
+Background: #ccc
+Foreground: #666
+PrimaryPale: #fff
+PrimaryLight: #fff
+PrimaryMid: #fff
+PrimaryDark: #666
+SecondaryPale: #fff
+SecondaryLight: #fff
+SecondaryMid: #fff
+SecondaryDark: #fff
+TertiaryPale: #fff
+TertiaryLight: #fff
+TertiaryMid: #fff
+TertiaryDark: #fff
 Error: #f88
 ColorPaletteParameters: HSL([48|58], [0.67|0.53|0.43|0.06],[0.31|0.5|0.85|0.99])
 /*}}}*/
