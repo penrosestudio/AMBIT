@@ -1297,7 +1297,7 @@ div#searchBox {
 	width: 210px;
 }
 
-#statusPanel, #syncPanel {
+#statusPanel, #syncPanel, #messageArea {
 	position: relative;
 	width: 210px;
 	top: 30px;
@@ -1360,6 +1360,10 @@ div#searchBox {
 #syncPanel { 
 	top: 50px;
 	padding-bottom: 10px;
+}
+
+#messageArea {
+	top: 50px;
 }
 
 #syncPanel h3 { 
@@ -1768,8 +1772,12 @@ hr.infoBorder {
 	opacity: 0.6;
 }
 
+#displayArea .toolbar a.command_saveDraft {
+	background-position: 10px -947px;
+}
+
 #displayArea .toolbar a.command_deleteTiddler {
-	background-position: 10px -800px;
+	background-position: 10px -798px;
 }
 
 #displayArea .toolbar a.command_cloneTiddler {
@@ -1884,16 +1892,18 @@ Editor Styles
 	border-color: #ccc;
 	width: 560px;
 	padding: 10px 0px 10px 15px;
+	margin-top: 10px;
 }
 
 .title input {
 	font-size: 30px;
 	font-weight: bold;
 	padding: 10px 0px 10px 15px;	
+	margin-bottom: 10px;
 } 
 
 .editor .annotation {
-	margin: 10px 0px;
+	margin: 0px;
 	padding: 5px 10px;
 	background-color: #fae9d8;
 	border: none;
@@ -1920,5 +1930,6 @@ Editor Styles
 	font-size: 12px;
 	padding: 5px 10px;
 	letter-spacing: 0.06em;
+	margin-bottom: 0px;
 }
 
