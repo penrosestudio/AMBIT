@@ -172,17 +172,30 @@ a:hover {
 	color: #303030;
 }
 
-.annotation {
+.editor .annotation {
 	margin: 10px 0px;
-	padding: 5px;
+	padding: 5px 10px;
 	background-color: #fae9d8;
 	border: none;
 	color: #666;
 	font-size: 12px;
 	letter-spacing: 0.08em;
+	width: 560px;
 }
 
+.editor .tagTitle {
+	color: #ccc;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+	font-size: 11px;
+	margin: 20px 0px 5px;
+}
 
+.editorFooter input {
+	font-size: 12px;
+	padding: 5px 10px;
+	letter-spacing: 0.06em;
+}
 
 /*
 
