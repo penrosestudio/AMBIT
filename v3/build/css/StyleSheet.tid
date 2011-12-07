@@ -175,6 +175,17 @@ a:hover {
 	color: #303030;
 }
 
+.annotation {
+	margin: 10px 0px;
+	padding: 5px;
+	background-color: #fae9d8;
+	border: none;
+	color: #666;
+	font-size: 12px;
+	letter-spacing: 0.08em;
+}
+
+
 
 /*
 
@@ -1873,7 +1884,7 @@ Editor Styles
 	color: #303030;
 	border-color: #ccc;
 	width: 560px;
-	padding: 15px;
+	padding: 10px 0px 10px 15px;
 }
 
 .title input {
