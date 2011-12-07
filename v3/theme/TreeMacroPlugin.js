@@ -11,7 +11,7 @@
 			return;
 		}
 		tags = params[0].readBracketedList();
-		$contentsList = $('<ul></ul>')
+		$contentsList = $('<ul class="browsingTool"></ul>')
 			.appendTo(place);
 		$.each(tags, function(i, tag) {
 			plugin.addListItems(tag, $contentsList);
@@ -38,7 +38,7 @@
 			moreTids = tiddlers.length;
 			if(moreTids) {
 				$listItem.prepend('<span class="closed"></span>');
-				$subList = $('<ul class="browsingTool"></ul>')
+				$subList = $('<ul></ul>')
 					.css('display','none')
 					.appendTo($listItem);
 			

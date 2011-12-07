@@ -236,6 +236,10 @@ div#searchBox {
 	color: #ff2b2b;
 }
 
+#sidebar #contentsPanel li {
+	list-style: none;
+}
+
 #sidebar #contentsPanel li span.closed:after, #sidebar #contentsPanel li span.open:after {
 	content: '+';
 	float: left;
@@ -248,7 +252,6 @@ div#searchBox {
 	background-color: #fcfcfc;
 	text-decoration: none;
 	padding-bottom: 4px;
-	background-image: none;
 }
 
 #sidebar #contentsPanel li span.open:after {
