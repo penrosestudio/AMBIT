@@ -236,8 +236,11 @@ div#searchBox {
 	color: #ff2b2b;
 }
 
-#sidebar #contentsPanel li span.closed:after {
+#sidebar #contentsPanel li span.closed:after, #sidebar #contentsPanel li span.open:after {
 	content: '+';
+	float: left;
+	width: 10px;
+	height: 10px;
 	font-weight: bold;
 	padding-right: 10px;
 	position: relative;
@@ -245,17 +248,11 @@ div#searchBox {
 	background-color: #fcfcfc;
 	text-decoration: none;
 	padding-bottom: 4px;
+	background-image: none;
 }
 
 #sidebar #contentsPanel li span.open:after {
 	content: '-';
-	font-weight: bold;
-	padding-right: 10px;
-	position: relative;
-	top: -1px;
-	background-color: #fcfcfc;
-	text-decoration: none;
-	padding-bottom: 4px;
 }
 
 #sidebar #contentsPanel li span:hover {
