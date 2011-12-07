@@ -27,13 +27,14 @@ title: PageTemplate
 			<h2>
 				<a href="#">History</a>
 			</h2>
-			<ul class="browsingTool">
+			<div macro="history"></div>
+			<!--<ul class="browsingTool">
 				<li><a href="#">Object</a></li>
 				<li><a href="#">Object</a></li>
 				<li><a href="#">Object</a></li>
 				<li><a href="#">Object</a></li>
 				<li><a href="#">Object</a></li>
-			</ul>
+			</ul>-->
 		</div>
 		<div class="panel" id="currentlyOpenPanel">
 			<h2>

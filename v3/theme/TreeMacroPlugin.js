@@ -69,7 +69,7 @@
 /* structure we're aiming for:
 	<ul>
 		<li>
-			<span class="open">+</span><a><h3>Introduction</h3></a>
+			<span class="open">+</span><a>Introduction</a>
 			<ul>
 				<li><a>Overview of AMBIT</a></li>
 				<li><a>Core Features of Ambit</a></li>
@@ -81,27 +81,7 @@
 				<li><a>Videos</a></li>
 			</ul>
 		</li>
-		<li><span>+</span><a><h3>What is our team?</h3></a>
-			<ul class="closed">
-				<li><a>Sample link</a></li>
-			</ul>
-		</li>
-		<li><span>+</span><a><h3>What's the problem?</h3></a>
-			<ul class="closed">
-				<li><a>Sample link</a></li>
-			</ul>
-		</li>
-		<li><span>+</span><a><h3>what to do?</h3></a>
-			<ul class="closed">
-				<li><a>Sample link</a></li>
-			</ul>
-		</li>
-		<li><span>+</span><a><h3>Who does what?</h3></a>
-			<ul class="closed">
-				<li><a>Sample link</a></li>
-			</ul>
-		</li>
-		<li><span>+</span><a><h3>Why do this?</h3></a>
+		<li><span>+</span><a>What is our team?</a>
 			<ul class="closed">
 				<li><a>Sample link</a></li>
 			</ul>
