@@ -186,12 +186,16 @@ a:hover {
 	width: 560px;
 }
 
-.editor .tagTitle {
-	color: #ccc;
+.editor .tagTitle, .editor .tagAnnotation {
+	color: #aeaeae;
 	text-transform: uppercase;
 	letter-spacing: 0.08em;
 	font-size: 11px;
 	margin: 20px 0px 5px;
+}
+
+.editor .tagAnnotation {
+	text-transform: none;
 }
 
 .editorFooter input {

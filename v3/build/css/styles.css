@@ -862,5 +862,33 @@ Editor Styles
 	padding: 10px 0px 10px 15px;	
 } 
 
+.editor .annotation {
+	margin: 10px 0px;
+	padding: 5px 10px;
+	background-color: #fae9d8;
+	border: none;
+	color: #666;
+	font-size: 12px;
+	letter-spacing: 0.08em;
+	width: 560px;
+}
 
+.editor .tagTitle, .editor .tagAnnotation {
+	color: #8c8c8c;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+	font-size: 11px;
+	margin: 20px 0px 5px;
+}
+
+.editor .tagAnnotation {
+	text-transform: none;
+	margin-top: 3px;
+}
+
+.editorFooter input {
+	font-size: 12px;
+	padding: 5px 10px;
+	letter-spacing: 0.06em;
+}
 
