@@ -247,7 +247,7 @@ div#searchBox {
 	padding-bottom: 4px;
 }
 
-#sidebar #contentsPanel li span.opened:after {
+#sidebar #contentsPanel li span.open:after {
 	content: '-';
 	font-weight: bold;
 	padding-right: 10px;
