@@ -31,9 +31,13 @@ config.extensions.AmbitSearchPlugin = {
 	btnOpenId: "search_open",
 
 	displayResults: function(matches, query) {
+		var $searchResults = $('#searchResults').empty();
 		story.refreshAllTiddlers(true); // update highlighting within story tiddlers
 		window.scrollTo(0,0);
-		query = '"""' + query + '"""'; // prevent WikiLinks
+		$(matches).each(function(i, match) {
+			$searchResults.append('<li><a href="#">'+match.title+'</a></li>');
+		});
+		/*query = '"""' + query + '"""'; // prevent WikiLinks
 		var $container = $('<div id="'+this.containerId+'"><div class="jbasewrap"><div class="overlay"></div></div></div>').insertAfter('#header'),
 			el = $container.find('.overlay').get(0),
 			msg = "!" + this.heading + "\n";
@@ -57,7 +61,7 @@ config.extensions.AmbitSearchPlugin = {
 				config.extensions.AmbitSearchPlugin.closeResults();
 			}
 			return false;
-		});
+		});*/
 	},
 
 	closeResults: function() {

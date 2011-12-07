@@ -1,29 +1,43 @@
 /*{{{*/
+var $ = jQuery;
+
 config.macros.searchBox = {
-	handler: function(place,macroName,params) {
-		var searchTimeout = null;
-		var txt = createTiddlyElement(null,"input",null,"txtOptionInput searchField");
-		if(params[0])
-			txt.value = params[0];
+	handler: function(place, macroName, params) {
+		var $input = $('<input type="search" results="5" accessKey="4" autocomplete="on" autosave="unique" name="s" placeholder="Search" lastSearchText="" />').appendTo(place),
+			$clearButton = $('<button id="clearSearch">&#215;</button>'),
+			input = $input.get(0);
 		if(config.browser.isSafari) {
-			txt.setAttribute("type","search");
-			txt.setAttribute("results","5");
+			$input.css({
+				height: '28px',
+				width: '230px',
+				'background-image': 'none',
+				'-webkit-appearance': 'none'
+			});
 		} else {
-			txt.setAttribute("type","text");
+			$clearButton.appendTo(place);
 		}
-		place.appendChild(txt);
-		txt.onkeyup = this.onKeyPress;
-		txt.onfocus = this.onFocus;
-		txt.setAttribute("size",this.sizeTextbox);
-		txt.setAttribute("accessKey",params[1] || this.accessKey);
-		txt.setAttribute("autocomplete","off");
-		txt.setAttribute("lastSearchText","");
-	},
-	onKeyPress: config.macros.search.onKeyPress,
-	onFocus: config.macros.search.onFocus,
-	sizeTextbox: config.macros.search.sizeTextbox,
-	accessKey: config.macros.search.accessKey
+		input.onkeyup = config.macros.search.onKeyPress;
+		input.onfocus = config.macros.search.onFocus;
+		$('<ul class="browsingTool" id="searchResults"></ul>').appendTo(place);
+	}
 };
+
+/* aiming for:
+<input type="text" placeholder="Search" />
+<button id="clearSearch">&#215;</button>
+<ul class="browsingTool">
+	<li><a href="#">Object</a></li>
+	<li><a href="#">Object</a></li>
+	<li><a href="#">Object</a></li>
+	<li><a href="#">Object</a></li>
+	<li><a href="#">Object</a></li>
+	<li><a href="#">Object</a></li>
+	<li><a href="#">Object</a></li>
+	<li><a href="#">Object</a></li>
+	<li><a href="#">Object</a></li>
+	<li><a href="#">Object</a></li>
+</ul>
+*/
 
 //--
 //-- Search macro
@@ -94,6 +108,7 @@ config.macros.search.onKeyPress = function(ev)
 				clearTimeout(config.macros.search.timeout);
 		}
 	}
+	return true;
 };
 
 config.macros.search.onFocus = function(e)
