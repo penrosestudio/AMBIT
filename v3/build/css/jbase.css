@@ -58,6 +58,52 @@ blockquote, q {
 }
 
 
+/*
+.....................................
+
+TiddlySpace specific resets
+(using #displayArea to avoid unstyling the backstage)
+
+.....................................
+*/
+
+#displayArea #sidebar {
+	font-size: 100%;
+	right: auto;
+}
+
+#displayArea {
+	margin: 0;
+}
+
+.tiddler {
+	padding: 0;
+}
+
+a:hover {
+	background-color: transparent;
+	color: black;
+}
+
+#displayArea .title {
+	font-size: 100%;
+	font-weight: normal;
+}
+
+#displayArea h1, h2, h3, h4, h5, h6 {
+	border: none;
+	color: inherit;
+	font-weight: normal;
+	margin: 0;
+	padding: 0;
+}
+
+#displayArea br {
+	margin-bottom: 24px;
+}
+
+
+
 
 /*
 

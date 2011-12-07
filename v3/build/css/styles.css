@@ -722,7 +722,7 @@ hr.infoBorder {
 	letter-spacing: 0.08em;
 }
 
-.tools {
+.toolbar {
 	position: absolute;
 	width: 220px;
 	left: 490px;
@@ -730,32 +730,46 @@ hr.infoBorder {
 	text-align: right;
 }
 
-.tools a {
+.toolbar a {
 	background-image: url(v3sprite.png);
 	background-repeat: no-repeat;
 	display: block;
 	text-indent: 999px;
-	width: 30px;
+	width: 20px;
 	height: 30px;
 	float: right;
 	margin-left: 10px;
 	overflow: hidden;
 }
 
-.tools a:hover {
+.toolbar a:hover {
 	opacity: 0.6;
 }
 
-a.duplicate {
+.toolbar a.command_duplicateTiddler {
 	background-position: 10px -250px;
 }
 
-a.edit {
+.toolbar a.command_editTiddler {
 	background-position: 10px -300px;
 }
 
-a.close {
+.toolbar a.command_closeTiddler {
 	background-position: 10px -350px;
+}
+
+.toolbar .button {
+	border: none;
+}
+
+.toolbar .button:hover, .toolbar .button:active {
+	border: none;
+	background-image: url(v3sprite.png);
+	background-repeat: no-repeat;
+	-webkit-box-shadow: none; 
+	-moz-box-shadow: none; 
+	box-shadow: none; 
+	background-color: transparent;
 }
 
 #sidebarIcons {
@@ -777,6 +791,10 @@ a.close {
 	cursor: pointer;
 	z-index: 100;
 	border-top: #666 solid 1px; 
+}
+
+#sidebarIcons a:hover {
+	border-right: 2px #fcfcfc solid;
 }
 
 a#toggle {

@@ -1,2 +1,2 @@
 #cat jbase.css > aggregate.css && echo -e "\n\n[[StyleSheetTiddlySpaceRestore]]" >> aggregate.css && cat styles.css >> aggregate.css
-cat jbase.css styles.css > StyleSheet.tid
+echo -e "title: StyleSheet\n\n" > StyleSheet.tid && cat jbase.css styles.css >> StyleSheet.tid

@@ -1,10 +1,11 @@
+title: ViewTemplate
+
 <!--{{{-->
 <h2 macro='view title text'></h2>
-<div class="tools">
-	<div class='toolbar' macro='toolbar [[ToolbarCommands::ViewToolbar]] icons:yes height:16 width:16 more:popup'></div>
-	<a class="close" title="Close this page" href="#">Close</a>
+<div class="toolbar" macro='toolbar [[ToolbarCommands::ViewToolbar]]'>
+	<!--<a class="close" title="Close this page" href="#">Close</a>
 	<a class="edit" title="Edit this page" href="#">Edit</a>
-	<a class="duplicate" title="Copy this page into your manual" href="#">Duplicate</a>
+	<a class="duplicate" title="Copy this page into your manual" href="#">Duplicate</a>-->
 </div>
 <div class="watermark">
 	<span class="title">Derived from:</span>
