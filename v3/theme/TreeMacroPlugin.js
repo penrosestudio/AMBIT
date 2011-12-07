@@ -37,7 +37,7 @@
 			tiddlers = store.getTaggedTiddlers(tag);
 			moreTids = tiddlers.length;
 			if(moreTids) {
-				$listItem.prepend('<span class="closed">+</span>');
+				$listItem.prepend('<span class="closed"></span>');
 				$subList = $('<ul class="browsingTool"></ul>')
 					.css('display','none')
 					.appendTo($listItem);
@@ -69,7 +69,7 @@
 /* structure we're aiming for:
 	<ul>
 		<li>
-			<span class="open">+</span><a>Introduction</a>
+			<span class="open"></span><a>Introduction</a>
 			<ul>
 				<li><a>Overview of AMBIT</a></li>
 				<li><a>Core Features of Ambit</a></li>
@@ -81,8 +81,8 @@
 				<li><a>Videos</a></li>
 			</ul>
 		</li>
-		<li><span>+</span><a>What is our team?</a>
-			<ul class="closed">
+		<li><span class="closed"></span><a>What is our team?</a>
+			<ul>
 				<li><a>Sample link</a></li>
 			</ul>
 		</li>
