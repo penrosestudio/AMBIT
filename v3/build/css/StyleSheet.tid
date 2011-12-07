@@ -1778,6 +1778,10 @@ hr.infoBorder {
 	background-position: 10px -350px;
 }
 
+#displayArea .toolbar a.command_saveTiddler {
+	background-position: 10px -900px;
+}
+
 #displayArea .toolbar .button {
 	border: none;
 }
@@ -1858,4 +1862,25 @@ a#current span {
 a#contents {
 	background-position: 10px -192px;
 }
+
+/*
+
+Editor Styles 
+
+*/
+
+.editor input, .editor textarea {
+	color: #303030;
+	border-color: #ccc;
+	width: 560px;
+	padding: 15px;
+}
+
+.title input {
+	font-size: 30px;
+	font-weight: bold;
+	padding: 15px;	
+} 
+
+
 
