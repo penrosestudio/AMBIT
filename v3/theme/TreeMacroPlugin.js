@@ -30,7 +30,7 @@
 		link = createTiddlyLink(null,tag,false);
 		$listItem = $('<li></li>').appendTo($parentList);
 		$(link)
-			.append(recursionLevel === 0 ? '<h3>'+tag+'</h3>' : tag)
+			.append(tag)
 			.appendTo($listItem);
 			
 		if(recursionLevel<2) {
@@ -38,7 +38,7 @@
 			moreTids = tiddlers.length;
 			if(moreTids) {
 				$listItem.prepend('<span class="closed">+</span>');
-				$subList = $("<ul></ul>")
+				$subList = $('<ul class="browsingTool"></ul>')
 					.css('display','none')
 					.appendTo($listItem);
 			

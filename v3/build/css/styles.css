@@ -746,7 +746,7 @@ hr.infoBorder {
 	opacity: 0.6;
 }
 
-#displayArea .toolbar a.command_duplicateTiddler {
+#displayArea .toolbar a.command_cloneTiddler {
 	background-position: 10px -250px;
 }
 
@@ -754,7 +754,7 @@ hr.infoBorder {
 	background-position: 10px -300px;
 }
 
-#displayArea .toolbar a.command_closeTiddler {
+#displayArea .toolbar a.command_closeTiddler, #displayArea .toolbar a.command_cancelTiddler {
 	background-position: 10px -350px;
 }
 

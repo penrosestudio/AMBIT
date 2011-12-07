@@ -122,6 +122,10 @@ a:hover {
     width: 100%;
 }
 
+.externalLink {
+	text-decoration: none;
+}
+
 .viewer h1 {
 	font-size: 32px;
     line-height: 36px;
@@ -166,6 +170,8 @@ a:hover {
 	line-height: 24px;
 	padding: 0;
 }
+
+
 
 /*
 
@@ -1760,7 +1766,7 @@ hr.infoBorder {
 	opacity: 0.6;
 }
 
-#displayArea .toolbar a.command_duplicateTiddler {
+#displayArea .toolbar a.command_cloneTiddler {
 	background-position: 10px -250px;
 }
 

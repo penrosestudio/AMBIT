@@ -48,23 +48,5 @@ title: ViewTemplate
 </div>
 <div class="article">
 	<div class='viewer' macro='view text wikified'></div>
-	<h3>No man, I don't eat pork</h3>
-	<p>Hong Kong Phooey, number one super guy. Hong Kong Phooey, quicker than the human eye. He's got style, a groovy style, and a car that just won't stop. When the going gets tough, he's really rough, with a Hong Kong Phooey chop (Hi-Ya!). Hong Kong Phooey, number one super guy. Hong Kong Phooey, quicker than the human eye. Hong Kong Phooey, he's fan-riffic!</p>
-	
-	<h4>Hold on commando</h4>
-	<p>Ten years ago a crack commando unit was sent to prison by a military court for a crime they didn't commit. These men promptly escaped from a maximum security stockade to the Los Angeles underground. Today, still wanted by the government, they survive as soldiers of fortune. If you have a problem and no one else can help, and if you can find them, maybe you can hire the A-team.</p>
-	
-	<h5>I can do that</h5>
-	<p>80 days around the world, we'll find a pot of gold just sitting where the rainbow's ending. Time - we'll fight against the time, and we'll fly on the white wings of the wind. 80 days around the world, no we won't say a word before the ship is really back. Round, round, all around the world. Round, all around the world. Round, all around the world. Round, all around the world.</p>
-	
-	<h6>I can do that too</h6>
-	<ul>
-		<li>Some stuff in a list</li>
-		<li>Some stuff in a list</li>
-		<li>Some stuff in a list</li>
-		<li>Some stuff in a list</li>
-		<li>Some stuff in a list</li>
-		<li>Some stuff in a list</li>
-	</ul>
 </div>
 <!--}}}-->

@@ -9,12 +9,12 @@
 		if(!$readingList) {
 			$(document).bind("startup", this.dispatch);
 		}
-		$readingList = $('<ul></ul>').appendTo(place);
+		$readingList = $('<ul class="browsingTool"></ul>').appendTo(place);
 	};
 	plugin.addItem = function(title, flashing) {
 		var link = createTiddlyLink(null,title,true,(flashing ? "active" : "")),
 			$newItem = $('<li></li>')
-				.append('<span class="close">x</span>')
+				.append('<span class="close">&times;</span>')
 				.append(link);
 		$newItem
 			.appendTo($readingList)
@@ -24,10 +24,10 @@
 			});
 		if(flashing) {
 			$newItem.css('backgroundColor', '#FFF')
-				.fadeOut(function() {
-					$newItem.fadeIn(function() {
+				.fadeOut(75, function() {
+					$newItem.fadeIn(75, function() {
 						$newItem.css('backgroundColor', 'transparent');
-					});
+					});	
 				});
 		}
 	};
@@ -76,11 +76,11 @@
 				};
 				// animate the title over to the you are reading list
 				var linkText = $element.is('a') ? $element.text() : (tiddler instanceof Tiddler ? tiddler.title : tiddler),
-					$linkClone = $("<span>"+linkText+"</span>").appendTo($('#mainpane')),
+					$linkClone = $("<span>"+linkText+"</span>").appendTo($('#displayArea')),
 					y = $element.offset().top,
-					mainPaneOffset = $('#mainpane').offset(),
+					mainPaneOffset = $('#displayArea').offset(),
 					x = $element.offset().left-mainPaneOffset.left,
-					$readingList = $('#youAreReading li'),
+					$readingList = $('#currentlyOpenPanel li'),
 					$target = $readingList.eq($readingList.length-1),
 					toY = $target.offset().top + $target.height() + parseInt($target.css('paddingTop'),10) + parseInt($target.css('paddingBottom'),10) + parseInt($target.css('marginTop'),10) + parseInt($target.css('marginBottom'),10),
 					toX = $target.offset().left;
