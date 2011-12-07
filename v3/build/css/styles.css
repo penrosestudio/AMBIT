@@ -746,6 +746,10 @@ hr.infoBorder {
 	opacity: 0.6;
 }
 
+#displayArea .toolbar a.command_deleteTiddler {
+	background-position: 10px -800px;
+}
+
 #displayArea .toolbar a.command_cloneTiddler {
 	background-position: 10px -250px;
 }
@@ -848,6 +852,10 @@ a#contents {
 Editor Styles 
 
 */
+
+.editor {
+	font-size: inherit;
+}
 
 .editor input, .editor textarea {
 	color: #303030;

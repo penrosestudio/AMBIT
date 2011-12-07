@@ -175,35 +175,6 @@ a:hover {
 	color: #303030;
 }
 
-.editor .annotation {
-	margin: 10px 0px;
-	padding: 5px 10px;
-	background-color: #fae9d8;
-	border: none;
-	color: #666;
-	font-size: 12px;
-	letter-spacing: 0.08em;
-	width: 560px;
-}
-
-.editor .tagTitle, .editor .tagAnnotation {
-	color: #aeaeae;
-	text-transform: uppercase;
-	letter-spacing: 0.08em;
-	font-size: 11px;
-	margin: 20px 0px 5px;
-}
-
-.editor .tagAnnotation {
-	text-transform: none;
-}
-
-.editorFooter input {
-	font-size: 12px;
-	padding: 5px 10px;
-	letter-spacing: 0.06em;
-}
-
 /*
 
 .....................................
@@ -1797,6 +1768,10 @@ hr.infoBorder {
 	opacity: 0.6;
 }
 
+#displayArea .toolbar a.command_deleteTiddler {
+	background-position: 10px -800px;
+}
+
 #displayArea .toolbar a.command_cloneTiddler {
 	background-position: 10px -250px;
 }
@@ -1900,6 +1875,10 @@ Editor Styles
 
 */
 
+.editor {
+	font-size: inherit;
+}
+
 .editor input, .editor textarea {
 	color: #303030;
 	border-color: #ccc;
@@ -1913,5 +1892,33 @@ Editor Styles
 	padding: 10px 0px 10px 15px;	
 } 
 
+.editor .annotation {
+	margin: 10px 0px;
+	padding: 5px 10px;
+	background-color: #fae9d8;
+	border: none;
+	color: #666;
+	font-size: 12px;
+	letter-spacing: 0.08em;
+	width: 560px;
+}
 
+.editor .tagTitle, .editor .tagAnnotation {
+	color: #8c8c8c;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+	font-size: 11px;
+	margin: 20px 0px 5px;
+}
+
+.editor .tagAnnotation {
+	text-transform: none;
+	margin-top: 3px;
+}
+
+.editorFooter input {
+	font-size: 12px;
+	padding: 5px 10px;
+	letter-spacing: 0.06em;
+}
 
