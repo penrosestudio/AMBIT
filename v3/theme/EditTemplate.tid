@@ -4,7 +4,7 @@ title: EditTemplate
 
 <div class='toolbar' macro='toolbar [[ToolbarCommands::EditToolbar]] icons:yes'></div>
 
-<div class='article'>
+<div class='article editor'>
 	<div class='heading editorHeading'>
 		<div class='editor title' macro='edit title'></div>
 		<div class='tagClear'></div>
