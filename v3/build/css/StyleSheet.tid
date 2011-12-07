@@ -175,7 +175,7 @@ a:hover {
 	color: #303030;
 }
 
-.annotation {
+.annotation {
 	margin: 10px 0px;
 	padding: 5px;
 	background-color: #fae9d8;
