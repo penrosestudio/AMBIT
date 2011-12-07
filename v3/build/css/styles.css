@@ -32,7 +32,7 @@ a:hover {
 	text-decoration: underline;
 }
 
-button, a.button {
+#displayArea button, #displayArea a.button {
 	font-size: 11px;
 	font-family: "Helvetica Neue", Helvetica;
 	font-weight: bold;
@@ -59,7 +59,7 @@ button, a.button {
 	
 }
 
-button:hover, a.button:hover {
+#displayArea button:hover, #displayArea a.button:hover {
 	border-color: #999;
 	cursor: pointer;
 	-webkit-box-shadow: 0px 1px 2px #c8c8c8; 
@@ -69,7 +69,7 @@ button:hover, a.button:hover {
 	text-decoration: none;
 }
 
-button:active, a.button:active {
+#displayArea button:active, #displayArea a.button:active {
 	box-shadow: none;
 	-webkit-box-shadow: none;
 	-moz-box-shadow: none;
@@ -730,7 +730,7 @@ hr.infoBorder {
 	text-align: right;
 }
 
-.toolbar a {
+#displayArea .toolbar a {
 	background-image: url(v3sprite.png);
 	background-repeat: no-repeat;
 	display: block;
@@ -742,27 +742,27 @@ hr.infoBorder {
 	overflow: hidden;
 }
 
-.toolbar a:hover {
+#displayArea .toolbar a:hover {
 	opacity: 0.6;
 }
 
-.toolbar a.command_duplicateTiddler {
+#displayArea .toolbar a.command_duplicateTiddler {
 	background-position: 10px -250px;
 }
 
-.toolbar a.command_editTiddler {
+#displayArea .toolbar a.command_editTiddler {
 	background-position: 10px -300px;
 }
 
-.toolbar a.command_closeTiddler {
+#displayArea .toolbar a.command_closeTiddler {
 	background-position: 10px -350px;
 }
 
-.toolbar .button {
+#displayArea .toolbar .button {
 	border: none;
 }
 
-.toolbar .button:hover, .toolbar .button:active {
+#displayArea .toolbar .button:hover, #displayArea .toolbar .button:active {
 	border: none;
 	background-image: url(v3sprite.png);
 	background-repeat: no-repeat;
