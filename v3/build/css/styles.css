@@ -278,7 +278,7 @@ div#searchBox {
 #statusPanel, #syncPanel {
 	position: relative;
 	width: 210px;
-	top: 20px;
+	top: 30px;
 	background-color: rgba(251,251,251,0.9);
 	font-size: 13px;
 	padding-left: 10px;
@@ -336,7 +336,7 @@ div#searchBox {
 }
 
 #syncPanel { 
-	top: 40px;
+	top: 50px;
 	padding-bottom: 10px;
 }
 
@@ -384,7 +384,7 @@ div#searchBox {
 }
 
 #tiddlerDisplay {
-	padding: 40px 0px;
+	padding: 30px 0px;
 	z-index: 1;	
 }
 
