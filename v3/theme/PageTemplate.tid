@@ -7,10 +7,11 @@ title: PageTemplate
 	<div id="sidebar">
 		<h1>ambit CORE CONTENT of the manual for ADOLESCENT MENTALIZATION BASED INTEGRATIVE TREATMENT</h1>
 		<div id="searchBox" class="panel">
+			<span macro="searchBox"></span>
 			<input type="text" placeholder="Search" />
 			<button id="clearSearch">&#215;</button>
 			<!--<h3>showing 10 results&hellip;</h3>-->
-			<ul class="browsingTool">
+			<!--<ul class="browsingTool">
 				<li><a href="#">Object</a></li>
 				<li><a href="#">Object</a></li>
 				<li><a href="#">Object</a></li>
@@ -21,7 +22,7 @@ title: PageTemplate
 				<li><a href="#">Object</a></li>
 				<li><a href="#">Object</a></li>
 				<li><a href="#">Object</a></li>
-			</ul>
+			</ul>-->
 		</div>
 		<div class="panel" id="historyPanel">
 			<h2>
