@@ -2,6 +2,14 @@
 var $ = jQuery;
 
 config.macros.searchBox = {
+	closeResults: function() {
+		var $searchBox = $('#searchBox');
+		$searchBox.find('ul.browsingTool').stop().animate({
+			height: 0
+		}, function() {
+			$searchBox.addClass('closed');
+		});
+	},
 	handler: function(place, macroName, params) {
 		var $input = $('<input type="search" results="5" accessKey="4" autocomplete="on" autosave="unique" name="s" placeholder="Search" lastSearchText="" />').appendTo(place),
 			$clearButton = $('<button id="clearSearch">&#215;</button>'),
@@ -12,12 +20,39 @@ config.macros.searchBox = {
 				width: '230px',
 				'background-image': 'none',
 				'-webkit-appearance': 'none'
+			}).click(function() {
+				if(!$(this).val() && $(this).siblings('.browsingTool').children().length) {
+					config.macros.searchBox.closeResults();
+				}
 			});
 		} else {
-			$clearButton.appendTo(place);
+			$clearButton.appendTo(place)
+				.click(function() {
+					var $searchBox = $('#searchBox');
+					$clearButton.hide();
+					$searchBox.children('input').val('');
+					config.macros.searchBox.closeResults();
+				});
+			$input.keyup(function() {
+				if($(this).val()) {
+					$('#clearSearch').show();
+				} else {
+					$('#clearSearch').click();
+				}
+			});
 		}
 		input.onkeyup = config.macros.search.onKeyPress;
 		input.onfocus = config.macros.search.onFocus;
+		$input.keyup(function() {
+			// if we've started typing without clicking on the search box, it won't have opened
+			if($('#searchBox').hasClass('closed')) {
+				$(this).click();
+			}
+			// clear if empty
+			if(!$input.val()) {
+				config.macros.searchBox.closeResults();
+			}
+		});
 		$('<ul class="browsingTool" id="searchResults"></ul>').appendTo(place);
 	}
 };

@@ -129,8 +129,8 @@ $(window).resize(function() {
 var viewportHeight = $(window).height() / 3;
 $('#sidebar .panel').not('.closed').find('ul.browsingTool').height(viewportHeight);
 
-$('#sidebar .panel h2, #sidebar #searchBox input').click( function(e){
-	var $thisPanel = $(this).parent('.panel'),
+$('#sidebar .panel h2, #sidebar #searchBox input').live('click', function(e){
+	var $thisPanel = $(this).closest('.panel'),
 		$otherPanels = $('#sidebar .panel').not($thisPanel),
 		isClosed = $thisPanel.hasClass('closed'),
 		isSearch = $thisPanel.attr('id')==='searchBox';
@@ -170,31 +170,7 @@ $('#sidebar .panel h2, #sidebar #searchBox input').click( function(e){
 	}
 	setBgPosY($thisPanel.find('h2'), isClosed ? "-437px" : "-391px");
 });
-$('#searchBox input').keyup(function() {
-	if($(this).val()) {
-		$('#clearSearch').show();
-	} else {
-		$('#clearSearch').click();
-	}
-});
-$('#clearSearch').click(function() {
-	var $searchBox = $('#searchBox'),
-		$clearSearch = $(this);
-	$clearSearch.hide();
-	$searchBox.children('input').val('');
-	$searchBox.find('ul.browsingTool').stop().animate({
-		height: 0
-	}, function() {
-		$searchBox.addClass('closed');
-		$(this).hide();
-	});
-});
 
-// horizontal positioning (I was going to alter the H position of the main page when the sidebar was open)
-
-
-
-// if ($('li:last').is(':visible')) { //go back to first element } -
 
 // the info toggle
 
