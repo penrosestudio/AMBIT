@@ -5,67 +5,28 @@ title: PageTemplate
 	<!-- AMBIT HTML build here -->
 	<div id="sidebar">
 		<h1>ambit CORE CONTENT of the manual for ADOLESCENT MENTALIZATION BASED INTEGRATIVE TREATMENT</h1>
-		<div id="searchBox" class="panel">
+		<div id="searchBox" class="panel closed">
 			<div macro="searchBox"></div>
 			<input type="text" placeholder="Search" />
 			<button id="clearSearch">&#215;</button>
-			<!--<h3>showing 10 results&hellip;</h3>-->
-			<!--<ul class="browsingTool">
-				<li><a href="#">Object</a></li>
-				<li><a href="#">Object</a></li>
-				<li><a href="#">Object</a></li>
-				<li><a href="#">Object</a></li>
-				<li><a href="#">Object</a></li>
-				<li><a href="#">Object</a></li>
-				<li><a href="#">Object</a></li>
-				<li><a href="#">Object</a></li>
-				<li><a href="#">Object</a></li>
-				<li><a href="#">Object</a></li>
-			</ul>-->
 		</div>
-		<div class="panel" id="historyPanel">
+		<div class="panel closed" id="historyPanel">
 			<h2>
 				<a href="#">History</a>
 			</h2>
 			<div macro="history"></div>
-			<!--<ul class="browsingTool">
-				<li><a href="#">Object</a></li>
-				<li><a href="#">Object</a></li>
-				<li><a href="#">Object</a></li>
-				<li><a href="#">Object</a></li>
-				<li><a href="#">Object</a></li>
-			</ul>-->
 		</div>
-		<div class="panel" id="currentlyOpenPanel">
+		<div class="panel closed" id="currentlyOpenPanel">
 			<h2>
 				<a href="#">Currently Open</a>
 			</h2>
 			<div macro="youAreReading"></div>
-			<!--<ul class="browsingTool">
-				<li><span class="close">&#215;</span><a href="#">Object</a></li>
-				<li><span class="close">&#215;</span><a href="#">Object</a></li>
-				<li><span class="close">&#215;</span><a href="#">Object</a></li>
-				<li><span class="close">&#215;</span><a href="#">Object</a></li>
-				<li><span class="close">&#215;</span><a href="#">Object</a></li>
-			</ul>-->
 		</div>
 		<div class="panel" id="contentsPanel">
 			<h2>
 				<a href="#">Contents</a>
 			</h2>
 			<div refresh="content" tiddler="MainMenu"></div>
-			<!--<ul class="browsingTool">
-				<li><span class="closed"></span><a href="#">Object</a></li>
-				<li><span class="closed"></span><a href="#">Object</a></li>
-				<li><span class="closed"></span><a href="#">Object</a></li>
-				<li><span class="opened"></span><a href="#">Object</a>
-					<ul>
-						<li><a href="#">Sub layer</a></li>
-						<li><a href="#">Sub layer</a></li>
-					</ul>
-				</li>
-				<li><span class="closed"></span><a href="#">Object</a></li>
-			</ul>-->
 		</div>
 		<div id="sidebarIcons">
 			<a id="toggle" href="#" title="Toggle Sidebar">Toggle Sidebar</a>

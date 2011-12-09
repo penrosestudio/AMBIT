@@ -21,30 +21,23 @@ title: ViewTemplate
 		<h3>Information about this page:</h3>
 		<ul>
 			<li>Edited by <span macro='view modifier link'></span></li>
-			<li>Edited on <span macro='view modified date "0hh:0mm - DD/MM/YY"'></span></li>
-			<li>Explore this topic's <span macro="ambitRevisions"></span></li>
-			<li>Explore this topic's <span macro="ambitReferences"></span></li>
+			<li>Edited on <span macro='view modified date "0hh:0mm - 0DD/0MM/0YY"'></span></li>
+			<li>Explore this topic's <span class="noButton" macro="ambitRevisions"></span></li>
+			<li>Explore this topic's <span class="noButton" macro="ambitReferences"></span></li>
 		</ul>
 	</div>
 	<div class="column">
 		<h3>Versions of this page in other manuals:</h3>
-		<p>There are no other manuals with different versions of this topic</p>
+		<p>There are <span macro="ambitElsewhere"> other manuals</span> with different versions of this topic.</p>
 	</div>
 	<div class="column">
 		<h3>This page contains These sub-topics:</h3>
-		<ul>
-			<li><a href="#">Active Planning</a></li>
-			<li><a href="#">CheckLists</a></li>
-			<li><a href="#">Engagement</a></li>
-			<li><a href="#">I'm stuck: what next?</a></li>
-			<li><a href="#">Interventions</a></li>
-			<li><a href="#">Tasks & Problems to manage</a></li>
-		</ul>
-		<a class="button">New Sub-Topic</a>
+		<div macro="ambitTagging"></div>
+		<span macro="newHere label:'new sub-topic' title:'new sub-topic' class:'button'"></span>
 	</div>
 	<div class="column">
 		<h3>This page is a sub-topic of:</h3>
-		<p>No Topics</p>
+		<div class="noButton" macro="ambitTags"></div>
 	</div>
 </div>
 <div class="article">

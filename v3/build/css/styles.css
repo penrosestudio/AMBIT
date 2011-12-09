@@ -80,6 +80,28 @@ a.button {
 	display: inline-block;
 }
 
+#displayArea .noButton a.button {
+	border: none;
+	background: transparent;
+	display: inline;
+	filter: none;
+	text-decoration: none;
+	color: #ff2b2b;
+	font: inherit;
+	padding: 0px;
+	letter-spacing: inherit; 
+}
+
+#displayArea .noButton a.button:hover, #displayArea .noButton a.button:active {
+	-webkit-box-shadow: none; 
+	-moz-box-shadow: none; 
+	box-shadow: none; 
+	border: none;
+	background: none;
+	color: #303030;
+	text-decoration: underline;
+}
+
 
 #screenWidth {
 	width: auto;
@@ -170,12 +192,8 @@ div#searchBox {
 	background-color: #303030;
 	padding: 0px;
 	background-image: url(v3sprite.png);
-	background-position: 5px -391px;
+	background-position: 5px -437px;
 	background-repeat: no-repeat;
-}
-
-#sidebar .open h2 {
-	background-position: 5px -439px;
 }
 
 #sidebar .panel h2 a {
@@ -189,10 +207,16 @@ div#searchBox {
 }
 
 #sidebar .closed ul {
+	height: 0px;
 }
 
 #sidebar .closed {
 	padding: 0px; 
+}
+
+#sidebar .closed h2 {
+	padding: 0px; 
+	background-position: 5px -391px;
 }
 
 .panel {

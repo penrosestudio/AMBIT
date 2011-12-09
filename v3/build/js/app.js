@@ -126,11 +126,12 @@ $(window).resize(function() {
 
 
 // the accordion
+var viewportHeight = $(window).height() / 3;
+$('#sidebar .panel').not('.closed').find('ul.browsingTool').height(viewportHeight);
 
 $('#sidebar .panel h2, #sidebar #searchBox input').click( function(e){
 	var $thisPanel = $(this).parent('.panel'),
 		$otherPanels = $('#sidebar .panel').not($thisPanel),
-		viewportHeight = $(window).height() / 3,
 		isClosed = $thisPanel.hasClass('closed'),
 		isSearch = $thisPanel.attr('id')==='searchBox';
 	// make sure all other panels are closed
@@ -197,7 +198,7 @@ $('#clearSearch').click(function() {
 
 // the info toggle
 
-$('.infoToggle a').click(function() {
+$('.infoToggle a').live('click', function() {
 	$(this).parent().siblings('div.info').slideToggle(200, function() {
 		if ($(this).is(':visible')) {
 			$('.infoToggle a span').text('-');
