@@ -34,9 +34,16 @@ config.extensions.AmbitSearchPlugin = {
 		var $searchResults = $('#searchResults').empty();
 		story.refreshAllTiddlers(true); // update highlighting within story tiddlers
 		window.scrollTo(0,0);
-		$(matches).each(function(i, match) {
-			$searchResults.append('<li><a href="#">'+match.title+'</a></li>');
-		});
+		if(matches.length) {
+			$(matches).each(function(i, match) {
+				//$searchResults.append('<li><a href="#">'+match.title+'</a></li>');
+				var $li = $('<li></li>').appendTo($searchResults);
+				createTiddlyLink($li.get(0),match.title,true);
+			});
+		} else {
+			$searchResults.append('<span>no results for '+query+'</span>');
+		}
+		
 		/*query = '"""' + query + '"""'; // prevent WikiLinks
 		var $container = $('<div id="'+this.containerId+'"><div class="jbasewrap"><div class="overlay"></div></div></div>').insertAfter('#header'),
 			el = $container.find('.overlay').get(0),
