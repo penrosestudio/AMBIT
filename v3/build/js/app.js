@@ -152,12 +152,14 @@ $('#sidebar .panel h2, #sidebar #searchBox input').live('click', function(e){
 		}
 	});
 	// toggle this panel
-	if(isClosed) {				
-		$thisPanel.find("ul.browsingTool").stop().animate({
-			height: viewportHeight
-		}, function() {
-			$thisPanel.removeClass('closed');
-		});
+	if(isClosed) {
+		if(!isSearch || $thisPanel.find('ul.browsingTool li').length) {
+			$thisPanel.find("ul.browsingTool").stop().animate({
+				height: viewportHeight
+			}, function() {
+				$thisPanel.removeClass('closed');
+			});
+		}			
 	} else {
 		// don't close if we clicked in the search input
 		if(!isSearch) {

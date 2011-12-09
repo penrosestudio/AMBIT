@@ -32,6 +32,7 @@ config.extensions.AmbitSearchPlugin = {
 
 	displayResults: function(matches, query) {
 		var $searchResults = $('#searchResults').empty();
+		$('#searchBox').removeClass('closed');
 		story.refreshAllTiddlers(true); // update highlighting within story tiddlers
 		window.scrollTo(0,0);
 		if(matches.length) {

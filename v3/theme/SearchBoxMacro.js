@@ -11,7 +11,7 @@ config.macros.searchBox = {
 		});
 	},
 	handler: function(place, macroName, params) {
-		var $input = $('<input type="search" results="5" accessKey="4" autocomplete="on" autosave="unique" name="s" placeholder="Search" lastSearchText="" />').appendTo(place),
+		var $input = $('<input type="search" results="5" accessKey="4" autocomplete="off" autosave="unique" name="s" placeholder="Search" lastSearchText="" />').appendTo(place),
 			$clearButton = $('<button id="clearSearch">&#215;</button>'),
 			input = $input.get(0);
 		if(config.browser.isSafari) {
