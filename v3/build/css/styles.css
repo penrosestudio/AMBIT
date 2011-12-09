@@ -623,6 +623,9 @@ ol ol li {
 #AIM-Form input {
 	margin-left: 20px;
 	font-weight: normal;
+	border: none;
+	margin-bottom: 10px;
+	padding: 5px 8px;
 }
 
 #AIM-Form .question .navigation {

@@ -20,9 +20,10 @@ title: ViewTemplate
 	<div class="column">
 		<h3>Information about this page:</h3>
 		<ul>
-			<li>Edited by <a href="#">Dickon</a></li>
-			<li>Edited 09:13 - 09/09/11 </li>
-			<li>Explore this topic's <a href="#">revisions</a></li>
+			<li>Edited by <span macro='view modifier link'></span></li>
+			<li>Edited on <span macro='view modified date "0hh:0mm - DD/MM/YY"'></span></li>
+			<li>Explore this topic's <span macro="ambitRevisions"></span></li>
+			<li>Explore this topic's <span macro="ambitReferences"></span></li>
 		</ul>
 	</div>
 	<div class="column">
