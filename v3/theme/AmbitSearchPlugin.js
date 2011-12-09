@@ -32,7 +32,6 @@ config.extensions.AmbitSearchPlugin = {
 
 	displayResults: function(matches, query) {
 		var $searchResults = $('#searchResults').empty();
-		$('#searchBox').removeClass('closed');
 		story.refreshAllTiddlers(true); // update highlighting within story tiddlers
 		window.scrollTo(0,0);
 		if(matches.length) {
@@ -44,6 +43,7 @@ config.extensions.AmbitSearchPlugin = {
 		} else {
 			$searchResults.append('<span>no results for '+query+'</span>');
 		}
+		$('#searchBox').click();
 		
 		/*query = '"""' + query + '"""'; // prevent WikiLinks
 		var $container = $('<div id="'+this.containerId+'"><div class="jbasewrap"><div class="overlay"></div></div></div>').insertAfter('#header'),

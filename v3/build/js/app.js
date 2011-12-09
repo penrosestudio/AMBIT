@@ -125,24 +125,30 @@ $(window).resize(function() {
 */
 
 
-// the accordion
+/* 
+the accordion generic click behaviour
+principle: make the sidebar handle clicks;
+if click on panel>h2 or input, toggle accordion stage, unless noToggle exists on panel
+*/
+
 var viewportHeight = $(window).height() / 3;
 $('#sidebar .panel').not('.closed').find('ul.browsingTool').height(viewportHeight);
 
-$('#sidebar .panel h2, #sidebar #searchBox input').live('click', function(e){
-	var $thisPanel = $(this).closest('.panel'),
-		$otherPanels = $('#sidebar .panel').not($thisPanel),
-		isClosed = $thisPanel.hasClass('closed'),
-		isSearch = $thisPanel.attr('id')==='searchBox';
-	// make sure all other panels are closed
+$('#sidebar .panel').click(function(e) {
+	var $target = $(e.target),
+		$panel = $(this),
+		$otherPanels = $(this).siblings('.panel');
+
+	if(!$target.is('h2, input')) {
+		return;
+	}
+
+	// close other panels
 	$otherPanels.each(function() {
 		var $panel = $(this),
 			$ul = $panel.find('ul.browsingTool'),
 			panelClosed = $panel.hasClass('closed');
-		if(!$ul.length) {
-			return;
-		}
-		if(!panelClosed) {
+		if($ul.length && !panelClosed) {
 			$ul.stop().animate({
 				height: 0
 			}, function() {
@@ -151,26 +157,17 @@ $('#sidebar .panel h2, #sidebar #searchBox input').live('click', function(e){
 			setBgPosY($panel.find('h2'), "-391px");
 		}
 	});
+	
 	// toggle this panel
-	if(isClosed) {
-		if(!isSearch || $thisPanel.find('ul.browsingTool li').length) {
-			$thisPanel.find("ul.browsingTool").stop().animate({
-				height: viewportHeight
-			}, function() {
-				$thisPanel.removeClass('closed');
-			});
-		}			
-	} else {
-		// don't close if we clicked in the search input
-		if(!isSearch) {
-			$thisPanel.find("ul.browsingTool").stop().animate({
-				height: 0
-			}, function() {
-				$thisPanel.addClass('closed');
-			})
-		}
+	if($panel.hasClass('noToggle')) {
+		return;
 	}
-	setBgPosY($thisPanel.find('h2'), isClosed ? "-437px" : "-391px");
+	$panel.find('.browsingTool').animate({
+		height: isClosed ? viewportHeight : 0
+	}, function() {
+		$panel.toggleClass('closed');
+	});
+	setBgPosY($panel.find('h2'), isClosed ? "-437px" : "-391px");
 });
 
 

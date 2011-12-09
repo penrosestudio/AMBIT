@@ -2,14 +2,6 @@
 var $ = jQuery;
 
 config.macros.searchBox = {
-	closeResults: function() {
-		var $searchBox = $('#searchBox');
-		$searchBox.find('ul.browsingTool').stop().animate({
-			height: 0
-		}, function() {
-			$searchBox.addClass('closed');
-		});
-	},
 	handler: function(place, macroName, params) {
 		var $input = $('<input type="search" results="5" accessKey="4" autocomplete="off" autosave="unique" name="s" placeholder="Search" lastSearchText="" />').appendTo(place),
 			$clearButton = $('<button id="clearSearch">&#215;</button>'),
@@ -20,18 +12,13 @@ config.macros.searchBox = {
 				width: '230px',
 				'background-image': 'none',
 				'-webkit-appearance': 'none'
-			}).click(function() {
-				if(!$(this).val() && $(this).siblings('.browsingTool').children().length) {
-					config.macros.searchBox.closeResults();
-				}
 			});
 		} else {
 			$clearButton.appendTo(place)
 				.click(function() {
 					var $searchBox = $('#searchBox');
 					$clearButton.hide();
-					$searchBox.children('input').val('');
-					config.macros.searchBox.closeResults();
+					$input.val('').click();
 				});
 			$input.keyup(function() {
 				if($(this).val()) {
@@ -43,16 +30,33 @@ config.macros.searchBox = {
 		}
 		input.onkeyup = config.macros.search.onKeyPress;
 		input.onfocus = config.macros.search.onFocus;
-		$input.keyup(function() {
+		
+		/*
+		this is adding specific behaviour that happens before click on panels are processed
+		if click on input and there are search results, add noToggle
+		if click on input and there are no search results, remove noToggle
+		if keyup and there is nothing in the search string, click on input
+		*/
+		$input.click(function() {
+			var $searchBox = $('#searchBox'),
+				$ul = $('#searchBox').find('ul.browsingTool'),
+				$results = $ul.children('li');
+			if($results.length) {
+				$searchBox.addClass('noToggle');
+			} else {
+				$searchBox.removeClass('noToggle');
+			}
+		}).keyup(function() {
 			// if we've started typing without clicking on the search box, it won't have opened
 			if($('#searchBox').hasClass('closed')) {
 				$(this).click();
 			}
-			// clear if empty
+			// if empty, click to open
 			if(!$input.val()) {
-				config.macros.searchBox.closeResults();
+				$input.click();
 			}
 		});
+		
 		$('<ul class="browsingTool" id="searchResults"></ul>').appendTo(place);
 	}
 };
