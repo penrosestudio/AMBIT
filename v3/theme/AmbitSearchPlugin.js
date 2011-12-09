@@ -43,7 +43,8 @@ config.extensions.AmbitSearchPlugin = {
 		} else {
 			$searchResults.append('<span>no results for '+query+'</span>');
 		}
-		$('#searchBox').click();
+		console.log('clicking with matches',matches.length,'for ',query);
+		$('#searchBox input').click();
 		
 		/*query = '"""' + query + '"""'; // prevent WikiLinks
 		var $container = $('<div id="'+this.containerId+'"><div class="jbasewrap"><div class="overlay"></div></div></div>').insertAfter('#header'),

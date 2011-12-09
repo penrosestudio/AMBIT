@@ -137,10 +137,12 @@ $('#sidebar .panel').not('.closed').find('ul.browsingTool').height(viewportHeigh
 $('#sidebar .panel').click(function(e) {
 	var $target = $(e.target),
 		$panel = $(this),
+		panelClosed = $panel.hasClass('closed'),
 		$otherPanels = $(this).siblings('.panel');
+	console.log(e,this,$target);
 
-	if(!$target.is('h2, input')) {
-		return;
+	if(!$target.is('input, h2') && !$target.parent().is('h2')) {
+		return true;
 	}
 
 	// close other panels
@@ -163,11 +165,11 @@ $('#sidebar .panel').click(function(e) {
 		return;
 	}
 	$panel.find('.browsingTool').animate({
-		height: isClosed ? viewportHeight : 0
+		height: panelClosed ? viewportHeight : 0
 	}, function() {
 		$panel.toggleClass('closed');
 	});
-	setBgPosY($panel.find('h2'), isClosed ? "-437px" : "-391px");
+	setBgPosY($panel.find('h2'), panelClosed ? "-437px" : "-391px");
 });
 
 

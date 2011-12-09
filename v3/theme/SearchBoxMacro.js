@@ -28,7 +28,7 @@ config.macros.searchBox = {
 				}
 			});
 		}
-		input.onkeyup = config.macros.search.onKeyPress;
+
 		input.onfocus = config.macros.search.onFocus;
 		
 		/*
@@ -37,23 +37,38 @@ config.macros.searchBox = {
 		if click on input and there are no search results, remove noToggle
 		if keyup and there is nothing in the search string, click on input
 		*/
+		
+		// TO-DO: clicking the clear button on the search type input should wrap up the search box
+		
 		$input.click(function() {
 			var $searchBox = $('#searchBox'),
 				$ul = $('#searchBox').find('ul.browsingTool'),
-				$results = $ul.children('li');
-			if($results.length) {
+				$results = $ul.children('li'),
+				isEmpty = !$results.length,
+				panelClosed = $searchBox.hasClass('closed');
+				
+			console.log(panelClosed, isEmpty);
+			console.log('panelClosed && isEmpty',panelClosed && isEmpty);
+			console.log('!panelClosed && !isEmpty', !panelClosed && !isEmpty);
+			
+			if((panelClosed && isEmpty) || (!panelClosed && !isEmpty)) {
 				$searchBox.addClass('noToggle');
 			} else {
 				$searchBox.removeClass('noToggle');
 			}
-		}).keyup(function() {
+			
+			
+		}).keyup(function(e) {
 			// if we've started typing without clicking on the search box, it won't have opened
 			if($('#searchBox').hasClass('closed')) {
-				$(this).click();
-			}
-			// if empty, click to open
-			if(!$input.val()) {
 				$input.click();
+			}
+			// if empty, click to close
+			if(!$input.val()) {
+				$('#searchBox').find('ul.browsingTool li').remove();
+				$input.click();
+			} else {
+				config.macros.search.onKeyPress.call(input, e);
 			}
 		});
 		
