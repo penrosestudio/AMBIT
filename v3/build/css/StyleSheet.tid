@@ -1132,6 +1132,18 @@ a.button {
 	left:330px;
 }
 
+div.error {
+	background-color: #EF6565;
+    color: white;
+    display: block;
+    font-weight: bold;
+    letter-spacing: 0.08em;
+    margin: auto;
+    padding: 5px 10px;
+    text-align: center;
+    font-size: 12px;
+}
+
 /* 
 ----------------------------------- Sidebar
 */
@@ -1321,7 +1333,7 @@ div#searchBox {
 	width: 210px;
 }
 
-#statusPanel, #syncPanel, #messageArea {
+#statusPanel, #syncPanel, #messageArea, #loginForm {
 	position: relative;
 	width: 210px;
 	top: 30px;
@@ -1340,12 +1352,22 @@ div#searchBox {
 	display: inline-block;
 }
 
-#statusPanel a {
+#statusPanel a, #statusPanel #logOutForm input {
 	background-image: url(v3sprite.png);
 	background-repeat: no-repeat;
 	background-position: 90px -592px;	
 	display: inline-block;
 	width: 116px;
+}
+
+#statusPanel #logOutForm input {
+	font-size: 13px;
+	font-weight: bold;
+	font-family: 'Helvetica Neue', Helvetica;
+	color: #ff2b2b;
+	background-color: transparent;
+	border: none;
+	background-image: none;
 }
 
 #statusPanel a.open {
@@ -1689,6 +1711,11 @@ ol ol li {
 	margin-bottom: 20px;
 }
 	
+#tiddlerAIM_Form table, #tiddlerAIM_Form table td, #tiddlerAIM_Form table tr {
+	border: none;
+	margin: 0px;
+}
+
 
 /* 
 ---------------------- Jbase overrides for tiddler headers starting at h3

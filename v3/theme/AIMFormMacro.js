@@ -78,7 +78,7 @@ config.macros.AIMForm = {
 		// add key problem checkbox
 		breakdownPieces.push('<div class="choice">\n' +
 			'<input type="checkbox" value="yes" name="key_problem" class="choice" id="key_problem" />\n' +
-			'<label for="key_problem">Key Bongo problem?</label>\n' +
+			'<label for="key_problem">Is this a key problem?</label>\n' +
 			'</div>');
 		$.each(bits, function(i, bit) {
 			var matches = bitsRegex.exec(bit),
