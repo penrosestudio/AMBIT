@@ -75,6 +75,11 @@ config.macros.AIMForm = {
 			existingValue = item.value,
 			isKeyProblem = item.isKeyProblem,
 			$item;
+		// add key problem checkbox
+		breakdownPieces.push('<div class="choice">\n' +
+			'<input type="checkbox" value="yes" name="key_problem" class="choice" id="key_problem" />\n' +
+			'<label for="key_problem">Key Bongo problem?</label>\n' +
+			'</div>');
 		$.each(bits, function(i, bit) {
 			var matches = bitsRegex.exec(bit),
 				value = matches && matches[1];
@@ -85,11 +90,6 @@ config.macros.AIMForm = {
 					'</div>');
 			}
 		});
-		// add key problem checkbox
-		breakdownPieces.push('<div class="choice">\n' +
-			'<input type="checkbox" value="yes" name="key_problem" class="choice" id="key_problem" />\n' +
-			'<label for="key_problem">Key problem?</label>\n' +
-			'</div>');
 		content += breakdownPieces.join('\n');
 		$item = $('#aimForm div.question div.item');
 		$item.next('div.error').remove();

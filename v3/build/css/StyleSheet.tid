@@ -1611,13 +1611,13 @@ div#searchBox {
 	left: 8px;
 }
 
-#tiddlerAIM_Form h3, #tiddlerAIM_Form h4, #tiddlerAIM_Form h5 {
+#tiddlerAIM_Form .viewer h1, #tiddlerAIM_Form .viewer h2,  #tiddlerAIM_Form h3, #tiddlerAIM_Form h4, #tiddlerAIM_Form h5 {
 	font-weight: bold;
 	color: #333;
 	letter-spacing: 0.02em;
 }
 
-#tiddlerAIM_Form h3 {
+#tiddlerAIM_Form .viewer h3, #tiddlerAIM_Form .viewer h2, #tiddlerAIM_Form .viewer h1 {
 	font-size: 22px;
 }
 
