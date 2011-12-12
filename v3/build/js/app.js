@@ -235,9 +235,14 @@ $('#statusPanel a').live('click', function() {
 			backstage.hide();
 		}
 	}
-	if($clicked.hasClass('edit')) {
+	if($clicked.hasClass('browsing')) {
 		readOnly = true;
 		refreshElements(document.getElementById('tiddlerDisplay'));
+	} else {
+		if(readOnly) {
+			readOnly = false;
+			refreshElements(document.getElementById('tiddlerDisplay'));
+		}		
 	}
 });
 
