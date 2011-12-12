@@ -209,16 +209,17 @@ $('.infoToggle a').live('click', function() {
 // the status panel toggle
 
 $('#statusPanel a').live('click', function() {
+	var $clicked = $(this);
+	if($clicked.hasClass('current')) {
+		$clicked.parent().next().slideToggle(100);
+		$clicked.toggleClass('open');
+	}
+});
+$('#statusPanel #modeStatus a').live('click', function() {
 	var $clicked = $(this),
 		$dropDownContainer,
 		$current;
-	if($clicked.hasClass('current')) {
-		$dropDownContainer = $clicked.parent().next();
-		$dropDownContainer.slideToggle(100, function() {
-			//$clicked.prepend($('#statusPanel'));
-		});
-		$clicked.toggleClass('open');
-	} else {
+	if(!$clicked.hasClass('current')) {
 		$dropDownContainer = $clicked.closest('.dropDown');
 		$current = $dropDownContainer.prev().children('.current');
 		$clicked.insertBefore($current).addClass('current');
@@ -254,5 +255,35 @@ $('#statusPanel').mouseleave(function() {
 });
 
 
-// Screen Width / Positioning
-	
+// login/logout box
+function updateAccountDisplay(name) {
+	$('#statusPanel #accountStatus a.current').text(name);
+}
+function addLoginForm() {
+	var $loginForm = $('<form id="loginForm" action="/login" method="get"> \
+		<label for="username">account ID:</label> \
+		<input type="text" name="username" id="username" /> \
+		<label for="password">password:</label> \
+		<input type="password" name="password" id="password" /> \
+		<input type="submit" value="Log in" /> \
+	</form>');
+	$loginForm.appendTo('#rightPanel');
+}
+
+config.extensions.tiddlyweb.getUserInfo(function(info) {
+	var anon = info.anon,
+		name = info.name;
+	if(anon) {
+		updateAccountDisplay("GUEST");
+		addLoginForm();
+	} else {
+		updateAccountDisplay(name);
+	}
+});
+
+$('#statusPanel #accountStatus form').submit(function(e) {
+	e.preventDefault();
+	var token = config.extensions.tiddlyspace.getCSRFToken();
+	this.action += "?csrf_token="+token;
+	this.submit();
+});

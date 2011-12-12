@@ -51,7 +51,7 @@ title: PageTemplate
 	</div> <!-- End #sidebar -->
 	<div id="rightPanel">
 		<div id="statusPanel">
-			<div>
+			<div id="modeStatus">
 				<span class="title">Mode:</span>
 				<span class="value"><a class="browsing current" href="#">Browsing</a></span>
 				<div class="dropDown">
@@ -59,10 +59,13 @@ title: PageTemplate
 					<span class="value"><a class="advanced" href="#">Advanced</a></span>
 				</div>
 			</div>
-			<div>
+			<div id="accountStatus">
 				<span class="title">Logged in as:</span>
-				<span class="value"><a class="current" href="#">Dickon</a></span>
+				<span class="value"><a class="current" href="#">GUEST</a></span>
 				<div class="dropDown">
+					<form id="logOutForm" action="/logout" method="post">
+						<input type="submit" value="Log out" />
+					</form>
 					<span class="value"><a class="edit" href="#">Log out</a></span>
 				</div>
 			</div>
