@@ -45,7 +45,7 @@ title: PageTemplate
 			<a id="toggle" href="#" title="Toggle Sidebar">Toggle Sidebar</a>
 			<a id="search" href="#" title="Search">Search</a>
 			<a id="history" href="#" title="History">History</a>
-			<a id="current" href="#" title="Currently Open">Currently Open <span>4</span></a>
+			<a id="current" href="#" title="Currently Open">Currently Open <span></span></a>
 			<a id="contents" href="#" title="Contents">Contents</a>
 		</div>
 	</div> <!-- End #sidebar -->

@@ -81,6 +81,27 @@ $('#sidebarIcons').click(function(e) {
 		}
 	}
 });
+
+// keep Currently Open count up-to-date
+function updateCurrentlyOpenCounter(e, closing) {
+	var count = $('#contentWrapper .tiddler').length;
+	if(closing) {
+		count -= 1;
+	}
+	if(count<0) {
+		count=0;
+	}
+	$('#sidebarIcons #current span').each(function() {
+		if(!count) {
+			$(this).hide().text('');
+		} else {
+			$(this).show().text(count);
+		}
+	});
+}
+updateCurrentlyOpenCounter();
+$(document).bind("StoryUpdated", updateCurrentlyOpenCounter);
+
 $(window).resize(function() {
 	delay(function() {
 		var open = parseInt($('#sidebar').css('left'),10)!==0;
@@ -139,7 +160,6 @@ $('#sidebar .panel').click(function(e) {
 		$panel = $(this),
 		panelClosed = $panel.hasClass('closed'),
 		$otherPanels = $(this).siblings('.panel');
-	console.log(e,this,$target);
 
 	if(!$target.is('input, h2') && !$target.parent().is('h2')) {
 		return true;

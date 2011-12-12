@@ -81,7 +81,7 @@
 					mainPaneOffset = $('#displayArea').offset(),
 					x = $element.offset().left-mainPaneOffset.left,
 					$readingList = $('#currentlyOpenPanel li'),
-					$target = $readingList.eq($readingList.length-1),
+					$target = $('#sidebar').position().left>=0 ? $readingList.eq($readingList.length-1) : $('#sidebarIcons #current span'),
 					toY = $target.offset().top + $target.height() + parseInt($target.css('paddingTop'),10) + parseInt($target.css('paddingBottom'),10) + parseInt($target.css('marginTop'),10) + parseInt($target.css('marginBottom'),10),
 					toX = $target.offset().left;
 				$linkClone.css({
@@ -110,6 +110,7 @@
 				var title = (tiddler instanceof Tiddler) ? tiddler.title : tiddler;
 				plugin.refreshList(title);
 			}
+			$(document).trigger("StoryUpdated");
 		};
 		
 		// recreate list when tiddler closed
@@ -117,6 +118,7 @@
 		Story.prototype.closeTiddler = function(title, animate, unused) {
 			tmpCloseTiddler.apply(this, arguments);
 			plugin.refreshList(title, title);
+			$(document).trigger("StoryUpdated", [true]);
 		}
 	};
 }(jQuery));

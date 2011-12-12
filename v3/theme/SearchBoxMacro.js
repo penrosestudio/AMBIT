@@ -43,20 +43,16 @@ config.macros.searchBox = {
 		$input.click(function() {
 			var $searchBox = $('#searchBox'),
 				$ul = $('#searchBox').find('ul.browsingTool'),
-				$results = $ul.children('li'),
+				$results = $ul.children('li, span'),
+				isBlank = !$input.val(),
 				isEmpty = !$results.length,
 				panelClosed = $searchBox.hasClass('closed');
-				
-			console.log(panelClosed, isEmpty);
-			console.log('panelClosed && isEmpty',panelClosed && isEmpty);
-			console.log('!panelClosed && !isEmpty', !panelClosed && !isEmpty);
-			
-			if((panelClosed && isEmpty) || (!panelClosed && !isEmpty)) {
-				$searchBox.addClass('noToggle');
-			} else {
+
+			if((panelClosed && !isEmpty) || (!panelClosed && isBlank)) {
 				$searchBox.removeClass('noToggle');
-			}
-			
+			} else {
+				$searchBox.addClass('noToggle');
+			}			
 			
 		}).keyup(function(e) {
 			// if we've started typing without clicking on the search box, it won't have opened
