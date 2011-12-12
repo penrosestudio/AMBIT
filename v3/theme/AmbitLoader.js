@@ -1,4 +1,8 @@
 /*{{{*/
+
+// settings
+config.options.chkBackstage = false;
+
 config.extensions.ambitLoader = {
 	dispatch: function() {
 		// go get the content of app.js and eval them

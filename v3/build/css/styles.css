@@ -818,6 +818,10 @@ hr.infoBorder {
 	background-position: 10px -300px;
 }
 
+#displayArea .toolbarReadOnly a.command_editTiddler {
+	display: none;
+}
+
 #displayArea .toolbar a.command_closeTiddler, #displayArea .toolbar a.command_cancelTiddler {
 	background-position: 10px -350px;
 }

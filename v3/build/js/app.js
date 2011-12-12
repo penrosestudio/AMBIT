@@ -206,12 +206,39 @@ $('.infoToggle a').live('click', function() {
 	return false;
 });
 
-// the status toggle
+// the status panel toggle
 
-$('#statusPanel a.current').click(function() {
-	$(this).parent().next('div.dropDown').slideToggle(100);
-	$(this).toggleClass('open');
-	return false;
+$('#statusPanel a').live('click', function() {
+	var $clicked = $(this),
+		$dropDownContainer,
+		$current;
+	if($clicked.hasClass('current')) {
+		$dropDownContainer = $clicked.parent().next();
+		$dropDownContainer.slideToggle(100, function() {
+			//$clicked.prepend($('#statusPanel'));
+		});
+		$clicked.toggleClass('open');
+	} else {
+		$dropDownContainer = $clicked.closest('.dropDown');
+		$current = $dropDownContainer.prev().children('.current');
+		$clicked.insertBefore($current).addClass('current');
+		$current.prependTo($dropDownContainer).removeClass('current');
+	}
+	
+	// handle advanced toggling
+	if($clicked.hasClass('advanced')) {
+		if(!backstage.isVisible()) {
+			backstage.show();
+		}	
+	} else {
+		if(backstage.isVisible()) {
+			backstage.hide();
+		}
+	}
+	if($clicked.hasClass('edit')) {
+		readOnly = true;
+		refreshElements(document.getElementById('tiddlerDisplay'));
+	}
 });
 
 $('#statusPanel').mouseleave(function() {
