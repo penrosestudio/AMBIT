@@ -1,0 +1,18 @@
+title: AIMFormViewTemplate
+
+<!--{{{-->
+<div id="aimForm">
+	<div class="navigation left">
+		<a class="previous button">Prev<span></span></a>
+		<a class="next button">Next<span></span></a>
+	</div>
+	<ul class="AIMmenu">
+	</ul>
+	<div class="question">
+		<div class="item"></div>
+		<div class="navigation">
+			<a class="next button">Next<span></span></a>
+		</div>
+	</div>
+</div>
+<!--}}}-->

@@ -482,74 +482,77 @@ div#searchBox {
 */
 
 
-#AIM-Form {
+#tiddlerAIM_Form {
 	background-color: #fffada;
 }
 
-#AIM-Form .watermark, #AIM-Form .infoToggle, #AIM-Form .infoBorder {
+#tiddlerAIM_Form .watermark, #tiddlerAIM_Form .infoToggle, #tiddlerAIM_Form .infoBorder {
 	display: none;
 }
 
-#AIM-Form .article {
+#tiddlerAIM_Form .article {
 	padding: 0px 0px 30px 0px;
 	margin-top: 40px;
 	position: relative;
 	overflow: hidden;
 }
 
-#AIM-Form .question {
+#tiddlerAIM_Form .question {
 	background-color: #fff297;
 	width: 500px;
 	padding: 20px 20px 40px;
 	float: right;
 }
 
-ul.AIMmenu {
+.viewer ul.AIMmenu {
 	float: left;
 	width: 150px;
 	margin: 50px 0px 0px 30px;
 	font-size: 13px;
+	padding-left: 0px;
 }
 
-ul.AIMmenu ul {
+.viewer ul.AIMmenu ul {
 	margin: 0px;
 	border-left: 2px solid #fff297;
 	border-bottom: 2px solid #fff297;
+	padding-left: 0px;
+	display: none;
 }
 
-.AIMmenu li {
+.viewer .AIMmenu li {
 	list-style: none;
 	overflow: hidden;
 }
 
-.AIMmenu li a {
+.viewer .AIMmenu li a {
 	color: #333;
 	line-height: 20px;
 	padding: 10px 10px;
 	display: block;
 }
 
-.AIMmenu li.done a {
+.viewer .AIMmenu li.done a {
 	color: #5f973a;
 }
 
-.AIMmenu li.active {
+.viewer .AIMmenu li.active {
 	
 }
 
-.AIMmenu li.active a {
+.viewer .AIMmenu li.active a {
 	background-color: #fff297;
 }
 
-.AIMmenu li.active ul  a {
+.viewer .AIMmenu li.active ul  a {
 	background-color: transparent;
 }
 
-.AIMmenu li.active ul  li.active a {
+.viewer .AIMmenu li.active ul  li.active a {
 	background-color: #fff5ad;
 }
 
-#AIM-Form .navigation {
+#tiddlerAIM_Form .navigation {
 	position: absolute;
 	width: 150px;
 	left: 30px;
@@ -557,17 +560,17 @@ ul.AIMmenu ul {
 	text-align: center;
 }
 
-#AIM-Form .navigation a {
+#tiddlerAIM_Form .navigation a {
 	margin-right: 5px;
 	padding-right: 20px;
 	position: relative;
 }
 
-#AIM-Form .navigation a.previous {
+#tiddlerAIM_Form .navigation a.previous {
 	padding: 0px 5px 0px 20px;
 }
 
-#AIM-Form .navigation a span {
+#tiddlerAIM_Form .navigation a span {
 	background-image: url("v3sprite.png");
     background-position: 0px -650px;
     background-repeat: no-repeat;
@@ -581,54 +584,54 @@ ul.AIMmenu ul {
     right: 3px;
 }
 
-#AIM-Form .navigation a.previous span {
+#tiddlerAIM_Form .navigation a.previous span {
 	background-position: 0px -849px;
 	left: 8px;
 }
 
-#AIM-Form h3, #AIM-Form h4, #AIM-Form h5 {
+#tiddlerAIM_Form h3, #tiddlerAIM_Form h4, #tiddlerAIM_Form h5 {
 	font-weight: bold;
 	color: #333;
 	letter-spacing: 0.02em;
 }
 
-#AIM-Form h3 {
+#tiddlerAIM_Form h3 {
 	font-size: 22px;
 }
 
-#AIM-Form h4 {
+#tiddlerAIM_Form h4 {
 	font-size: 18px;
 }
 
-#AIM-Form h5 {
+#tiddlerAIM_Form h5 {
 	font-size: 14px;
 }
 
-#AIM-Form .choice {
+#tiddlerAIM_Form .choice {
 	position: relative;
 	border-bottom: 1px solid #fafafa;
 	font-size: 13px;
 }
 
-#AIM-Form .choice input {
+#tiddlerAIM_Form .choice input {
 	position: absolute;
 	top: 50%;
 	margin-top: -10px;
 	right: 10px;
 }
 
-#AIM-Form .choice label {
+#tiddlerAIM_Form .choice label {
 	cursor: pointer;
 	display: block;
 	padding: 10px 35px 10px 140px;
 	letter-spacing: 0.02em;
 }
 
-#AIM-Form .choice label:hover {
+#tiddlerAIM_Form .choice label:hover {
 	background-color: #fffad9;
 }
 
-#AIM-Form .choice label strong {
+#tiddlerAIM_Form .choice label strong {
 	display: block;
 	width: 130px;
 	float: left;
@@ -644,7 +647,7 @@ ol ol li {
 	list-style: lower-alpha;
 }
 
-#AIM-Form input {
+#tiddlerAIM_Form input {
 	margin-left: 20px;
 	font-weight: normal;
 	border: none;
@@ -652,7 +655,7 @@ ol ol li {
 	padding: 5px 8px;
 }
 
-#AIM-Form .question .navigation {
+#tiddlerAIM_Form .question .navigation {
 	right: 20px;
 	bottom: 40px;
 	left: auto;
@@ -660,7 +663,7 @@ ol ol li {
 	width: 50px
 }
 
-#AIM-Form .item {
+#tiddlerAIM_Form .item {
 	margin-bottom: 20px;
 }
 	
