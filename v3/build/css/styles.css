@@ -110,6 +110,18 @@ a.button {
 	left:330px;
 }
 
+div.error {
+	background-color: #EF6565;
+    color: white;
+    display: block;
+    font-weight: bold;
+    letter-spacing: 0.08em;
+    margin: auto;
+    padding: 5px 10px;
+    text-align: center;
+    font-size: 12px;
+}
+
 /* 
 ----------------------------------- Sidebar
 */
@@ -667,6 +679,11 @@ ol ol li {
 	margin-bottom: 20px;
 }
 	
+#tiddlerAIM_Form table, #tiddlerAIM_Form table td, #tiddlerAIM_Form table tr {
+	border: none;
+	margin: 0px;
+}
+
 
 /* 
 ---------------------- Jbase overrides for tiddler headers starting at h3

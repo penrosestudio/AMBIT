@@ -1689,6 +1689,11 @@ ol ol li {
 	margin-bottom: 20px;
 }
 	
+#tiddlerAIM_Form table, #tiddlerAIM_Form table td, #tiddlerAIM_Form table tr {
+	border: none;
+	margin: 0px;
+}
+
 
 /* 
 ---------------------- Jbase overrides for tiddler headers starting at h3
