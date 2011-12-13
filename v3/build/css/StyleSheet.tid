@@ -1368,6 +1368,7 @@ div#searchBox {
 	background-color: transparent;
 	border: none;
 	background-image: none;
+	text-align: left;
 }
 
 #statusPanel a.open {
@@ -1398,9 +1399,10 @@ div#searchBox {
 	padding-left: 10px;
 }
 
-#statusPanel .dropDown a:hover {
+#statusPanel .dropDown a:hover, #statusPanel #logOutForm input:hover {
 	background-color: #303030;
 	color: #fff;
+	cursor: pointer;
 }
 
 #syncPanel { 
