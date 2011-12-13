@@ -1144,6 +1144,10 @@ div.error {
     font-size: 12px;
 }
 
+.highlight {
+	background: #ff2b2b;
+}
+
 /* 
 ----------------------------------- Sidebar
 */
@@ -1347,6 +1351,10 @@ div#searchBox {
           box-shadow: 0px 1px 2px #000; 
 }
 
+#loginForm {
+	top: 50px;
+}
+
 #statusPanel .title {
 	width: 90px;
 	display: inline-block;
@@ -1358,6 +1366,7 @@ div#searchBox {
 	background-position: 90px -592px;	
 	display: inline-block;
 	width: 116px;
+	height: 25px;
 }
 
 #statusPanel #logOutForm input {
@@ -1543,6 +1552,11 @@ div#searchBox {
 	overflow: hidden;
 }
 
+#tiddlerAIM_Form .article.editor {
+	padding: 40px 80px 30px 50px;
+	margin-top: 0px;
+}
+
 #tiddlerAIM_Form .question {
 	background-color: #fff297;
 	width: 500px;
@@ -1556,6 +1570,7 @@ div#searchBox {
 	margin: 50px 0px 0px 30px;
 	font-size: 13px;
 	padding-left: 0px;
+	font-weight: bold;
 }
 
 .viewer ul.AIMmenu ul {
@@ -1564,6 +1579,7 @@ div#searchBox {
 	border-bottom: 2px solid #fff297;
 	padding-left: 0px;
 	display: none;
+	font-weight: normal;
 }
 
 .viewer .AIMmenu li {
@@ -1592,6 +1608,7 @@ div#searchBox {
 
 .viewer .AIMmenu li.active ul  a {
 	background-color: transparent;
+	padding-left: 5px;
 }
 
 .viewer .AIMmenu li.active ul  li.active a {
@@ -1699,6 +1716,12 @@ ol ol li {
 	border: none;
 	margin-bottom: 10px;
 	padding: 5px 8px;
+}
+
+#tiddlerAIM_Form .editor input {
+	border: inherit;
+	margin-left: 0px;
+	
 }
 
 #tiddlerAIM_Form .question .navigation {
@@ -1838,6 +1861,7 @@ hr.infoBorder {
 	left: 490px;
 	top: 10px;
 	text-align: right;
+	z-index: 1;
 }
 
 #displayArea .toolbar a {
