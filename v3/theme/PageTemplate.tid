@@ -32,6 +32,7 @@ title: PageTemplate
 		<div class="panel closed" id="currentlyOpenPanel">
 			<h2>
 				<a href="#">Currently Open</a>
+				<span macro="buttonPermaviewMacro"></span>
 			</h2>
 			<div macro="youAreReading"></div>
 		</div>

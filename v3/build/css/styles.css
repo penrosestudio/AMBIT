@@ -210,12 +210,38 @@ div#searchBox {
 	background-image: url(v3sprite.png);
 	background-position: 5px -437px;
 	background-repeat: no-repeat;
+	position: relative;
 }
 
 #sidebar .panel h2 a {
 	color: #fcfcfc;
 	display: block;
 	padding: 0px 0px 0px 20px;
+}
+
+#sidebar button#snapshot { /* camera image from The Noun Project  http://thenounproject.com/noun/camera/#icon-No476 */
+	background-position: 7px -992px;
+	background-image: url(v3sprite.png);
+	background-repeat: no-repeat;
+	display: block;
+	text-indent: -999px;
+	width: 30px;
+	height: 30px;
+	cursor: pointer;
+	z-index: 100;
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	padding: 0px;
+	border: none;
+	background-color: transparent;
+}
+
+#sidebar #snapshot:hover {
+	opacity: 0.6;
+	-webkit-box-shadow: none; 
+	-moz-box-shadow: none; 
+	box-shadow: none; 
 }
 
 #sidebar .panel h2 a:hover {
@@ -680,6 +706,11 @@ div#searchBox {
 	font-size: 14px;
 }
 
+#tiddlerAIM_Form .choice label#key_problem_label strong {
+	width: 200px;
+	float: none;
+}
+
 ol li {
 	list-style: decimal;
 }
@@ -967,6 +998,8 @@ a#contents {
 	background-position: 10px -192px;
 }
 
+
+
 /*
 
 Editor Styles 
@@ -1026,4 +1059,54 @@ Editor Styles
 #backstagePanel a {
 	color: #303030;
 }
+
+/*-------------- Pop up lists */
+
+ol.popup {
+    background-color: #fbfbfb;
+    border: 1px solid #CCCCCC;
+    color: #565656;
+	font-size: 11px;
+    list-style: none outside none;
+    margin: -1px 0 0;
+    padding: 10px;
+    position: absolute;
+    z-index: 300;
+	-moz-box-shadow: 1px 1px 2px #939393;
+	-webkit-box-shadow: 1px 1px 2px #939393;
+	box-shadow: 1px 1px 2px #939393;
+	letter-spacing: 0.04em;
+}
+
+ol.popup table, ol.popup table *  {
+	margin: 0px;	
+	border: none;
+}
+
+ol.popup table td {
+    font-weight: normal;
+    padding: 2px 6px;
+    text-align: left;
+}
+
+.popup li {
+	list-style: none;
+}
+
+.popup li a {
+    cursor: pointer;
+    display: block;
+    font-weight: normal;
+    padding: 2px 4px;
+}
+.popup li a:hover {
+	background-color: #303030;
+	color: #fefefe;
+}
+
+.popup li a, .popup li a:visited {
+    border: medium none;
+    color: #565656;
+}
+
 
