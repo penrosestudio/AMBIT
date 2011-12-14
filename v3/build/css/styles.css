@@ -371,6 +371,7 @@ div#searchBox {
 	font-weight: normal;
 	font-size: 11px;
 	letter-spacing: 0.04em;
+	display: none;
 }
 
 #loginForm input { 
