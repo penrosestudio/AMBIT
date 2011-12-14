@@ -43,7 +43,7 @@
 					.appendTo($listItem);
 			
 				$listItem.click(function(e) {
-					if(!$(e.target).is('a')) {
+					if($(e.target).is('ul')) { // you clicked on the background!
 						return false;
 					}
 					$(this)

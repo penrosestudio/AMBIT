@@ -80,9 +80,9 @@ title: PageTemplate
 			<button class="negative"><span>Discard</span>Discard</button>
 		</div>-->
 		<div id="messageArea"></div>
-		<form id="loginForm" action="/login" method="get">
-			<label for="username">account ID:</label>
-			<input type="text" name="username" id="username" />
+		<form id="loginForm" action="/challenge/tiddlywebplugins.tiddlyspace.cookie_form" method="post">
+			<label for="user">account ID:</label>
+			<input type="text" name="user" id="user" />
 			<label for="password">password:</label>
 			<input type="password" name="password" id="password" />
 			<button type="submit">Log in</button>

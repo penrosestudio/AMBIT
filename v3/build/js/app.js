@@ -260,16 +260,14 @@ $('#statusPanel').mouseleave(function() {
 function updateAccountDisplay(name) {
 	var $status = $('#statusPanel #accountStatus'),
 		$title =  $status.children('.title'),
-		$account = $status.children('.value'),
+		$current = $status.children('.value').children('.current'),
 		$dropDown = $status.children('.dropDown');
 	if(!name) {
 		$title.text('Not logged in');
-		$account.text('');
-		$dropDown.hide();
+		$current.text('').css('visibility','hidden');
 	} else {
 		$title.text('Logged in as:');
-		$account.text(name);
-		$dropDown.show();
+		$current.text(name).css('visibilit','visible');
 	}
 }
 function addLoginForm() {
