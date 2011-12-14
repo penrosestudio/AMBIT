@@ -110,7 +110,7 @@ a.button {
 	left:330px;
 }
 
-div.error {
+#tiddlerAIM_Form div.error {
 	background-color: #EF6565;
     color: white;
     display: block;
@@ -443,6 +443,7 @@ div#searchBox {
 #syncPanel { 
 	margin-top: 20px;
 	padding-bottom: 10px;
+	display: none;
 }
 
 #messageArea {
@@ -470,16 +471,23 @@ div#searchBox {
 }
 
 #messageArea a {
-	text-decoration: none;	
-	
+	text-decoration: none;		
 }
 
 #syncPanel h3 { 
 	font-size: 13px;
 	font-weight: bold;	
 	padding-right: 10px;
-	margin-bottom: 0px;
+	margin-bottom: 10px;
 	line-height: 18px;
+}
+
+#syncPanel.error h3 {
+	color: #ff2b2b;
+}
+
+#syncPanel.success h3 { 
+	color: #74C276;
 }
 
 #syncPanel p { 
