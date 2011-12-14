@@ -302,6 +302,15 @@ div#searchBox {
 	color: #ff2b2b;
 }
 
+#sidebar #contentsPanel ul {
+	margin-left: 20px;
+	padding-left: 20px;
+}
+
+#sidebar #contentsPanel ul ul {
+	margin-left: 0px;
+}
+
 #sidebar #contentsPanel li {
 	list-style: none;
 }
@@ -318,6 +327,7 @@ div#searchBox {
 	background-color: #fcfcfc;
 	text-decoration: none;
 	padding-bottom: 4px;
+	margin-left: -20px;
 }
 
 #sidebar #contentsPanel li span.open:after {
@@ -356,7 +366,18 @@ div#searchBox {
 }
 
 #loginForm {
-	top: 50px;
+	margin-top: 20px;
+	padding: 10px;
+	font-weight: normal;
+	font-size: 11px;
+	letter-spacing: 0.04em;
+}
+
+#loginForm input { 
+	margin-bottom: 10px;
+	border: 1px solid #ccc;
+	padding: 7px;
+	width: 170px;
 }
 
 #statusPanel .title {
@@ -419,12 +440,11 @@ div#searchBox {
 }
 
 #syncPanel { 
-	top: 50px;
+	margin-top: 20px;
 	padding-bottom: 10px;
 }
 
 #messageArea {
-	top: 50px;
 	margin: 0px;
 	padding: 10px;
 	border: none;
@@ -432,6 +452,7 @@ div#searchBox {
 	font-size: 11px;
 	letter-spacing: 0.06em;
 	font-weight: normal;
+	margin-top: 20px;
 }
 
 #messageArea div {
@@ -598,6 +619,10 @@ div#searchBox {
 	display: block;
 }
 
+.viewer .AIMmenu ul li a {
+	padding-left: 15px;
+}
+
 .viewer .AIMmenu li.done a {
 	color: #5f973a;
 }
@@ -607,12 +632,11 @@ div#searchBox {
 }
 
 .viewer .AIMmenu li.active a {
-	background-color: #fff297;
+	background-color: #ffffff;
 }
 
 .viewer .AIMmenu li.active ul  a {
 	background-color: transparent;
-	padding-left: 5px;
 }
 
 .viewer .AIMmenu li.active ul  li.active a {

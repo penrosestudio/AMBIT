@@ -1324,6 +1324,15 @@ div#searchBox {
 	color: #ff2b2b;
 }
 
+#sidebar #contentsPanel ul {
+	margin-left: 20px;
+	padding-left: 20px;
+}
+
+#sidebar #contentsPanel ul ul {
+	margin-left: 0px;
+}
+
 #sidebar #contentsPanel li {
 	list-style: none;
 }
@@ -1340,6 +1349,7 @@ div#searchBox {
 	background-color: #fcfcfc;
 	text-decoration: none;
 	padding-bottom: 4px;
+	margin-left: -20px;
 }
 
 #sidebar #contentsPanel li span.open:after {
@@ -1620,6 +1630,10 @@ div#searchBox {
 	display: block;
 }
 
+.viewer .AIMmenu ul li a {
+	padding-left: 15px;
+}
+
 .viewer .AIMmenu li.done a {
 	color: #5f973a;
 }
@@ -1634,7 +1648,6 @@ div#searchBox {
 
 .viewer .AIMmenu li.active ul  a {
 	background-color: transparent;
-	padding-left: 5px;
 }
 
 .viewer .AIMmenu li.active ul  li.active a {
