@@ -1,0 +1,7 @@
+title: SyncPluginMessages
+
+syncing: Syncing to online manual
+error: Error syncing to online manual
+flush: Cleared all unsynced items
+complete: Syncing to online manual complete
+unsyncedNote: The following items were not synced to the online manual. They can be synced from your browser when you have an internet connection

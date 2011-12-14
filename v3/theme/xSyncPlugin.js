@@ -127,7 +127,7 @@ SYNC module
 		},
 		// all tiddlers will show the same message box
 		getStatusBoxes: function() {
-			return $('#syncPanel');
+			return $('#syncPanel').show();
 		},
 		getTiddlerFromURL: function(url) {
 			return url && decodeURIComponent(url.substring(url.lastIndexOf('/')+1));
@@ -163,7 +163,7 @@ SYNC module
 					}, 1500);
 					break;
 				case "complete":
-					$boxes.removefboClass('pending error').addClass('success')
+					$boxes.removeClass('pending error').addClass('success')
 						.children('h3').text(statusMessage.messages.complete).end()
 						.children('p').hide().end()
 						.children('button').hide().end()
