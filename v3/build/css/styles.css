@@ -443,6 +443,7 @@ div#searchBox {
 #syncPanel { 
 	margin-top: 20px;
 	padding-bottom: 10px;
+	visibility: hidden;
 }
 
 #messageArea {
