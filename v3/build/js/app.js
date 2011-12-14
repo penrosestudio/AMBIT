@@ -215,7 +215,8 @@ $('#statusPanel a').live('click', function() {
 		$clicked.toggleClass('open');
 	}
 });
-$('#statusPanel #modeStatus a').live('click', function() {
+$('#statusPanel #modeStatus a').live('click', function(e) {
+	e.preventDefault();
 	var $clicked = $(this),
 		$dropDownContainer,
 		$current;

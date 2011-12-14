@@ -92,7 +92,7 @@ config.macros.AIMForm = {
 		});
 		content += breakdownPieces.join('\n');
 		$item = $('#aimForm div.question div.item');
-		$item.next('div.error').remove();
+		$item.find('div.error').remove();
 		$item.html(content);
 		if(existingValue) {
 			$item.find('input[value="'+existingValue+'"]').attr('checked','checked');
@@ -102,16 +102,17 @@ config.macros.AIMForm = {
 		}
 		$item.find('input[type=checkbox]').change(function(e) {
 			var plugin = config.macros.AIMForm,
-				keyProblemCount = plugin.keyProblemCount || 0;
-			$item.next('div.error').remove();
+				keyProblemCount = plugin.keyProblemCount || 0,
+				$choiceBox = $(this).parent();
+			$choiceBox.prev('div.error').remove();
 			if(!$('#aimForm').find('div.item input[type=radio]:checked').length) {
-				$('<div class="error">Please choose an option first</div>').insertAfter($item);
+				$('<div class="error">Please choose an option first</div>').insertBefore($choiceBox);
 				this.checked = false;
 				return true; // don't pay attention if there is no item selected
 			}
 			if(this.checked) {
 				if(keyProblemCount>=6) { // this allows six to be selected
-					$('<div class="error">'+store.getRecursiveTiddlerText('AIMFormKeyProblemErrorMessage', 'too many key problems selected', 0)+'</div>').insertAfter($item);
+					$('<div class="error">'+store.getRecursiveTiddlerText('AIMFormKeyProblemErrorMessage', 'too many key problems selected', 0)+'</div>').insertBefore($choiceBox);
 					this.checked = false;
 				} else {
 					plugin.keyProblemCount = ++keyProblemCount;

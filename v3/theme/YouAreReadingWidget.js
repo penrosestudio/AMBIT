@@ -81,9 +81,27 @@
 					mainPaneOffset = $('#displayArea').offset(),
 					x = $element.offset().left-mainPaneOffset.left,
 					$readingList = $('#currentlyOpenPanel li'),
-					$target = $('#sidebar').position().left>=0 ? $readingList.eq($readingList.length-1) : $('#sidebarIcons #current span'),
-					toY = $target.offset().top + $target.height() + parseInt($target.css('paddingTop'),10) + parseInt($target.css('paddingBottom'),10) + parseInt($target.css('marginTop'),10) + parseInt($target.css('marginBottom'),10),
+					existingList = $readingList.map(function(i) {
+						if($(this).children('a').text()===linkText) {
+							return i;
+						}
+					}).get(),
+					panelIsVisible = $('#sidebar').position().left>=0 && $('#currentlyOpenPanel ul').height(),
+					$existingLink = existingList.length && $readingList.eq(existingList[0]).children('a'),
+					$target,
+					$toX,
+					$toY;
+				$target = panelIsVisible ? $existingLink : $('#sidebarIcons #current span');
+				if($target.length) {
+					toY = $target.offset().top + parseInt($target.css('paddingTop'),10) + parseInt($target.css('marginTop'),10);
 					toX = $target.offset().left;
+				} else {
+					$target = $readingList.last();
+					toY = $target.height();
+					$target = $target.children('a');
+					toY += $target.offset().top + parseInt($target.css('paddingTop'),10) + parseInt($target.css('marginTop'),10);
+					toX = $target.offset().left;
+				}
 				$linkClone.css({
 					"position": "absolute",
 					"z-index": "10",
