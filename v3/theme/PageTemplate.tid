@@ -70,7 +70,7 @@ title: PageTemplate
 				</div>
 			</div>
 		</div><!-- End #statusPanel -->
-		<!--<div id="syncPanel">
+		<div id="syncPanel">
 			<h3>Error syncing to online manual</h3>
 			<p>The following items were not synced to the online manual. They can be synced from your browser when you have an internet connection</p>
 			<ul>
@@ -78,7 +78,7 @@ title: PageTemplate
 			</ul>
 			<button class="affirmative"><span>Sync</span>Sync</button>
 			<button class="negative"><span>Discard</span>Discard</button>
-		</div>-->
+		</div>
 		<div id="messageArea"></div>
 		<form id="loginForm" action="/challenge/tiddlywebplugins.tiddlyspace.cookie_form" method="post">
 			<label for="user">account ID:</label>
