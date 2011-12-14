@@ -1465,7 +1465,6 @@ div#searchBox {
 #syncPanel { 
 	margin-top: 20px;
 	padding-bottom: 10px;
-	visibility: hidden;
 }
 
 #messageArea {
@@ -1502,6 +1501,7 @@ div#searchBox {
 	font-weight: bold;	
 	padding-right: 10px;
 	margin-bottom: 0px;
+	line-height: 18px;
 }
 
 #syncPanel p { 
