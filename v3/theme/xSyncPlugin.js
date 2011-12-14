@@ -96,7 +96,7 @@ SYNC module
 			plugin.sync = function() {
 				var item = plugin.nextUnsynced();
 				if(item) {
-					//console.log('sync');
+					//console.log('sync', item);
 					$(document).trigger("syncStart",[item]);
 					plugin.putItem(item);
 				}
@@ -139,6 +139,7 @@ SYNC module
 				case "syncing":
 					$boxes.removeClass('error success').addClass('pending')
 						.children('h3').text(statusMessage.messages.syncing).end()
+						.children('button').hide().end()
 						.show();
 					this.updateSyncList();
 					//console.log('syncing',$boxes.children('h3').text());
