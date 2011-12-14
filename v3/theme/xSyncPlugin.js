@@ -263,11 +263,11 @@ SYNC module
 			statusMessage.flush();
 		});
 		
-		$('.syncButton').live('click', function() {
+		$('#syncPanel .affirmative').live('click', function() {
 			plugin.sync();
 			return false;
 		});
-		$('.syncCancelButton').live('click', function() {
+		$('#syncPanel .negative').live('click', function() {
 			plugin.clearStorage();
 			return false;
 		});
