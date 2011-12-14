@@ -43,6 +43,9 @@
 					.appendTo($listItem);
 			
 				$listItem.click(function(e) {
+					if(!$(e.target).is('a')) {
+						return false;
+					}
 					$(this)
 						.children('span')
 						.toggleClass('closed open')

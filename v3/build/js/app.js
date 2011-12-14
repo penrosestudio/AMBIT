@@ -258,24 +258,29 @@ $('#statusPanel').mouseleave(function() {
 
 // login/logout box
 function updateAccountDisplay(name) {
-	$('#statusPanel #accountStatus a.current').text(name);
+	var $status = $('#statusPanel #accountStatus'),
+		$title =  $status.children('.title'),
+		$account = $status.children('.value'),
+		$dropDown = $status.children('.dropDown');
+	if(!name) {
+		$title.text('Not logged in');
+		$account.text('');
+		$dropDown.hide();
+	} else {
+		$title.text('Logged in as:');
+		$account.text(name);
+		$dropDown.show();
+	}
 }
 function addLoginForm() {
-	var $loginForm = $('<form id="loginForm" action="/login" method="get"> \
-		<label for="username">account ID:</label> \
-		<input type="text" name="username" id="username" /> \
-		<label for="password">password:</label> \
-		<input type="password" name="password" id="password" /> \
-		<input type="submit" value="Log in" /> \
-	</form>');
-	$loginForm.appendTo('#rightPanel');
+	var $loginForm = $('#loginForm').show();
 }
 
 config.extensions.tiddlyweb.getUserInfo(function(info) {
 	var anon = info.anon,
 		name = info.name;
 	if(anon) {
-		updateAccountDisplay("GUEST");
+		updateAccountDisplay();
 		addLoginForm();
 	} else {
 		updateAccountDisplay(name);
