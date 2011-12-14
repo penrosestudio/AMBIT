@@ -1388,7 +1388,19 @@ div#searchBox {
 }
 
 #loginForm {
-	top: 50px;
+	margin-top: 20px;
+	padding: 10px;
+	font-weight: normal;
+	font-size: 11px;
+	letter-spacing: 0.04em;
+	display: none;
+}
+
+#loginForm input { 
+	margin-bottom: 10px;
+	border: 1px solid #ccc;
+	padding: 7px;
+	width: 170px;
 }
 
 #statusPanel .title {
@@ -1451,12 +1463,11 @@ div#searchBox {
 }
 
 #syncPanel { 
-	top: 50px;
+	margin-top: 20px;
 	padding-bottom: 10px;
 }
 
 #messageArea {
-	top: 50px;
 	margin: 0px;
 	padding: 10px;
 	border: none;
@@ -1464,6 +1475,7 @@ div#searchBox {
 	font-size: 11px;
 	letter-spacing: 0.06em;
 	font-weight: normal;
+	margin-top: 20px;
 }
 
 #messageArea div {
@@ -1643,7 +1655,7 @@ div#searchBox {
 }
 
 .viewer .AIMmenu li.active a {
-	background-color: #fff297;
+	background-color: #ffffff;
 }
 
 .viewer .AIMmenu li.active ul  a {
