@@ -32,6 +32,11 @@ a:hover {
 	text-decoration: underline;
 }
 
+#displayArea iframe {
+	height: auto;
+	width: auto;
+}
+
 #displayArea button, #displayArea a.button {
 	font-size: 11px;
 	font-family: "Helvetica Neue", Helvetica;
@@ -908,7 +913,7 @@ hr.infoBorder {
 	z-index: 1;
 }
 
-#displayArea .toolbar a {
+#displayArea .toolbar a, #displayArea .toolbar span {
 	background-image: url(v3sprite.png);
 	background-repeat: no-repeat;
 	display: block;
@@ -955,6 +960,15 @@ hr.infoBorder {
 #displayArea .toolbar .button {
 	border: none;
 }
+
+#displayArea .public {
+	background-position: 0px -1100px;
+	
+} 
+
+#displayArea .private {
+	background-position: 0px -1050px;	
+} 
 
 #displayArea .toolbar .button:hover, #displayArea .toolbar .button:active {
 	border: none;
@@ -1143,5 +1157,7 @@ ol.popup table td {
     border: medium none;
     color: #565656;
 }
+
+
 
 
