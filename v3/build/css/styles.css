@@ -1186,7 +1186,7 @@ ol.popup table td {
 
 #tiddlerDisplay .tabSet {
 	padding: inherit;
-	
+	overflow: hidden;
 }
 
 #tiddlerDisplay .tab {
@@ -1198,11 +1198,14 @@ ol.popup table td {
     min-height: 60px;
     padding: 2px 10px 10px 7px;
     width: 95px;
+    margin: 0 0 1px 0;
 }
 
 #tiddlerDisplay .tabSelected {
 	color: #eee;
 	background-color: #303030;
+	border: none;
+	border-right: 2px solid white;
 }
 
 
