@@ -32,6 +32,11 @@ a:hover {
 	text-decoration: underline;
 }
 
+#displayArea iframe {
+	height: 340px;
+	width: 100%;
+}
+
 #displayArea button, #displayArea a.button {
 	font-size: 11px;
 	font-family: "Helvetica Neue", Helvetica;
@@ -305,14 +310,17 @@ div#searchBox {
 #sidebar #contentsPanel ul {
 	margin-left: 20px;
 	padding-left: 20px;
+	line-height: 15px;
 }
 
 #sidebar #contentsPanel ul ul {
 	margin-left: 0px;
+	overflow: hidden;
 }
 
 #sidebar #contentsPanel li {
 	list-style: none;
+	margin-top: 10px;
 }
 
 #sidebar #contentsPanel li span.closed:after, #sidebar #contentsPanel li span.open:after {
@@ -522,6 +530,10 @@ div#searchBox {
     margin-top: 7px;
 }
 
+/* 
+----------------------------------- Tiddler layout
+*/
+
 .jbasewrap {
 	width: 720px;
 }
@@ -539,6 +551,12 @@ div#searchBox {
   -webkit-box-shadow: 0px 1px 2px #000; 
      -moz-box-shadow: 0px 1px 2px #000; 
           box-shadow: 0px 1px 2px #000; 
+}
+
+.tiddler img {
+	max-width: 620px;
+	width: expression(this.width > 200 ? 200: true);
+	height: auto;
 }
 
 
@@ -565,6 +583,7 @@ div#searchBox {
 	font-weight: bold;
 	padding-top: 40px;
 	padding-left: 50px;
+	width: 420px;
 }
 
 /* 
@@ -907,7 +926,7 @@ hr.infoBorder {
 	z-index: 1;
 }
 
-#displayArea .toolbar a {
+#displayArea .toolbar a, #displayArea .toolbar span {
 	background-image: url(v3sprite.png);
 	background-repeat: no-repeat;
 	display: block;
@@ -954,6 +973,15 @@ hr.infoBorder {
 #displayArea .toolbar .button {
 	border: none;
 }
+
+#displayArea .public {
+	background-position: 0px -1100px;
+	
+} 
+
+#displayArea .private {
+	background-position: 0px -1050px;	
+} 
 
 #displayArea .toolbar .button:hover, #displayArea .toolbar .button:active {
 	border: none;
@@ -1142,5 +1170,46 @@ ol.popup table td {
     border: medium none;
     color: #565656;
 }
+
+
+/*
+----- Tabbed interface Styling 
+*/
+
+
+#tiddlerDisplay .tabContents {
+	color: inherit;
+	padding: inherit;
+	border: none;
+	background: none;
+}
+
+#tiddlerDisplay .tabSet {
+	padding: inherit;
+	
+}
+
+#tiddlerDisplay .tab {
+	background-color: #CCCCCC;
+    border-right: 2px solid white;
+    float: left;
+    font-size: 12px;
+    line-height: 20px;
+    min-height: 60px;
+    padding: 2px 10px 10px 7px;
+    width: 95px;
+}
+
+#tiddlerDisplay .tabSelected {
+	color: #eee;
+	background-color: #303030;
+}
+
+
+#tiddlerDisplay .tabUnselected {
+	color: #303030;
+}
+
+
 
 

@@ -8,10 +8,10 @@ title: ViewTemplate
 	<a class="duplicate" title="Copy this page into your manual" href="#">Duplicate</a>-->
 </div>
 <div class="watermark">
-	<span class="title">Derived from:</span>
+	<!--<span class="title">Derived from:</span>
 	<span class="value"><a href="#">CASUS</a></span>
 	<p>
-		<a href="#">comparison</a> / <a href="#">original</a>
+		<a href="#">comparison</a> / <a href="#">original</a> -->
 	</p>
 </div>
 <span class="infoToggle"><a href="#"><span>+</span> show references & info</a></span>
