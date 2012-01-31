@@ -55,9 +55,11 @@ config.macros.ambitTagging.handler = function(place,macroName,params,wikifier,pa
 		createTiddlyElement(ul,"li",null,"listTitle","no topics");
 	} else {
 		for(var t=0; t<tagged.length; t++) {
-			createTiddlyLink(createTiddlyElement(ul,"li"),tagged[t].title,true);
-			if(t<tagged.length-1)
-				createTiddlyText(ul,sep);
+			if(!tagged[t].tags || !tagged[t].tags.contains("excludeLists")) {
+				createTiddlyLink(createTiddlyElement(ul,"li"),tagged[t].title,true);
+				if(t<tagged.length-1)
+					createTiddlyText(ul,sep);
+			}
 		}
 	}
 };
