@@ -101,7 +101,17 @@ config.macros.ambitElsewhere = {
 	searchURL: '/search.json?q=title:"%0"',
 	handler: function(place,macroName,params,wikifier,paramString,tiddler) {
 		var url = config.macros.ambitElsewhere.searchURL.format(encodeURIComponent(tiddler.title)),
-			$ = jQuery;
+			$ = jQuery,
+			whitelist = store.getTiddler('Trained/Training AMBIT services manualizing their work').text.split('\n'),
+			bagFilters = [];
+		$.each(whitelist, function(i, line) {
+			var pieces = line.split(':'),
+				space = pieces[0],
+				url = pieces[1];
+			bagFilters.push("bag:"+space+"_public");
+		});
+		url += "%20("+bagFilters.join(" OR ")+")";
+		
 		$.ajax({
 			url: url,
 			dataType: "json",
@@ -131,11 +141,11 @@ config.macros.ambitElsewhere = {
 					space,
 					diffURL = "diff?rev1=bags/"+tiddler.fields['server.bag']+"/"+encodeURIComponent(tiddler.title)+"/"+tiddler.fields['server.page.revision']+"&rev2=bags/<bag>/"+encodeURIComponent(tiddler.title)+"/<revision>&format=horizontal";
 				if(popup) {
-					$ul = $(popup).append("<ul></ul>");
+					$popup = $(popup);
 					$.each(tiddlers, function(i, t) {
 						bag = t.bag;
-						space = bag.substring(0, bag.lastIndexOf('_')); // TO-DO: filter this so it is against a known list of spaces, rather than all the hundreds in TiddlySpace
-						$ul.append('<li><a href="'+diffURL.replace("<bag>",bag).replace("<revision>",t.revision)+'" target="_blank">'+space+'</li>');
+						space = bag.substring(0, bag.lastIndexOf('_'));
+						$popup.append('<li><a href="'+diffURL.replace("<bag>",bag).replace("<revision>",t.revision)+'" target="_blank">'+space+'</li>');
 					});
 				}
 				Popup.show();
