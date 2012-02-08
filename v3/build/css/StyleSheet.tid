@@ -1980,7 +1980,7 @@ hr.infoBorder {
 	background-position: 10px -300px;
 }
 
-#displayArea .toolbarReadOnly a.command_editTiddler {
+#displayArea .toolbarReadOnly a.command_editTiddler, #displayArea .toolbarReadOnly a.command_cloneTiddler {
 	display: none;
 }
 

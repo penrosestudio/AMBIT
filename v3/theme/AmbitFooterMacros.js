@@ -67,7 +67,15 @@ config.macros.ambitTagging.handler = function(place,macroName,params,wikifier,pa
 // newHere plugin - http://mptw.tiddlyspot.com/#NewHerePlugin
 config.macros.newHere = {
 	handler: function(place,macroName,params,wikifier,paramString,tiddler) {
+		$(place).attr({
+			refresh: 'macro',
+			macroName: 'newHere'
+		}).data('args', arguments);
 		wikify("<<newTiddler "+paramString+" tag:[["+tiddler.title+"]]>>",place,null,tiddler);
+	},
+	refresh: function(place, params) {
+		var args = $(place).empty().data('args');
+		this.handler.apply(this, args);
 	}
 };
 
