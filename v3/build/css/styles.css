@@ -21,6 +21,7 @@ body {
 	background: #ddb78c;
 	background-image: url(wood-texture.jpg);
 	background-attachment: fixed;
+	color: #303030;
 }
 
 a {
@@ -805,7 +806,7 @@ ol ol li {
 
 
 /* 
----------------------- Jbase overrides for tiddler headers starting at h3
+---------------------- Jbase & TiddlySpace overrides for tiddler headers 
 */
 
 body {
@@ -838,6 +839,10 @@ body {
     line-height: 24px;
     margin-bottom: 14px;
     padding-top: 4px;	
+}
+
+#displayArea h1, #displayArea h2, #displayArea h3, #displayArea h3, #displayArea h4, #displayArea h5, #displayArea h6 {
+	color: #303030;
 }
 
 
@@ -1187,6 +1192,8 @@ ol.popup table td {
 #tiddlerDisplay .tabSet {
 	padding: inherit;
 	overflow: hidden;
+	width: 100%;
+	clear: both;
 }
 
 #tiddlerDisplay .tab {
