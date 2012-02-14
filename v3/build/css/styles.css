@@ -182,6 +182,7 @@ div#searchBox {
 	font-size: 13px;
 	margin-top: 10px;
 	background-image: url(v3sprite.png);
+	filter:none;
 	background-position: 209px -42px;
 	background-repeat: no-repeat;
 	margin-bottom: 0px;
@@ -214,6 +215,7 @@ div#searchBox {
 	background-color: #303030;
 	padding: 0px;
 	background-image: url(v3sprite.png);
+	filter:none;
 	background-position: 5px -437px;
 	background-repeat: no-repeat;
 	position: relative;
@@ -228,6 +230,7 @@ div#searchBox {
 #sidebar button#snapshot { /* camera image from The Noun Project  http://thenounproject.com/noun/camera/#icon-No476 */
 	background-position: 7px -992px;
 	background-image: url(v3sprite.png);
+	filter:none;
 	background-repeat: no-repeat;
 	display: block;
 	text-indent: -999px;
@@ -397,6 +400,7 @@ div#searchBox {
 
 #statusPanel a, #statusPanel #logOutForm input {
 	background-image: url(v3sprite.png);
+	filter:none;
 	background-repeat: no-repeat;
 	background-position: 90px -592px;	
 	display: inline-block;
@@ -514,6 +518,7 @@ div#searchBox {
 
 #syncPanel span {
 	background-image: url("v3sprite.png");
+	filter:none;
     background-position: 0 -749px;
     background-repeat: no-repeat;
     display: block;
@@ -693,6 +698,7 @@ div#searchBox {
 
 #tiddlerAIM_Form .navigation a span {
 	background-image: url("v3sprite.png");
+	filter:none;
     background-position: 0px -650px;
     background-repeat: no-repeat;
     display: block;
@@ -841,7 +847,7 @@ body {
     padding-top: 4px;	
 }
 
-#displayArea h1, #displayArea h2, #displayArea h3, #displayArea h3, #displayArea h4, #displayArea h5, #displayArea h6 {
+#displayArea .tiddler h1, #displayArea .tiddler h2, #displayArea .tiddler h3, #displayArea .tiddler h3, #displayArea .tiddler h4, #displayArea .tiddler h5, #displayArea .tiddler h6 {
 	color: #303030;
 }
 
@@ -859,7 +865,6 @@ hr.infoBorder {
 	background-color: #303030;
 	color: #303030;
 	margin: 0px 10px 0px 0px;
-	
 }
 
 .info {
@@ -870,6 +875,14 @@ hr.infoBorder {
 	padding-left: 30px;
 	overflow: hidden;
 	line-height: 18px;
+}
+
+.ie7 hr.infoBorder {
+	margin-top: -10px; /* IE7 appears to add extra space around an hr */
+}
+
+.ie7 .info {
+	margin-top: -14px
 }
 
 .info .column {
@@ -911,7 +924,7 @@ hr.infoBorder {
 }
 
 
-.infoToggle a {
+.infoToggle a, .infoToggle a:hover {
 	color: #fcfcfc;
 	text-decoration: none;
 	background-color: #303030;	
@@ -920,6 +933,10 @@ hr.infoBorder {
 	text-align: center;
 	font-size: 12px;
 	letter-spacing: 0.08em;
+}
+
+.infoToggle a:hover {
+	background-color: #505050;	
 }
 
 .toolbar {
@@ -933,6 +950,7 @@ hr.infoBorder {
 
 #displayArea .toolbar a, #displayArea .toolbar span {
 	background-image: url(v3sprite.png);
+	filter:none;
 	background-repeat: no-repeat;
 	display: block;
 	text-indent: 999px;
@@ -991,6 +1009,7 @@ hr.infoBorder {
 #displayArea .toolbar .button:hover, #displayArea .toolbar .button:active {
 	border: none;
 	background-image: url(v3sprite.png);
+	filter:none;
 	background-repeat: no-repeat;
 	-webkit-box-shadow: none; 
 	-moz-box-shadow: none; 
@@ -1008,6 +1027,7 @@ hr.infoBorder {
 #sidebarIcons a {
 	background-color: #303030;
 	background-image: url(v3sprite.png);
+	filter:none;
 	background-repeat: no-repeat;
 	display: block;
 	text-indent: -999px;
@@ -1189,11 +1209,12 @@ ol.popup table td {
 	background: none;
 }
 
-#tiddlerDisplay .tabSet {
+#tiddlerDisplay .tabset {
 	padding: inherit;
 	overflow: hidden;
 	width: 100%;
 	clear: both;
+	margin-bottom: 20px;
 }
 
 #tiddlerDisplay .tab {
@@ -1220,6 +1241,7 @@ ol.popup table td {
 	color: #303030;
 }
 
-
-
+.tabContents ul, .tabContents ol {
+	margin-bottom: 20px;
+}
 
