@@ -110,7 +110,6 @@ a.button {
 
 
 #screenWidth {
-	width: auto;
 	position: absolute;
 	z-index: 0;
 	left:330px;
@@ -190,6 +189,7 @@ div#searchBox {
 
 #searchBox button#clearSearch {
 	background: none;
+	filter: none;
 	position: absolute;
 	width: 20px;
 	height: 20px;
@@ -280,6 +280,7 @@ div#searchBox {
 	margin-bottom: 0px;
 	padding: 0px;
 	overflow-y: auto;
+	position: relative;
 }
 
 .panel ul ul {
@@ -361,6 +362,7 @@ div#searchBox {
 	position: fixed;
 	right: 0px;
 	width: 210px;
+	z-index: 1;
 }
 
 #statusPanel, #syncPanel, #messageArea, #loginForm {
@@ -368,6 +370,9 @@ div#searchBox {
 	width: 210px;
 	top: 30px;
 	background-color: rgba(251,251,251,0.9);
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#E5FBFBFB,endColorstr=#E5FBFBFB)"; /* IE8 */    
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#E5FBFBFB,endColorstr=#E5FBFBFB);   /* IE6 & 7 */      
+	zoom: 1;
 	font-size: 13px;
 	padding-left: 10px;
 	font-weight: bold;
@@ -375,6 +380,10 @@ div#searchBox {
 	-webkit-box-shadow: 0px 1px 2px #000; 
      -moz-box-shadow: 0px 1px 2px #000; 
           box-shadow: 0px 1px 2px #000; 
+}
+
+.ie7 #statusPanel, .ie7 #syncPanel, .ie7 #messageArea, .ie7 #loginForm {
+	border: 1px 0px 1px 1px #303030 solid;
 }
 
 #loginForm {
@@ -561,7 +570,7 @@ div#searchBox {
 
 .tiddler img {
 	max-width: 620px;
-	width: expression(this.width > 200 ? 200: true);
+	width: expression(this.width > 620 ? 620: true);
 	height: auto;
 }
 
@@ -847,7 +856,7 @@ body {
     padding-top: 4px;	
 }
 
-#displayArea .tiddler h1, #displayArea .tiddler h2, #displayArea .tiddler h3, #displayArea .tiddler h3, #displayArea .tiddler h4, #displayArea .tiddler h5, #displayArea .tiddler h6 {
+#displayArea .tiddler h1, #displayArea .tiddler h2, #displayArea .tiddler h3, #displayArea .tiddler h3, #displayArea .tiddler h4, #displayArea .tiddler h5, #displayArea .tiddler h6, #displayArea code {
 	color: #303030;
 }
 

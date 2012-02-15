@@ -88,7 +88,7 @@ title: PageTemplate
 			<button type="submit">Log in</button>
 		</form>
 	</div>
-	<div id="screenWidth">
+	<div id="screenWidth" class="jbasewrap">
 		<div id="tiddlerDisplay" class="jbasewrap">
 		</div> <!-- End #tiddlerDisplay -->
 	</div> <!-- End #screenWidth -->
