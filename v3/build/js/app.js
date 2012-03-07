@@ -207,7 +207,6 @@ $('.infoToggle a').live('click', function() {
 });
 
 // the status panel toggle
-
 $('#statusPanel a').live('click', function() {
 	var $clicked = $(this);
 	if($clicked.hasClass('current')) {
@@ -273,11 +272,17 @@ function updateAccountDisplay(name) {
 function addLoginForm() {
 	var $loginForm = $('#loginForm').show();
 }
+function disableModeToggle() {
+	$('#statusPanel #modeStatus a').click(function() {
+		return false;
+	});
+}
 
 config.extensions.tiddlyweb.getUserInfo(function(info) {
 	var anon = info.anon,
 		name = info.name;
 	if(anon) {
+		disableModeToggle();
 		updateAccountDisplay();
 		addLoginForm();
 	} else {
