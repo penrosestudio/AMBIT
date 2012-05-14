@@ -35,20 +35,36 @@
 			<div id="sidebar">
 				<h1>ambit CORE CONTENT of the manual for ADOLESCENT MENTALIZATION BASED INTEGRATIVE TREATMENT</h1>
 				<div id="searchBox" class="panel">
+					<div class="allManuals">
+						<label for="allManuals">Search all manuals</label>
+						<input type="checkbox" id="allManuals" />
+					</div> 
 					<input type="text" placeholder="Search" />
 					<button id="clearSearch">&#215;</button>
 					<!--<h3>showing 10 results&hellip;</h3>-->
-					<ul class="browsingTool">
-						<li><a href="#">Object</a></li>
-						<li><a href="#">Object</a></li>
-						<li><a href="#">Object</a></li>
-						<li><a href="#">Object</a></li>
-						<li><a href="#">Object</a></li>
-						<li><a href="#">Object</a></li>
-						<li><a href="#">Object</a></li>
-						<li><a href="#">Object</a></li>
-						<li><a href="#">Object</a></li>
-						<li><a href="#">Object</a></li>
+					<ul id="searchResults" class="browsingTool">
+						<li class="loading">Loading results from other manuals&hellip;</li>
+						<li>This manual
+							<ul>
+								<li><a href="#">Object</a></li>
+								<li><a href="#">Object</a></li>
+								<li><a href="#">Object</a></li>	
+							</ul>
+						</li>
+						<li>Another manual
+							<ul>
+								<li><a href="#">Object</a></li>
+								<li><a href="#">Object</a></li>
+								<li><a href="#">Object</a></li>	
+							</ul>
+						</li>
+						<li>Another manual
+							<ul>
+								<li><a href="#">Object</a></li>
+								<li><a href="#">Object</a></li>
+								<li><a href="#">Object</a></li>	
+							</ul>
+						</li>
 					</ul>
 				</div>
 				<div class="panel" id="historyPanel">
