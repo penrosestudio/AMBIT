@@ -166,6 +166,30 @@ div#searchBox {
 	background-color: #fcfcfc;
 }
 
+ul#searchResults {
+	padding-left: 0px;
+}
+
+ul#searchResults li.loading {
+	font-weight: normal;
+	font-size: 10px;
+}
+
+ul#searchResults li {
+	list-style: none;
+	font-weight: bold;
+	color: #777;
+	padding-left: 10px;
+	border-bottom: 1px dotted #777;
+}
+
+ul#searchResults ul li {
+	list-style: disc;
+	color: #303030;
+	padding-left: 0px;
+	border-bottom: none;
+}
+
 #searchBox h3 {
 	margin: 0px 0px 0px 0px;
 	background-color: #fcfcfc;
@@ -175,7 +199,19 @@ div#searchBox {
 	color: #aaa;
 }
 
-#searchBox input {
+#searchBox div.allManuals {
+	text-align: right;
+	overflow: hidden;
+	height: 18px;
+}
+
+#searchBox .allManuals label {
+	color: white;
+	font-size: 10px;
+	letter-spacing: 0.05em;
+}
+
+#searchBox input[type=text] {
 	background-color: #fcfcfc;
 	border: none;
 	width: 220px;
@@ -201,7 +237,7 @@ div#searchBox {
 	border: none;
 	opacity: 0.6;
 	right: 45px;
-	top: 103px;
+	top: 1026px;
 	font-size: 17px;
 	line-height: 17px;
 }
@@ -1060,7 +1096,7 @@ hr.infoBorder {
 a#toggle {
 	height: 40px;
 	background-position: 10px -490px;
-	margin-bottom: 40px;
+	margin-bottom: 58px;
 	border-top: none;
 }
 
