@@ -46,7 +46,7 @@ config.extensions.AmbitSearchPlugin = {
 			$.each(spaces, function(space, tiddlers) {
 				//createTiddlyLink($li.get(0),match.title,true);
 				
-				var $li = $('<li>'+space+'<ul></ul></li>').appendTo($searchResults),
+				var $li = $('<li>'+space+' ('+tiddlers.length+')<ul></ul></li>').appendTo($searchResults),
 					$ul = $li.children('ul');
 				$(tiddlers).each(function(i, t) {
 					var $item = $('<li></li>').appendTo($ul),
@@ -63,9 +63,10 @@ config.extensions.AmbitSearchPlugin = {
 	displayResults: function(matches, query) {
 		var $searchResults = $('#searchResults').empty(),
 			$thisSpaceLi,
-			$thisSpaceList;
+			$thisSpaceList,
+			count = matches.length || 0;
 		$searchResults.append('<li class="loading">searching across all manuals...</li>');
-		$thisSpaceLi = $('<li>This manual<ul></ul></li>').appendTo($searchResults);
+		$thisSpaceLi = $('<li>This manual ('+count+')<ul></ul></li>').appendTo($searchResults);
 		$thisSpaceList = $thisSpaceLi.children('ul');
 		story.refreshAllTiddlers(true); // update highlighting within story tiddlers
 		window.scrollTo(0,0);
@@ -79,7 +80,7 @@ config.extensions.AmbitSearchPlugin = {
 			$thisSpaceList.append('<span>no results for '+query+'</span>');
 		}
 		// if we're only searching this space, click the space name to open it
-		if(!$('#searchResults li.loading').is(':visible')) {
+		if(!$('#searchBox input[type=checkbox]').prop('checked')) {
 			$('#searchResults li:not(".loading"):eq(0)').click();
 		}
 		$('#searchBox input[type=search]').click();

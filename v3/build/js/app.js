@@ -161,7 +161,7 @@ $('#sidebar .panel').click(function(e) {
 		panelClosed = $panel.hasClass('closed'),
 		$otherPanels = $(this).siblings('.panel');
 
-	if(!$target.is('input, h2') && !$target.parent().is('h2')) {
+	if(!$target.is('input[type=search], h2') && !$target.parent().is('h2')) {
 		return true;
 	}
 

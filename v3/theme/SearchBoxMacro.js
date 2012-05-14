@@ -24,7 +24,8 @@ config.macros.searchBox = {
 				.click(function() {
 					var $searchBox = $('#searchBox');
 					$clearButton.hide();
-					$input.val('').click();
+					$('#searchResults').empty(); // TO-DO: make this happen when clear button is pressed in safari
+					$input.val('').click().focus();
 				});
 			$input.keyup(function() {
 				if($(this).val()) {
@@ -42,6 +43,10 @@ config.macros.searchBox = {
 				$(e.target).toggleClass("open");
 			}
 			return false;
+		});
+		
+		$('#allManuals').change(function() {
+			config.macros.search.doSearch(input);
 		});
 		
 		/*
@@ -152,6 +157,8 @@ config.macros.search.elsewhereSearch = function(text) {
 			var count = tiddlers.length;
 			if(count) {
 				config.extensions.AmbitSearchPlugin.displayElsewhereResults(tiddlers);
+			} else {
+				$('#searchResults li.loading').text('no results found in other manuals');
 			}
 		},
 		error: function() {
