@@ -30,18 +30,53 @@ config.extensions.AmbitSearchPlugin = {
 	btnOpenTooltip: "open all search results",
 	btnOpenId: "search_open",
 
+	displayElsewhereResults: function(tiddlers) {
+		var spaces = {};
+		$(tiddlers).each(function(i, t) {
+			var bag = t.bag,
+				space = bag.substring(0, bag.lastIndexOf('_'));
+			if(!spaces[space]) {
+				spaces[space] = [];
+			}
+			spaces[space].push(t);
+		});
+		
+		var $searchResults = $('#searchResults');
+		if(tiddlers.length) {
+			$.each(spaces, function(space, tiddlers) {
+				//createTiddlyLink($li.get(0),match.title,true);
+				
+				var $li = $('<li>'+space+'<ul></ul></li>').appendTo($searchResults),
+					$ul = $li.children('ul');
+				$(tiddlers).each(function(i, t) {
+					var $item = $('<li></li>').appendTo($ul),
+						url = "//"+space+".tiddlyspace.com/#"+t.title;
+					createExternalLink($item.get(0), url, t.title);
+				});
+			});
+		} else {
+			//$searchResults.append('<span>no results for '+query+'</span>');
+		}
+		$('#searchResults li.loading').hide();
+	},
+	
 	displayResults: function(matches, query) {
-		var $searchResults = $('#searchResults').empty();
+		var $searchResults = $('#searchResults').empty(),
+			$thisSpaceLi,
+			$thisSpaceList;
+		$searchResults.append('<li class="loading">searching across all manuals...</li>');
+		$thisSpaceLi = $('<li>This manual<ul></ul></li>').appendTo($searchResults);
+		$thisSpaceList = $thisSpaceLi.children('ul');
 		story.refreshAllTiddlers(true); // update highlighting within story tiddlers
 		window.scrollTo(0,0);
 		if(matches.length) {
 			$(matches).each(function(i, match) {
 				//$searchResults.append('<li><a href="#">'+match.title+'</a></li>');
-				var $li = $('<li></li>').appendTo($searchResults);
+				var $li = $('<li></li>').appendTo($thisSpaceList);
 				createTiddlyLink($li.get(0),match.title,true);
 			});
 		} else {
-			$searchResults.append('<span>no results for '+query+'</span>');
+			$thisSpaceList.append('<span>no results for '+query+'</span>');
 		}
 		$('#searchBox input').click();
 		
@@ -70,37 +105,6 @@ config.extensions.AmbitSearchPlugin = {
 			}
 			return false;
 		});*/
-	},
-	
-	displayElsewhereResults: function(tiddlers) {
-		console.log(tiddlers);
-		var spaces = {};
-		$(tiddlers).each(function(i, t) {
-			var bag = t.bag,
-				space = bag.substring(0, bag.lastIndexOf('_'));
-			if(!spaces[space]) {
-				spaces[space] = [];
-			}
-			spaces[space].push(t);
-		});
-		
-		var $searchResults = $('#searchResults');
-		if(tiddlers.length) {
-			$.each(spaces, function(space, tiddlers) {
-				//createTiddlyLink($li.get(0),match.title,true);
-				
-				var $li = $('<li>'+space+'<ul></ul></li>').appendTo($searchResults),
-					$ul = $li.children('ul');
-				$(tiddlers).each(function(i, t) {
-					var $item = $('<li></li>').appendTo($ul),
-						url = "//"+space+".tiddlyspace.com/#"+t.title;
-					createExternalLink($item.get(0), url, t.title);
-				});
-			});
-		} else {
-			//$searchResults.append('<span>no results for '+query+'</span>');
-		}
-		$('#searchResults li.loading').hide();
 	},
 
 	closeResults: function() {
