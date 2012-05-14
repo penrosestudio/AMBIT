@@ -37,6 +37,13 @@ config.macros.searchBox = {
 
 		input.onfocus = config.macros.search.onFocus;
 		
+		$('#searchResults').live('click', function(e) {
+			if(e.target.nodeName==="LI") {
+				$(e.target).toggleClass("open");
+			}
+			return false;
+		});
+		
 		/*
 		this is adding specific behaviour that happens before click on panels are processed
 		if click on input and there are search results, add noToggle
@@ -161,7 +168,7 @@ config.macros.search.doSearch = function(txt)
 {
 	if(txt.value.length > 0) {
 		story.search(txt.value,config.options.chkCaseSensitiveSearch,config.options.chkRegExpSearch);
-		if($('#searchBox input[type=checkbox]').prop('selected')) {
+		if($('#searchBox input[type=checkbox]').prop('checked')) {
 			config.macros.search.elsewhereSearch(txt.value,config.options.chkCaseSensitiveSearch,config.options.chkRegExpSearch);
 		}
 		txt.setAttribute("lastSearchText",txt.value);

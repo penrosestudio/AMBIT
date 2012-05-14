@@ -78,7 +78,11 @@ config.extensions.AmbitSearchPlugin = {
 		} else {
 			$thisSpaceList.append('<span>no results for '+query+'</span>');
 		}
-		$('#searchBox input').click();
+		// if we're only searching this space, click the space name to open it
+		if(!$('#searchResults li.loading').is(':visible')) {
+			$('#searchResults li:not(".loading"):eq(0)').click();
+		}
+		$('#searchBox input[type=search]').click();
 		
 		/*query = '"""' + query + '"""'; // prevent WikiLinks
 		var $container = $('<div id="'+this.containerId+'"><div class="jbasewrap"><div class="overlay"></div></div></div>').insertAfter('#header'),
