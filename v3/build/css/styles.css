@@ -173,6 +173,13 @@ ul#searchResults {
 ul#searchResults li.loading {
 	font-weight: normal;
 	font-size: 10px;
+	background-image: none;
+	cursor: default;
+	display: none;
+}
+
+ul#searchResults li.loading:hover {
+	color: #777;
 }
 
 ul#searchResults li {
@@ -181,6 +188,28 @@ ul#searchResults li {
 	color: #777;
 	padding-left: 10px;
 	border-bottom: 1px dotted #777;
+
+	background-image: url(v3sprite.png);
+	filter:none;
+	background-repeat: no-repeat;
+	background-position: 195px -592px;
+	cursor: pointer;	
+}
+
+ul#searchResults li:hover {
+	color: #303030;
+}
+
+ul#searchResults li.open {
+	background-position: 195px -692px;
+}
+
+ul#searchResults ul {
+	display: none;
+}
+
+ul#searchResults .open ul {
+	display: block;
 }
 
 ul#searchResults ul li {
@@ -188,6 +217,7 @@ ul#searchResults ul li {
 	color: #303030;
 	padding-left: 0px;
 	border-bottom: none;
+	background-image: none;
 }
 
 #searchBox h3 {
@@ -211,7 +241,7 @@ ul#searchResults ul li {
 	letter-spacing: 0.05em;
 }
 
-#searchBox input[type=text] {
+#searchBox input[type=search] {
 	background-color: #fcfcfc;
 	border: none;
 	width: 220px;
@@ -237,7 +267,7 @@ ul#searchResults ul li {
 	border: none;
 	opacity: 0.6;
 	right: 45px;
-	top: 1026px;
+	top: 187px;
 	font-size: 17px;
 	line-height: 17px;
 }
