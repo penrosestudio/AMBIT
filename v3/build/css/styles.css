@@ -145,6 +145,11 @@ a.button {
 	z-index: 10;
 }
 
+#sidebar #SiteIcon {
+	display: block;
+	margin-bottom: 9px;
+}
+
 #sidebar h1 {
 	font-size: 13px;
 	line-height: 20px;

@@ -71,6 +71,37 @@ config.extensions.AmbitSearchPlugin = {
 			return false;
 		});*/
 	},
+	
+	displayElsewhereResults: function(tiddlers) {
+		console.log(tiddlers);
+		var spaces = {};
+		$(tiddlers).each(function(i, t) {
+			var bag = t.bag,
+				space = bag.substring(0, bag.lastIndexOf('_'));
+			if(!spaces[space]) {
+				spaces[space] = [];
+			}
+			spaces[space].push(t);
+		});
+		
+		var $searchResults = $('#searchResults');
+		if(tiddlers.length) {
+			$.each(spaces, function(space, tiddlers) {
+				//createTiddlyLink($li.get(0),match.title,true);
+				
+				var $li = $('<li>'+space+'<ul></ul></li>').appendTo($searchResults),
+					$ul = $li.children('ul');
+				$(tiddlers).each(function(i, t) {
+					var $item = $('<li></li>').appendTo($ul),
+						url = "//"+space+".tiddlyspace.com/#"+t.title;
+					createExternalLink($item.get(0), url, t.title);
+				});
+			});
+		} else {
+			//$searchResults.append('<span>no results for '+query+'</span>');
+		}
+		$('#searchResults li.loading').hide();
+	},
 
 	closeResults: function() {
 		var el = document.getElementById(config.extensions.AmbitSearchPlugin.containerId);

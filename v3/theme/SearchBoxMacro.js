@@ -115,6 +115,38 @@ config.macros.search.handler = function(place,macroName,params)
 	txt.setAttribute("lastSearchText","");
 };
 
+config.macros.search.elsewhereSearch = function(text) {
+	var url = '/search.json?q="%0"'.format(encodeURIComponent(text)),
+		$ = jQuery,
+		whitelist = store.getTiddler('Trained/Training AMBIT services manualizing their work').text.split('\n'),
+		bagFilters = [];
+	$('#searchResults li.loading').show();
+	$.each(whitelist, function(i, line) {
+		var pieces = line.split(':'),
+			space = pieces[0],
+			url = pieces[1];
+		bagFilters.push("bag:"+space+"_public");
+	});
+	url += "%20("+bagFilters.join(" OR ")+")";
+		
+	$.ajax({
+		url: url,
+		dataType: "json",
+		success: function(tiddlers) {
+			tiddlers = $.grep(tiddlers, function(t, i) {
+				return t.bag.indexOf('ambit')!==-1 && t.bag!==tiddler.fields['server.bag'];
+			});
+			var count = tiddlers.length;
+			if(count) {
+				config.extensions.AmbitSearchPlugin.displayElsewhereResults(tiddlers);
+			}
+		},
+		error: function() {
+			// show error
+		}
+	});
+}
+
 // Global because there's only ever one outstanding incremental search timer
 config.macros.search.timeout = null;
 
@@ -122,6 +154,7 @@ config.macros.search.doSearch = function(txt)
 {
 	if(txt.value.length > 0) {
 		story.search(txt.value,config.options.chkCaseSensitiveSearch,config.options.chkRegExpSearch);
+		config.macros.search.elsewhereSearch(txt.value,config.options.chkCaseSensitiveSearch,config.options.chkRegExpSearch);
 		txt.setAttribute("lastSearchText",txt.value);
 	}
 };

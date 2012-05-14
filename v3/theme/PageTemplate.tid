@@ -4,7 +4,7 @@ title: PageTemplate
 <div id="displayArea">
 	<!-- AMBIT HTML build here -->
 	<div id="sidebar">
-		<!--<h1>ambit CORE CONTENT of the manual for ADOLESCENT MENTALIZATION BASED INTEGRATIVE TREATMENT</h1>-->
+		<span id="SiteIcon" macro="image SiteIcon"></span>
 		<h1><span id="SiteTitle" class='siteTitle' refresh='content' tiddler='SiteTitle'></span> <span id="SiteSubtitle" class='siteSubtitle' refresh='content' tiddler='SiteSubtitle'></span></h1>
 		<div id="searchBox" class="panel closed">
 			<div macro="searchBox"></div>
