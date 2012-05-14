@@ -3,6 +3,12 @@ var $ = jQuery;
 
 config.macros.searchBox = {
 	handler: function(place, macroName, params) {
+		// add choice for searching all manuals	
+		$(place).append('<div class="allManuals"> \
+			<label for="allManuals">Search all manuals</label> \
+			<input type="checkbox" id="allManuals" /> \
+		</div>');
+	
 		var $input = $('<input type="search" results="5" accessKey="4" autocomplete="off" autosave="unique" name="s" placeholder="Search" lastSearchText="" />').appendTo(place),
 			$clearButton = $('<button id="clearSearch">&#215;</button>'),
 			input = $input.get(0);
@@ -143,6 +149,7 @@ config.macros.search.elsewhereSearch = function(text) {
 		},
 		error: function() {
 			// show error
+			$('#searchResults li.loading').hide();
 		}
 	});
 }
@@ -154,7 +161,9 @@ config.macros.search.doSearch = function(txt)
 {
 	if(txt.value.length > 0) {
 		story.search(txt.value,config.options.chkCaseSensitiveSearch,config.options.chkRegExpSearch);
-		config.macros.search.elsewhereSearch(txt.value,config.options.chkCaseSensitiveSearch,config.options.chkRegExpSearch);
+		if($('#searchBox input[type=checkbox]').prop('selected')) {
+			config.macros.search.elsewhereSearch(txt.value,config.options.chkCaseSensitiveSearch,config.options.chkRegExpSearch);
+		}
 		txt.setAttribute("lastSearchText",txt.value);
 	}
 };
