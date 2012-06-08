@@ -50,7 +50,7 @@ config.extensions.AmbitSearchPlugin = {
 					$ul = $li.children('ul');
 				$(tiddlers).each(function(i, t) {
 					var $item = $('<li></li>').appendTo($ul),
-						url = "//"+space+".tiddlyspace.com/#"+t.title;
+						url = "//"+space+".tiddlyspace.com/#[["+t.title+"]]";
 					createExternalLink($item.get(0), url, t.title);
 				});
 			});

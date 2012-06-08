@@ -42,7 +42,7 @@ config.macros.searchBox = {
 			if(e.target.nodeName==="LI") {
 				$(e.target).toggleClass("open");
 			}
-			return false;
+			return true;
 		});
 		
 		$('#allManuals').change(function() {
