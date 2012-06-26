@@ -1,5 +1,5 @@
 /*{{{*/
-config.macros.provenance = {
+var provenanceMacro = config.macros.provenance = {
 	/* Provenance macro checks the origin of the tiddler.
 	   If it is inherited from another space, nothing is done.
 	   If it was created in this space, or is a local modification
