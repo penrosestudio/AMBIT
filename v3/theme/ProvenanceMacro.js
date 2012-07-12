@@ -19,7 +19,7 @@ var provenanceMacro = config.macros.provenance = {
 			if (source) {
 				labelText = "Derived from <a href='http://" + source + ".tiddlyspace.com/#[[" + encodeURIComponent(tiddler.title) + "]]' target='_blank'>" + source + "</a>";
 			} else {
-				labelText = currentSpace + " original content.";
+				labelText = currentSpace + " original content";
 			}
 		} else {
 			// Page is inherited. Return without adding label.
