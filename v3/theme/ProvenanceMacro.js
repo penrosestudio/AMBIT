@@ -6,12 +6,15 @@ var provenanceMacro = config.macros.provenance = {
 	   of a tiddler from another space, a label indicating this is
 	   added.
 	*/
-  provenanceHelper: function(place,macroName,params,wikifier,paramString,tiddler) {
-		var $ = jQuery;
-		var currentSpace = config.extensions.tiddlyspace.currentSpace.name;
-		var source = tiddler.fields['tiddler.source'];
-		var labelText;
-		var isLocal = config.filterHelpers.is.local(tiddler);
+	provenanceHelper: function(place) {
+		var $ = jQuery,
+			$place = $(place),
+			title = $place.data("tiddler"),
+			tiddler = store.getTiddler(title),
+			currentSpace = config.extensions.tiddlyspace.currentSpace.name,
+			source = tiddler.fields['tiddler.source'],
+			labelText,
+			isLocal = config.filterHelpers.is.local(tiddler);
 		if (isLocal) {
 			if (source) {
 				labelText = "Derived from <a href='http://" + source + ".tiddlyspace.com/#[[" + encodeURIComponent(tiddler.title) + "]]' target='_blank'>" + source + "</a>";
@@ -22,17 +25,16 @@ var provenanceMacro = config.macros.provenance = {
 			// Page is inherited. Return without adding label.
 			return;
 		}
-		$(place).attr("refresh", "macro").attr("macroName", macroName).html(labelText);  	
-  },
+		$place.html(labelText);	
+	},
+	refresh: function(place) {
+		provenanceMacro.provenanceHelper(place);
+	},
 	handler: function(place,macroName,params,wikifier,paramString,tiddler) {
-		/* Run provenanceHelper immediately, and then again after a delay
-		   to ensure that server-side delays do not prevent the macro
-		   from displaying the correct information for a newly cloned tiddler.
-		*/
-		provenanceMacro.provenanceHelper.apply(this, arguments);
-		/*setTimeout(function(){
-			provenanceMacro.provenanceHelper(place, tiddler);
-		}, 2000);*/
+		$(place).attr("refresh", "macro")
+			.attr("macroName", macroName)
+			.data("tiddler", tiddler.title);
+		provenanceMacro.provenanceHelper(place);
 	}
 };
 /*}}}*/
