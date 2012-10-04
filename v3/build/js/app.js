@@ -206,7 +206,20 @@ $('.infoToggle a').live('click', function() {
 	return false;
 });
 
-// the status panel toggle
+// the status panel overall toggle
+
+$('#statusTab span').live('click', function() {
+	var $clicked = $(this);
+	if($clicked.hasClass('panelOpen')) {
+		$('#statusPanel').animate({'right': '-210px'}, 100);
+	} else {
+		$('#statusPanel').animate({'right': '0px'}, 100);
+	}
+	$clicked.toggleClass('panelOpen');
+});
+
+
+// the status panel internal toggles
 $('#statusPanel a').live('click', function() {
 	var $clicked = $(this);
 	if($clicked.hasClass('current')) {
@@ -241,6 +254,7 @@ $('#statusPanel #modeStatus a').live('click', function(e) {
 	if($clicked.hasClass('browsing')) {
 		readOnly = true;
 		refreshElements(document.getElementById('tiddlerDisplay'));
+		$('#statusTab span').addClass('browsing');
 	} else {
 		if(readOnly) {
 			readOnly = false;
