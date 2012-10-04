@@ -73,7 +73,7 @@ $('#sidebarIcons').click(function(e) {
 			$('#toggle').click();
 		}
 		if($target.attr('id')==="search") {
-			$('#searchBox').children('input').click().focus();
+			$('#searchBox').find('input').click().focus();
 		} else {
 			if($panel.hasClass("closed")) {
 				$panel.children('h2').click();

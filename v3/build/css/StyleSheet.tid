@@ -1208,16 +1208,15 @@ ul#searchResults li {
 	list-style: none;
 	font-weight: bold;
 	color: #777;
-	padding-left: 10px;
 	border-bottom: 1px dotted #777;
-
 	background-image: url(v3sprite.png);
 	filter:none;
 	background-repeat: no-repeat;
-	background-position: 195px -592px;
+	background-position: 195px -593px;
 	cursor: pointer;	
 	line-height: 16px;
-	margin-bottom: 6px;
+	padding: 0px 0px 5px 10px;
+	margin-top: 3px;
 }
 
 ul#searchResults li:hover {
@@ -1291,7 +1290,7 @@ ul#searchResults ul li {
 	border: none;
 	opacity: 0.6;
 	right: 45px;
-	top: 187px;
+	top: 211px;
 	font-size: 17px;
 	line-height: 17px;
 }
