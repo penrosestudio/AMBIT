@@ -31,7 +31,7 @@ config.macros.searchBox = {
 				if($(this).val()) {
 					$('#clearSearch').show();
 				} else {
-					$('#clearSearch').click();
+					//$('#clearSearch').click();
 				}
 			});
 		}
@@ -65,12 +65,22 @@ config.macros.searchBox = {
 				isBlank = !$input.val(),
 				isEmpty = !$results.length,
 				panelClosed = $searchBox.hasClass('closed');
-
-			if((panelClosed && !isEmpty) || (!panelClosed && isBlank)) {
-				$searchBox.removeClass('noToggle');
-			} else {
+			//console.log('input click', 'val: '+$input.val(), 'panelClosed: '+panelClosed, 'isBlank: '+isBlank, 'isEmpty: '+isEmpty);
+			//if((panelClosed && !isEmpty) || (!panelClosed && isBlank)) {
+			if(panelClosed && isEmpty) {
+				// if the panel is closed and there are no search results, don't allow the panel to be opened
 				$searchBox.addClass('noToggle');
-			}			
+			} else if(!panelClosed && !isBlank || panelClosed && isBlank) {
+				// if the panel is open and there is something in the input box, don't allow the panel to be closed
+				// if the panel is closed and there is nothing in the input box, don't allow the panel to be opened
+				$searchBox.addClass('noToggle');
+			} else {
+				$searchBox.removeClass('noToggle');
+			}
+			if(isBlank) {
+				// erase last search history so we can trigger a new search later
+				$input.attr('lastSearchText','');
+			}
 			
 		}).keyup(function(e) {
 			// if we've started typing without clicking on the search box, it won't have opened
