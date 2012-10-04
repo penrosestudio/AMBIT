@@ -73,7 +73,7 @@ $('#sidebarIcons').click(function(e) {
 			$('#toggle').click();
 		}
 		if($target.attr('id')==="search") {
-			$('#searchBox').children('input').click().focus();
+			$('#searchBox').find('input').click().focus();
 		} else {
 			if($panel.hasClass("closed")) {
 				$panel.children('h2').click();
@@ -206,7 +206,28 @@ $('.infoToggle a').live('click', function() {
 	return false;
 });
 
-// the status panel toggle
+// the status panel timeout
+
+window.setTimeout(function() {
+	if($('#statusTab span').hasClass('panelOpen')) {
+		$('#statusTab span').click();
+	}
+},5000);
+
+// the status panel overall toggle
+
+$('#statusTab span').live('click', function() {
+	var $clicked = $(this);
+	if($clicked.hasClass('panelOpen')) {
+		$('#rightPanel').animate({'right': '-210px'}, 100);
+	} else {
+		$('#rightPanel').animate({'right': '0px'}, 100);
+	}
+	$clicked.toggleClass('panelOpen');
+});
+
+
+// the status panel internal toggles
 $('#statusPanel a').live('click', function() {
 	var $clicked = $(this);
 	if($clicked.hasClass('current')) {
@@ -241,10 +262,12 @@ $('#statusPanel #modeStatus a').live('click', function(e) {
 	if($clicked.hasClass('browsing')) {
 		readOnly = true;
 		refreshElements(document.getElementById('tiddlerDisplay'));
+		$('#statusTab span').addClass('browsing');
 	} else {
 		if(readOnly) {
 			readOnly = false;
 			refreshElements(document.getElementById('tiddlerDisplay'));
+			$('#statusTab span').removeClass('browsing');
 		}		
 	}
 });
@@ -298,3 +321,9 @@ $('#statusPanel #accountStatus form').submit(function(e) {
 	this.action += "?csrf_token="+token;
 	this.submit();
 });
+
+// Feedback Button
+
+createTiddlyLink($('#feedback').get(0),'Feedback please!',true);
+
+
