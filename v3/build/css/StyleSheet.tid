@@ -1150,7 +1150,7 @@ a.button {
 }
 
 .highlight {
-	background: #ff2b2b;
+	background: #fbff9a;
 }
 
 /* 
@@ -1216,6 +1216,8 @@ ul#searchResults li {
 	background-repeat: no-repeat;
 	background-position: 195px -592px;
 	cursor: pointer;	
+	line-height: 16px;
+	margin-bottom: 6px;
 }
 
 ul#searchResults li:hover {
@@ -2250,6 +2252,10 @@ Editor Styles
 
 #backstagePanel a {
 	color: #303030;
+}
+
+body #app-picker {
+	right:5px;
 }
 
 /*-------------- Pop up lists */

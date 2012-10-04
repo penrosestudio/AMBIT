@@ -230,10 +230,12 @@ $('#statusPanel #modeStatus a').live('click', function(e) {
 	if($clicked.hasClass('advanced')) {
 		if(!backstage.isVisible()) {
 			backstage.show();
+			$('#app-picker').show().css({'visibility':'visible'});
 		}	
 	} else {
 		if(backstage.isVisible()) {
 			backstage.hide();
+			$('#app-picker').hide().css({'visibility':'hidden'});
 		}
 	}
 	if($clicked.hasClass('browsing')) {
