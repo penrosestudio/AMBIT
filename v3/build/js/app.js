@@ -212,7 +212,7 @@ window.setTimeout(function() {
 	if($('#statusTab span').hasClass('panelOpen')) {
 		$('#statusTab span').click();
 	}
-},3000);
+},5000);
 
 // the status panel overall toggle
 
