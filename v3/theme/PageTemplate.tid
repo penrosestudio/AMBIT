@@ -73,7 +73,7 @@ title: PageTemplate
 			</div>
 			<div>
 				<span class="title"></span>
-				<a id="feedback" href="#">Give Feedback</a>
+				<span class="value" id="feedback"></span>
 		 	</div>
 		</div><!-- End #statusPanel -->
 		<div id="syncPanel">

@@ -1509,7 +1509,7 @@ ul#searchResults ul li {
 	height: 25px;
 }
 
-#statusPanel a#feedback {
+#statusPanel span#feedback a {
 	background-image: none;
 }
 

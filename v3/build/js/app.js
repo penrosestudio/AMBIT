@@ -321,3 +321,9 @@ $('#statusPanel #accountStatus form').submit(function(e) {
 	this.action += "?csrf_token="+token;
 	this.submit();
 });
+
+// Feedback Button
+
+createTiddlyLink($('#feedback').get(0),'Feedback please!',true);
+
+
