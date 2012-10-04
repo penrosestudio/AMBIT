@@ -12,9 +12,14 @@ var provenanceMacro = config.macros.provenance = {
 			title = $place.data("tiddler"),
 			tiddler = store.getTiddler(title),
 			currentSpace = config.extensions.tiddlyspace.currentSpace.name,
-			source = tiddler.fields['tiddler.source'],
+			source,
 			labelText,
-			isLocal = config.filterHelpers.is.local(tiddler);
+			isLocal;
+		if(!tiddler) { // it is possible that provenanceHelper is called before the handler has setup the tiddler
+			return;
+		}
+		source = tiddler.fields['tiddler.source'];
+		isLocal = config.filterHelpers.is.local(tiddler);
 		if (isLocal) {
 			if (source) {
 				labelText = "Derived from <a href='http://" + source + ".tiddlyspace.com/#[[" + encodeURIComponent(tiddler.title) + "]]' target='_blank'>" + source + "</a>";
