@@ -219,9 +219,9 @@ window.setTimeout(function() {
 $('#statusTab span').live('click', function() {
 	var $clicked = $(this);
 	if($clicked.hasClass('panelOpen')) {
-		$('#statusPanel').animate({'right': '-210px'}, 100);
+		$('#rightPanel').animate({'right': '-210px'}, 100);
 	} else {
-		$('#statusPanel').animate({'right': '0px'}, 100);
+		$('#rightPanel').animate({'right': '0px'}, 100);
 	}
 	$clicked.toggleClass('panelOpen');
 });
