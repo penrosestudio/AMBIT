@@ -53,6 +53,7 @@ title: PageTemplate
 	</div> <!-- End #sidebar -->
 	<div id="rightPanel">
 		<div id="statusPanel">
+			<div id="statusTab"><span class="editing panelOpen">Editing</span></div>
 			<div id="modeStatus">
 				<span class="title">Mode:</span>
 				<span class="value"><a class="browsing current" href="#">Browsing</a></span>
@@ -70,6 +71,10 @@ title: PageTemplate
 					</form>
 				</div>
 			</div>
+			<div>
+				<span class="title"></span>
+				<a id="feedback" href="#">Give Feedback</a>
+		 	</div>
 		</div><!-- End #statusPanel -->
 		<div id="syncPanel">
 			<h3>Error syncing to online manual</h3>

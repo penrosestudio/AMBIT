@@ -1456,6 +1456,7 @@ ul#searchResults ul li {
 #rightPanel {
 	position: fixed;
 	right: 0px;
+	top: 30px;
 	width: 210px;
 	z-index: 1;
 }
@@ -1463,18 +1464,15 @@ ul#searchResults ul li {
 #statusPanel, #syncPanel, #messageArea, #loginForm {
 	position: relative;
 	width: 210px;
-	top: 30px;
-	background-color: rgba(251,251,251,0.9);
+	top: 0px;
+	background-color: rgba(241, 241, 241, 0.8);
 	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#E5FBFBFB,endColorstr=#E5FBFBFB)"; /* IE8 */    
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#E5FBFBFB,endColorstr=#E5FBFBFB);   /* IE6 & 7 */      
 	zoom: 1;
-	font-size: 13px;
+	font-size: 12px;
 	padding-left: 10px;
 	font-weight: bold;
 	z-index: 10;
-	-webkit-box-shadow: 0px 1px 2px #000; 
-     -moz-box-shadow: 0px 1px 2px #000; 
-          box-shadow: 0px 1px 2px #000; 
 }
 
 .ie7 #statusPanel, .ie7 #syncPanel, .ie7 #messageArea, .ie7 #loginForm {
@@ -1510,6 +1508,10 @@ ul#searchResults ul li {
 	display: inline-block;
 	width: 116px;
 	height: 25px;
+}
+
+#statusPanel a#feedback {
+	background-image: none;
 }
 
 #statusPanel #logOutForm input {
@@ -1555,6 +1557,35 @@ ul#searchResults ul li {
 	background-color: #303030;
 	color: #fff;
 	cursor: pointer;
+}
+
+#statusTab {
+	position: absolute;
+	left: -30px;
+	background-color: rgba(241, 241, 241, 0.8);
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#E5FBFBFB,endColorstr=#E5FBFBFB)"; /* IE8 */    
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#E5FBFBFB,endColorstr=#E5FBFBFB);   /* IE6 & 7 */      
+}
+
+#statusTab:hover {
+	border-left: 2px solid black;
+	left: -32px;
+}
+
+#statusTab span {
+	background-image: url("v3sprite.png");
+	filter:none;
+    background-position: 8px -1143px;
+    background-repeat: no-repeat;
+    text-indent: -9999px;
+	width: 30px;
+	height: 30px;
+	display: block;
+	cursor: pointer;
+}
+
+#statusTab span.browsing {
+	background-position: 8px -1192px;
 }
 
 #syncPanel { 

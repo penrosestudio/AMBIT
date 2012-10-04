@@ -259,6 +259,7 @@ $('#statusPanel #modeStatus a').live('click', function(e) {
 		if(readOnly) {
 			readOnly = false;
 			refreshElements(document.getElementById('tiddlerDisplay'));
+			$('#statusTab span').removeClass('browsing');
 		}		
 	}
 });
