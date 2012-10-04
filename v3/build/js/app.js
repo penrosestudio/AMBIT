@@ -206,6 +206,14 @@ $('.infoToggle a').live('click', function() {
 	return false;
 });
 
+// the status panel timeout
+
+window.setTimeout(function() {
+	if($('#statusTab span').hasClass('panelOpen')) {
+		$('#statusTab span').click();
+	}
+},3000);
+
 // the status panel overall toggle
 
 $('#statusTab span').live('click', function() {

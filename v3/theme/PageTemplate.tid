@@ -53,7 +53,7 @@ title: PageTemplate
 	</div> <!-- End #sidebar -->
 	<div id="rightPanel">
 		<div id="statusPanel">
-			<div id="statusTab"><span class="editing panelOpen">Editing</span></div>
+			<div id="statusTab"><span class="browsing panelOpen">Editing</span></div>
 			<div id="modeStatus">
 				<span class="title">Mode:</span>
 				<span class="value"><a class="browsing current" href="#">Browsing</a></span>
