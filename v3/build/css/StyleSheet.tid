@@ -2254,6 +2254,10 @@ Editor Styles
 	color: #303030;
 }
 
+body #app-picker {
+	right:5px;
+}
+
 /*-------------- Pop up lists */
 
 ol.popup {

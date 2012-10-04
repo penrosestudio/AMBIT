@@ -235,6 +235,7 @@ $('#statusPanel #modeStatus a').live('click', function(e) {
 	} else {
 		if(backstage.isVisible()) {
 			backstage.hide();
+			$('#app-picker').hide().css({'visibility':'hidden'});
 		}
 	}
 	if($clicked.hasClass('browsing')) {
