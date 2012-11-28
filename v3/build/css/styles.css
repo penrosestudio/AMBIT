@@ -487,7 +487,12 @@ ul#searchResults ul li {
 	height: 25px;
 }
 
-#statusPanel span.value a {
+#statusPanel span.plain {
+	float: right;
+	margin-right: 20px;
+}
+
+#statusPanel span.plain a {
 	background-image: none;
 	width: auto;
 }
