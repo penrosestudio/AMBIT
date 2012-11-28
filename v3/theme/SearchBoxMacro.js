@@ -56,7 +56,20 @@ config.macros.searchBox = {
 		if keyup and there is nothing in the search string, click on input
 		*/
 		
-		// TO-DO: clicking the clear button on the search type input should wrap up the search box
+		/* 
+		search box behaviours v2 (as per Oct 4th 2012):
+		- when clear button clicked
+		-- close panel
+		-- empty search input
+		-- empty results list
+		- when term searched for
+		-- open panel
+		-- empty results list
+		-- show search results
+		- click on input
+		-- if results, show results
+
+		*/
 		
 		$input.click(function() {
 			var $searchBox = $('#searchBox'),

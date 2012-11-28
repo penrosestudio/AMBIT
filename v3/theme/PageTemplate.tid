@@ -74,6 +74,7 @@ title: PageTemplate
 			<div>
 				<span class="title"></span>
 				<span class="value" id="feedback"></span>
+				<span class="value" id="manualizingOurWork"></span>
 		 	</div>
 		</div><!-- End #statusPanel -->
 		<div id="syncPanel">

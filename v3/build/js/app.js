@@ -291,7 +291,7 @@ function updateAccountDisplay(name) {
 		$current.text('').css('visibility','hidden');
 	} else {
 		$title.text('Logged in as:');
-		$current.text(name).css('visibilit','visible');
+		$current.text(name).css('visibility','visible');
 	}
 }
 function addLoginForm() {
@@ -322,8 +322,8 @@ $('#statusPanel #accountStatus form').submit(function(e) {
 	this.submit();
 });
 
-// Feedback Button
-
+// sidebar links
 createTiddlyLink($('#feedback').get(0),'Feedback please!',true);
+createTiddlyLink($('#manualizingOurWork').get(0),'+ Manualize our work',true);
 
 

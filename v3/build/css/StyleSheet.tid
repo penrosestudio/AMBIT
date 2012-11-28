@@ -1509,8 +1509,9 @@ ul#searchResults ul li {
 	height: 25px;
 }
 
-#statusPanel span#feedback a {
+#statusPanel span.value a {
 	background-image: none;
+	width: auto;
 }
 
 #statusPanel #logOutForm input {
