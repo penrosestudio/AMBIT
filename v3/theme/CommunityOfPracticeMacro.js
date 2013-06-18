@@ -1,16 +1,17 @@
 /*{{{*/
 config.macros.communityOfPractice = {
 	/* 
-		1.
+		1. DONE
 		- get the data (changes across all manuals)
 		- get top 10 by date
 		- spit it out as a table
 		2.
+		- make page title a link
 		- add hover popup
 		- add text
 		- add link to original
 	*/
-	searchURL: '/search.json?q=',
+	searchURL: '/search.json?fat=1&q=',
 	feedPath: '/bags/%0_public/tiddlers.json?fat=1',
 	tiddlers: [],
 	handler: function(place,macroName,params,wikifier,paramString,tiddler) {
@@ -56,12 +57,28 @@ config.macros.communityOfPractice = {
 		// process tiddlers into table
 		$.each(config.macros.communityOfPractice.tiddlers, function(i, tiddler) {
 			var name = tiddler.title,
+				text = tiddler.text,
 				bag = tiddler.bag,
 				space = bag.split('_')[0],
 				editor = tiddler.modifier,
-				modified = Date.convertFromYYYYMMDDHHMM(tiddler.modified).formatString("0DD/0MM/YY");
-			$tbody.append("<tr><td>"+name+"</td><td>"+space+"</td><td>"+editor+"</td><td>"+modified+"</td></tr>");
+				modified = Date.convertFromYYYYMMDDHHMM(tiddler.modified).formatString("0DD/0MM/YY"),
+				$row = $("<tr><td><a href='#'>"+name+"</a></td><td>"+space+"</td><td>"+editor+"</td><td>"+modified+"</td></tr>").appendTo($tbody);
+			$row.find('a').click(function(e) {
+				e.preventDefault();
+				var popup = Popup.create(this),
+					$popup = $(popup);
+				console.log(tiddler);
+				$popup.append("<strong>Page: "+name+"</strong><br>Manual: "+space+"<br><a href='"+tiddler.permalink+"' class='button'>Go to</a><br><br>");
+				wikify(plugin.diffExtract(name, text), popup);
+				Popup.show();
+				return false; // without this the popup doesn't appear. I don't know why, but it ends up not attached to any element
+			});
 		});
+	},
+	diffExtract: function(name, text) {
+		// return a snippet of text with the difference highlighted
+		// for now, just return 200 characters of text
+		return text.length>200 ? text.substr(0, 197)+"<html>&hellip;</html>" : text;
 	}
 /*	NOT necessary in this macro?
 	wrapWithElsewhereLink: function(place, tiddlers, tiddler) {

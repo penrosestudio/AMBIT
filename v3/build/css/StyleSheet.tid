@@ -1060,7 +1060,7 @@ a:hover {
 	width: 100%;
 }
 
-#displayArea button, #displayArea a.button {
+#displayArea button, #displayArea a.button, #popup button, #popup a.button {
 	font-size: 11px;
 	font-family: "Helvetica Neue", Helvetica;
 	font-weight: bold;
@@ -1087,7 +1087,7 @@ a:hover {
 	
 }
 
-#displayArea button:hover, #displayArea a.button:hover {
+#displayArea button:hover, #displayArea a.button:hover, #popup button:hover, #popup a.button:hover {
 	border-color: #999;
 	cursor: pointer;
 	-webkit-box-shadow: 0px 1px 2px #c8c8c8; 
@@ -1097,7 +1097,7 @@ a:hover {
 	text-decoration: none;
 }
 
-#displayArea button:active, #displayArea a.button:active {
+#displayArea button:active, #displayArea a.button:active, #popup button:active, #popup a.button:active {
 	box-shadow: none;
 	-webkit-box-shadow: none;
 	-moz-box-shadow: none;
