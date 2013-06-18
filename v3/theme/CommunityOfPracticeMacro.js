@@ -10,50 +10,57 @@ config.macros.communityOfPractice = {
 		- add text
 		- add link to original
 	*/
-	searchURL: '/search.json?q=title:"%0"',
+	searchURL: '/search.json?q=',
 	feedPath: '/bags/%0_public/tiddlers.json?fat=1',
 	tiddlers: [],
 	handler: function(place,macroName,params,wikifier,paramString,tiddler) {
 		var plugin = config.macros.communityOfPractice,
-			feedPath = plugin.feedPath,
 			$ = jQuery,
+//			$place = $('div').appendTo(place),
+			feedPath = plugin.feedPath,
 			whitelist = store.getTiddler('Trained/Training AMBIT services manualizing their work').text.split('\n'),
-			ajaxCount = 0,
-			ajaxLimit = whitelist.length;
+			bagFilters = [],
+			url;
+		plugin.place = $place;
 		$.each(whitelist, function(i, line) {
 			var pieces = line.split(':'),
-				space = pieces[0],
-				urlStem = pieces[1],
-				url = urlStem+feedPath.format(encodeURIComponent(space));
-			$.ajax({
-				url: url,
-				dataType: "json",
-				success: function(tiddlers) {
-					tiddlers = $.grep(tiddlers, function(t, i) {
-						// ensure tiddlers are from the space we queried
-						// NB: shouldn't need this when querying tiddler feed
-						//return t.bag.indexOf('ambit')!==-1 && t.bag!==tiddler.fields['server.bag'];
-						return true;
-					});
-					plugin.allTiddlers = plugin.allTiddlers.concat(tiddlers);
-					ajaxCount++;
-					if(ajaxCount===ajaxLimit) {
-						plugin.processResults(place);
-					}
-				},
-				error: function() {
-					$(place).prepend('(error)');
-				}
-			});
+				space = pieces[0];
+				//url = feedPath.format(encodeURIComponent(space)),
+			if(space) {
+				bagFilters.push("bag:"+space+"_public");
+			}
+		});
+		url = plugin.searchURL + "("+bagFilters.join(" OR ")+")";
+		$.ajax({
+			url: url,
+			dataType: "json",
+			success: function(tiddlers) {
+				tiddlers = $.grep(tiddlers, function(t, i) {
+					// ensure tiddlers are from the space we queried
+					// NB: shouldn't need this when querying tiddler feed
+					//return t.bag.indexOf('ambit')!==-1 && t.bag!==tiddler.fields['server.bag'];
+					return true;
+				});
+				plugin.tiddlers = tiddlers;
+				plugin.processResults();
+			},
+			error: function() {
+				$place.prepend('(error)');
+			}
 		});
 	},
-	processResults: function(place) {
+	processResults: function() {
+		console.log('pR');
 		// create results table
 		var $ = jQuery,
+			plugin = config.macros.communityOfPractice,
+			place = plugin.place,
 			$table = $("<table><thead><tr><th>Page name</th><th>Manual</th><th>Editor</th><th>Date</th></tr></thead><tbody></tbody></table>").appendTo(place),
 			$tbody = $table.find('tbody');
+		console.log($table);
 		// process tiddlers into table
 		$.each(config.macros.communityOfPractice.tiddlers, function(i, tiddler) {
+			console.log(tiddler);
 			var name = tiddler.title,
 				bag = tiddler.fields['server.bag'], // TO-DO: maybe add space to the tiddler fields for convenience in AJAX success
 				editor = tiddler.modifier,
