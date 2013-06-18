@@ -34,6 +34,10 @@ config.macros.communityOfPractice = {
 			url: url,
 			dataType: "json",
 			success: function(tiddlers) {
+				// make sure we are not including tiddlers from this space (and any non-ambit tiddlers, which shouldn't be the case anyway)
+				tiddlers = $.grep(tiddlers, function(t, i) {
+					return t.bag.indexOf('ambit')!==-1 && t.bag!==tiddler.fields['server.bag'];
+				});
 				plugin.tiddlers = tiddlers;
 				plugin.processResults();
 			},
@@ -53,7 +57,7 @@ config.macros.communityOfPractice = {
 		$.each(config.macros.communityOfPractice.tiddlers, function(i, tiddler) {
 			var name = tiddler.title,
 				bag = tiddler.bag,
-				space = bag.split('_').slice(-1),
+				space = bag.split('_')[0],
 				editor = tiddler.modifier,
 				modified = Date.convertFromYYYYMMDDHHMM(tiddler.modified).formatString("0DD/0MM/YY");
 			$tbody.append("<tr><td>"+name+"</td><td>"+space+"</td><td>"+editor+"</td><td>"+modified+"</td></tr>");
