@@ -68,7 +68,7 @@ config.macros.communityOfPractice = {
 				var popup = Popup.create(this),
 					$popup = $(popup);
 				console.log(tiddler);
-				$popup.append("<strong>Page: "+name+"</strong><br>Manual: "+space+"<br><a href='"+tiddler.permalink+"' class='button'>Go to</a><br><br>");
+				$popup.append("<strong>Page: "+name+"</strong><br>Manual: "+space+"<br><a target='_blank' href='"+tiddler.uri+"' class='button'>Go to</a><br><br>");
 				wikify(plugin.diffExtract(name, text), popup);
 				Popup.show();
 				return false; // without this the popup doesn't appear. I don't know why, but it ends up not attached to any element
