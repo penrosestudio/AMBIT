@@ -16,7 +16,7 @@ config.macros.communityOfPractice = {
 	handler: function(place,macroName,params,wikifier,paramString,tiddler) {
 		var plugin = config.macros.communityOfPractice,
 			$ = jQuery,
-			$place = $('<div>').appendTo(place),
+			$place = $('<div>loading Community of Practice data...</div>').appendTo(place),
 			feedPath = plugin.feedPath,
 			whitelist = store.getTiddler('Trained/Training AMBIT services manualizing their work').text.split('\n'),
 			bagFilters = [],
@@ -46,10 +46,9 @@ config.macros.communityOfPractice = {
 		// create results table
 		var $ = jQuery,
 			plugin = config.macros.communityOfPractice,
-			place = plugin.place,
+			place = plugin.place.empty(),
 			$table = $("<table><thead><tr><th>Page name</th><th>Manual</th><th>Editor</th><th>Date</th></tr></thead><tbody></tbody></table>").appendTo(place),
 			$tbody = $table.find('tbody');
-		console.log($table);
 		// process tiddlers into table
 		$.each(config.macros.communityOfPractice.tiddlers, function(i, tiddler) {
 			var name = tiddler.title,
