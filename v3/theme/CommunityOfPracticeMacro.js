@@ -16,7 +16,7 @@ config.macros.communityOfPractice = {
 	handler: function(place,macroName,params,wikifier,paramString,tiddler) {
 		var plugin = config.macros.communityOfPractice,
 			$ = jQuery,
-//			$place = $('div').appendTo(place),
+			$place = $('<div>').appendTo(place),
 			feedPath = plugin.feedPath,
 			whitelist = store.getTiddler('Trained/Training AMBIT services manualizing their work').text.split('\n'),
 			bagFilters = [],
@@ -25,7 +25,6 @@ config.macros.communityOfPractice = {
 		$.each(whitelist, function(i, line) {
 			var pieces = line.split(':'),
 				space = pieces[0];
-				//url = feedPath.format(encodeURIComponent(space)),
 			if(space) {
 				bagFilters.push("bag:"+space+"_public");
 			}
@@ -35,12 +34,6 @@ config.macros.communityOfPractice = {
 			url: url,
 			dataType: "json",
 			success: function(tiddlers) {
-				tiddlers = $.grep(tiddlers, function(t, i) {
-					// ensure tiddlers are from the space we queried
-					// NB: shouldn't need this when querying tiddler feed
-					//return t.bag.indexOf('ambit')!==-1 && t.bag!==tiddler.fields['server.bag'];
-					return true;
-				});
 				plugin.tiddlers = tiddlers;
 				plugin.processResults();
 			},
@@ -50,7 +43,6 @@ config.macros.communityOfPractice = {
 		});
 	},
 	processResults: function() {
-		console.log('pR');
 		// create results table
 		var $ = jQuery,
 			plugin = config.macros.communityOfPractice,
@@ -60,12 +52,12 @@ config.macros.communityOfPractice = {
 		console.log($table);
 		// process tiddlers into table
 		$.each(config.macros.communityOfPractice.tiddlers, function(i, tiddler) {
-			console.log(tiddler);
 			var name = tiddler.title,
-				bag = tiddler.fields['server.bag'], // TO-DO: maybe add space to the tiddler fields for convenience in AJAX success
+				bag = tiddler.bag,
+				space = bag.split('_').slice(-1),
 				editor = tiddler.modifier,
-				modified = new Date(tiddler.modified);
-			$tbody.append("<tr><td>"+name+"</td><td>"+bag+"</td><td>"+editor+"</td><td>"+modified+"</td></tr>");
+				modified = Date.convertFromYYYYMMDDHHMM(tiddler.modified).formatString("0DD/0MM/YY");
+			$tbody.append("<tr><td>"+name+"</td><td>"+space+"</td><td>"+editor+"</td><td>"+modified+"</td></tr>");
 		});
 	}
 /*	NOT necessary in this macro?
