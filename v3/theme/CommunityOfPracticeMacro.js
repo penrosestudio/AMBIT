@@ -5,11 +5,14 @@ config.macros.communityOfPractice = {
 		- get the data (changes across all manuals)
 		- get top 10 by date
 		- spit it out as a table
-		2.
+		2. DONE
 		- make page title a link
 		- add hover popup
 		- add text
 		- add link to original
+		3.
+		- change snippet of text to centre on the area of difference - DONE
+		- add styling for diff
 	*/
 	searchURL: '/search.json?fat=1&q=',
 	feedPath: '/bags/%0_public/tiddlers.json?fat=1',
