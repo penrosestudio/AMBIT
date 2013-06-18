@@ -62,23 +62,68 @@ config.macros.communityOfPractice = {
 				space = bag.split('_')[0],
 				editor = tiddler.modifier,
 				modified = Date.convertFromYYYYMMDDHHMM(tiddler.modified).formatString("0DD/0MM/YY"),
-				$row = $("<tr><td><a href='#'>"+name+"</a></td><td>"+space+"</td><td>"+editor+"</td><td>"+modified+"</td></tr>").appendTo($tbody);
+				$row = $("<tr><td><a href='#'>"+name+"</a></td><td>"+space+"</td><td>"+editor+"</td><td>"+modified+"</td></tr>").appendTo($tbody),
+				localTiddler = store.getTiddler(name);
 			$row.find('a').click(function(e) {
 				e.preventDefault();
 				var popup = Popup.create(this),
-					$popup = $(popup);
-				console.log(tiddler);
+					$popup = $(popup),
+					diffURL;
 				$popup.append("<strong>Page: "+name+"</strong><br>Manual: "+space+"<br><a target='_blank' href='"+tiddler.uri+"' class='button'>Go to</a><br><br>");
-				wikify(plugin.diffExtract(name, text), popup);
+				if(localTiddler && localTiddler.fields['server.bag'] !== bag) {
+					// show the diff'ed text
+					$popup.append('<span class="diff">loading comparison&hellip;</span>');
+					$.get("diff?rev1=bags/"+localTiddler.fields['server.bag']+"/"+encodeURIComponent(name)+"/"+localTiddler.fields['server.page.revision']+"&rev2=bags/"+bag+"/"+encodeURIComponent(name)+"/"+tiddler.revision+"&format=unified",
+						function(text) {
+							console.log(text);
+							$popup.find('span.diff').remove();
+							text = plugin.extractFirstDiff(text);
+							console.log('extractFirstDiff:',text);
+							wikify('//showing snippet (from area of difference)//\n', popup);
+							wikify(plugin.snippet(text, 200), popup);
+						}
+					);
+				} else {
+					wikify('//showing snippet//\n', popup);
+					wikify(plugin.snippet(text, 200), popup);
+				}
 				Popup.show();
 				return false; // without this the popup doesn't appear. I don't know why, but it ends up not attached to any element
 			});
 		});
 	},
-	diffExtract: function(name, text) {
-		// return a snippet of text with the difference highlighted
-		// for now, just return 200 characters of text
-		return text.length>200 ? text.substr(0, 197)+"<html>&hellip;</html>" : text;
+	extractFirstDiff: function(text) {
+		/*
+			1. Select the first diff (as delimited by @@ ... @@)
+			2. Remove everything before the content (as delimited by the last _hash: ...)
+			
+			Example diff:		
+			--- 
+			
+			+++ 
+			
+			@@ -1,14 +1,12 @@
+			
+			-creator: jnthnlstr
+			...
+			-_hash: 1a1bee67501d45074a2ffd7227b0136692b0429f
+			+_hash: 7e87f2d158e20809bd934cc20422ff421c181572
+			 
+			-t
+			 !Purpose
+			 to help new users become familiar with basic knowledge about AMBIT.
+ 
+		*/
+		var diffs = text.split(/@@.+?@@\n/),
+			diff = diffs[1],
+			parts = diff.split(/_hash:.+?\n/),
+			content = parts.slice(-1)[0];
+		return "{{diff{\n"+content+"\n}}}";
+	},
+	snippet: function(text, limit) {
+		// return a snippet of text ready for wikification
+		// TO-DO return with the difference highlighted
+		return text.length>limit ? text.substr(0, limit-3)+"<html>&hellip;</html>" : text;
 	}
 /*	NOT necessary in this macro?
 	wrapWithElsewhereLink: function(place, tiddlers, tiddler) {
