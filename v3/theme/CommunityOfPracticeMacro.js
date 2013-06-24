@@ -1,3 +1,11 @@
+/*
+	Title: Community of Practice macro
+	Description: provides display of editing activity across different manuals
+	Version: v0.2
+
+	Changelog:
+		v0.1: June 20th, 2013
+*/
 /*{{{*/
 config.macros.communityOfPractice = {
 	/* 
@@ -71,8 +79,10 @@ config.macros.communityOfPractice = {
 				e.preventDefault();
 				var popup = Popup.create(this),
 					$popup = $(popup),
+					$meta = $("<strong>Page: "+name+"</strong><br>Manual: "+space+"<br><a target='_blank' href='"+tiddler.uri+"' class='button'>Go to</a><br><br>").appendTo($popup),
+					$snippet = $("<div class='snippet'>").appendTo($popup),
+					snippet = $snippet.get(0),
 					diffURL;
-				$popup.append("<strong>Page: "+name+"</strong><br>Manual: "+space+"<br><a target='_blank' href='"+tiddler.uri+"' class='button'>Go to</a><br><br>");
 				if(localTiddler && localTiddler.fields['server.bag'] !== bag) {
 					// show the diff'ed text
 					$popup.append('<span class="diff">loading comparison&hellip;</span>');
@@ -83,12 +93,12 @@ config.macros.communityOfPractice = {
 							text = plugin.extractFirstDiff(text);
 							console.log('extractFirstDiff:',text);
 							wikify('//showing snippet (from area of difference)//\n', popup);
-							wikify(plugin.snippet(text, 200), popup);
+							wikify(plugin.snippet(text, 200), snippet);
 						}
 					);
 				} else {
 					wikify('//showing snippet//\n', popup);
-					wikify(plugin.snippet(text, 200), popup);
+					wikify(plugin.snippet(text, 200), snippet);
 				}
 				Popup.show();
 				return false; // without this the popup doesn't appear. I don't know why, but it ends up not attached to any element
