@@ -79,7 +79,7 @@ config.macros.communityOfPractice = {
 				e.preventDefault();
 				var popup = Popup.create(this),
 					$popup = $(popup),
-					$meta = $("<strong>Page: "+name+"</strong><br>Manual: "+space+"<br><a target='_blank' href='"+tiddler.uri+"' class='button'>Go to</a><br><br>").appendTo($popup),
+					$meta = $("<div><strong>Page: "+name+"</strong><br>Manual: "+space+"<br><a target='_blank' href='"+tiddler.uri+"' class='button'>Go to</a><br><br></div>").appendTo($popup),
 					$snippet = $("<div class='snippet'>").appendTo($popup),
 					snippet = $snippet.get(0),
 					diffURL;
@@ -92,12 +92,12 @@ config.macros.communityOfPractice = {
 							$popup.find('span.diff').remove();
 							text = plugin.extractFirstDiff(text);
 							console.log('extractFirstDiff:',text);
-							wikify('//showing snippet (from area of difference)//\n', popup);
+							wikify('//showing snippet (from area of difference)//\n', $meta.get(0));
 							wikify(plugin.snippet(text, 200), snippet);
 						}
 					);
 				} else {
-					wikify('//showing snippet//\n', popup);
+					wikify('//showing snippet//\n', $meta.get(0));
 					wikify(plugin.snippet(text, 200), snippet);
 				}
 				Popup.show();
