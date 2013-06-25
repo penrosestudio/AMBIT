@@ -36,8 +36,9 @@ config.macros.communityOfPractice = {
 		plugin.place = $place;
 		$.each(whitelist, function(i, line) {
 			var pieces = line.split(':'),
-				space = pieces[0];
-			if(space) {
+				space = pieces[0],
+				isCore = line.indexOf('| core')!==-1;
+			if(space && !isCore) {
 				bagFilters.push("bag:"+space+"_public");
 			}
 		});
@@ -82,23 +83,29 @@ config.macros.communityOfPractice = {
 					$meta = $("<div><strong>Page: "+name+"</strong><br>Manual: "+space+"<br><a target='_blank' href='"+tiddler.uri+"' class='button'>Go to</a><br><br></div>").appendTo($popup),
 					$snippet = $("<div class='snippet'>").appendTo($popup),
 					snippet = $snippet.get(0),
+					snippetText,
 					diffURL;
 				if(localTiddler && localTiddler.fields['server.bag'] !== bag) {
 					// show the diff'ed text
 					$popup.append('<span class="diff">loading comparison&hellip;</span>');
 					$.get("diff?rev1=bags/"+localTiddler.fields['server.bag']+"/"+encodeURIComponent(name)+"/"+localTiddler.fields['server.page.revision']+"&rev2=bags/"+bag+"/"+encodeURIComponent(name)+"/"+tiddler.revision+"&format=unified",
 						function(text) {
-							console.log(text);
+							var fakeTiddler = new Tiddler();
+							fakeTiddler.tags.push('diff');
 							$popup.find('span.diff').remove();
+							
 							text = plugin.extractFirstDiff(text);
-							console.log('extractFirstDiff:',text);
-							wikify('//showing snippet (from area of difference)//\n', $meta.get(0));
-							wikify(plugin.snippet(text, 200), snippet);
+							snippetText = "{{diff{\n"+plugin.snippet(text, 200)+"\n}}}";
+							
+							$meta.append(wikifyStatic('//showing snippet (from area of difference)//\n'));
+							
+							$snippet.html(wikifyStatic(snippetText, null, fakeTiddler));
+							delete fakeTiddler;
 						}
 					);
 				} else {
-					wikify('//showing snippet//\n', $meta.get(0));
-					wikify(plugin.snippet(text, 200), snippet);
+					$meta.append(wikifyStatic('//showing snippet//\n'));
+					$snippet.append(plugin.snippet(text, 200));
 				}
 				Popup.show();
 				return false; // without this the popup doesn't appear. I don't know why, but it ends up not attached to any element
@@ -131,12 +138,12 @@ config.macros.communityOfPractice = {
 			diff = diffs[1],
 			parts = diff.split(/_hash:.+?\n/),
 			content = parts.slice(-1)[0];
-		return "{{diff{\n"+content+"\n}}}";
+		return content;
 	},
 	snippet: function(text, limit) {
 		// return a snippet of text ready for wikification
 		// TO-DO return with the difference highlighted
-		return text.length>limit ? text.substr(0, limit-3)+"<html>&hellip;</html>" : text;
+		return text.length>limit ? text.substr(0, limit-3)+"..." : text;
 	}
 /*	NOT necessary in this macro?
 	wrapWithElsewhereLink: function(place, tiddlers, tiddler) {

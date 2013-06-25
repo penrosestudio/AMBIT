@@ -114,8 +114,7 @@ config.macros.ambitElsewhere = {
 			bagFilters = [];
 		$.each(whitelist, function(i, line) {
 			var pieces = line.split(':'),
-				space = pieces[0],
-				url = pieces[1];
+				space = pieces[0];
 			bagFilters.push("bag:"+space+"_public");
 		});
 		url += "%20("+bagFilters.join(" OR ")+")";
