@@ -80,7 +80,7 @@ config.macros.communityOfPractice = {
 				e.preventDefault();
 				var popup = Popup.create(this),
 					$popup = $(popup),
-					$meta = $("<div><strong>Page: "+name+"</strong><br>Manual: "+space+"<br><a target='_blank' href='"+tiddler.uri+"' class='button'>Go to</a><br><br></div>").appendTo($popup),
+					$meta = $("<div><strong>Page: "+name+"</strong><br>Manual: "+space+"<br><a target='_blank' href='http://"+space+".tiddlyspace.com/#[["+encodeURIComponent(name)+"]]' class='button'>Go to</a><br><br></div>").appendTo($popup),
 					$snippet = $("<div class='snippet'>").appendTo($popup),
 					snippet = $snippet.get(0),
 					snippetText,
