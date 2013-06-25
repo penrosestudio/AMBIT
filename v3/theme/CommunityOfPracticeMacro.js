@@ -94,7 +94,7 @@ config.macros.communityOfPractice = {
 				e.preventDefault();
 				var popup = Popup.create(this),
 					$popup = $(popup),
-					$meta = $("<div><strong>Page: "+name+"</strong><br>Manual: "+space+"<br><a target='_blank' href='http://"+space+".tiddlyspace.com/#[["+encodeURIComponent(name)+"]]' class='button'>Go to</a><br><br></div>").appendTo($popup),
+					$meta = $("<div><strong>Page: "+name+"</strong><br>Manual: "+space+"<br><a target='_blank' href='http://"+space+".tiddlyspace.com/#[["+encodeURIComponent(name)+"]]' class='button' title=\"Clicking on this button will open a view of the page you are interested in; this page's manual will open in a separate tab with this page open\">Go to</a><br><br></div>").appendTo($popup),
 					$snippet = $("<div class='snippet'>").appendTo($popup),
 					snippet = $snippet.get(0),
 					snippetText,
