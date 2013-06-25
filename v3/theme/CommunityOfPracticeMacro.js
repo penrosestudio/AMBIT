@@ -7,6 +7,7 @@
 		v0.3: June 25th, 2013
 			- removed core manuals from whitelist
 			- changed GO-TO button so it opens tiddlers in-situ in their manuals
+			- made it possible to switch between 'core' and 'community' changes by using the 'manuals:community|core' parameter; defaults to 'community'
 		v0.2: June 24rd, 2013
 			- put snippet into own container and styled
 		v0.1: June 20th, 2013
