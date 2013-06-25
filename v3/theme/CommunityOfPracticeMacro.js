@@ -1,9 +1,14 @@
 /*
 	Title: Community of Practice macro
 	Description: provides display of editing activity across different manuals
-	Version: v0.2
+	Version: v0.3
 
 	Changelog:
+		v0.3: June 25th, 2013
+			- removed core manuals from whitelist
+			- changed GO-TO button so it opens tiddlers in-situ in their manuals
+		v0.2: June 24rd, 2013
+			- put snippet into own container and styled
 		v0.1: June 20th, 2013
 */
 /*{{{*/
