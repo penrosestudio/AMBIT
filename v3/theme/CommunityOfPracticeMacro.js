@@ -29,7 +29,6 @@ config.macros.communityOfPractice = {
 	*/
 	searchURL: '/search.json?fat=1&q=',
 	feedPath: '/bags/%0_public/tiddlers.json?fat=1',
-	tiddlers: [],
 	handler: function(place,macroName,params,wikifier,paramString,tiddler) {
 		var plugin = config.macros.communityOfPractice,
 			$ = jQuery,
@@ -37,17 +36,27 @@ config.macros.communityOfPractice = {
 			feedPath = plugin.feedPath,
 			whitelist = store.getTiddler('Trained/Training AMBIT services manualizing their work').text.split('\n'),
 			bagFilters = [],
+			params = paramString.parseParams(null, null, true),
+			communityOrCore = getParam(params,'manuals','community'), // defaults to 'community'
 			url;
-		plugin.place = $place;
 		$.each(whitelist, function(i, line) {
 			var pieces = line.split(':'),
 				space = pieces[0],
 				isCore = line.indexOf('| core')!==-1;
-			if(space && !isCore) {
-				bagFilters.push("bag:"+space+"_public");
+			if(space) {
+				// if we want community changes, just include non-core manuals
+				if(communityOrCore==="community" && !isCore) {
+					bagFilters.push("bag:"+space+"_public");
+				} else if(communityOrCore==="core" && isCore) {
+					// if we want core changes, just include core manuals
+					bagFilters.push("bag:"+space+"_public");				
+				}
 			}
 		});
 		url = plugin.searchURL + "("+bagFilters.join(" OR ")+")";
+		
+		// TO-DO: potentially add cacheing here, so multiple macro calls share the same tiddlers array
+		
 		$.ajax({
 			url: url,
 			dataType: "json",
@@ -56,23 +65,22 @@ config.macros.communityOfPractice = {
 				tiddlers = $.grep(tiddlers, function(t, i) {
 					return t.bag.indexOf('ambit')!==-1 && t.bag!==tiddler.fields['server.bag'];
 				});
-				plugin.tiddlers = tiddlers;
-				plugin.processResults();
+				plugin.processResults($place, tiddlers);
 			},
 			error: function() {
 				$place.prepend('(error)');
 			}
 		});
 	},
-	processResults: function() {
+	processResults: function($place, tiddlers) {
 		// create results table
 		var $ = jQuery,
 			plugin = config.macros.communityOfPractice,
-			place = plugin.place.empty(),
-			$table = $("<table><thead><tr><th>Page name</th><th>Manual</th><th>Editor</th><th>Date</th></tr></thead><tbody></tbody></table>").appendTo(place),
+			$place = $place.empty(),
+			$table = $("<table><thead><tr><th>Page name</th><th>Manual</th><th>Editor</th><th>Date</th></tr></thead><tbody></tbody></table>").appendTo($place),
 			$tbody = $table.find('tbody');
 		// process tiddlers into table
-		$.each(config.macros.communityOfPractice.tiddlers, function(i, tiddler) {
+		$.each(tiddlers, function(i, tiddler) {
 			var name = tiddler.title,
 				text = tiddler.text,
 				bag = tiddler.bag,
