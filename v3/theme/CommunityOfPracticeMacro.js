@@ -77,6 +77,7 @@ config.macros.communityOfPractice = {
 		// create results table
 		var $ = jQuery,
 			plugin = config.macros.communityOfPractice,
+			host = window.location.protocol+"//"+window.location.host,
 			$place = $place.empty(),
 			$table = $("<table><thead><tr><th>Page name</th><th>Manual</th><th>Editor</th><th>Date</th></tr></thead><tbody></tbody></table>").appendTo($place),
 			$tbody = $table.find('tbody');
@@ -98,7 +99,27 @@ config.macros.communityOfPractice = {
 					$snippet = $("<div class='snippet'>").appendTo($popup),
 					snippet = $snippet.get(0),
 					snippetText,
-					diffURL;
+					diffURL,
+					newTiddler = config.adaptors.tiddlyweb.toTiddler(tiddler, host),
+					// only allow cloning if:
+					//	- we're in edit mode
+					//	- the tiddler doesn't exist in this space
+					cloningEnabled = config.commands.cloneTiddler.isEnabled(newTiddler) && !localTiddler;
+
+				if(cloningEnabled) {
+					$('<a href="#" class="button" title="Click to make a clone of this page in your manual for customisation">Clone and customise</a>')
+						.click(function(e) {
+							e.preventDefault();
+							// this tiddler doesn't exist in this space - we need to add it so the cloneTiddler process work properly
+							store.addTiddler(newTiddler);
+							// editTiddler expects the tiddler to already be open, so open it (in edit mode so it doesn't change appearance)
+							story.displayTiddler(e,newTiddler.title,DEFAULT_EDIT_TEMPLATE);
+							config.commands.cloneTiddler.handler(null,null,newTiddler.title);
+							Popup.hide();
+							return false;
+						}).insertAfter($meta.find('a.button'));
+				}
+				
 				if(localTiddler && localTiddler.fields['server.bag'] !== bag) {
 					// show the diff'ed text
 					$popup.append('<span class="diff">loading comparison&hellip;</span>');
