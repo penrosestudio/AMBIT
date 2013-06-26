@@ -115,7 +115,7 @@ config.macros.communityOfPractice = {
 							// editTiddler expects the tiddler to already be open, so open it (in edit mode so it doesn't change appearance)
 							story.displayTiddler(e,newTiddler.title,DEFAULT_EDIT_TEMPLATE);
 							config.commands.cloneTiddler.handler(null,null,newTiddler.title);
-							Popup.hide();
+							Popup.remove();
 							return false;
 						}).insertAfter($meta.find('a.button'));
 				}
