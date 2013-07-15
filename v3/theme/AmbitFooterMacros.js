@@ -110,7 +110,7 @@ config.macros.ambitElsewhere = {
 	handler: function(place,macroName,params,wikifier,paramString,tiddler) {
 		var url = config.macros.ambitElsewhere.searchURL.format(encodeURIComponent(tiddler.title)),
 			$ = jQuery,
-			whitelist = store.getTiddler('Trained/Training AMBIT services manualizing their work').text.split('\n'),
+			whitelist = store.getTiddler('AMBIT community of practice - members').text.split('\n'),
 			bagFilters = [];
 		$.each(whitelist, function(i, line) {
 			var pieces = line.split(':'),

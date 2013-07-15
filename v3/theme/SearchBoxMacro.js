@@ -159,7 +159,7 @@ config.macros.search.handler = function(place,macroName,params)
 config.macros.search.elsewhereSearch = function(text) {
 	var url = '/search.json?q="%0"'.format(encodeURIComponent(text)),
 		$ = jQuery,
-		whitelist = store.getTiddler('Trained/Training AMBIT services manualizing their work').text.split('\n'),
+		whitelist = store.getTiddler('AMBIT community of practice - members').text.split('\n'),
 		bagFilters = [];
 	$('#searchResults li.loading').show();
 	$.each(whitelist, function(i, line) {
