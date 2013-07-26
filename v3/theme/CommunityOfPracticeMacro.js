@@ -62,9 +62,9 @@ config.macros.communityOfPractice = {
 			url: url,
 			dataType: "json",
 			success: function(tiddlers) {
-				// make sure we are not including tiddlers from this space (and any non-ambit tiddlers, which shouldn't be the case anyway)
+				// make sure we are not including any non-ambit tiddlers, which shouldn't be the case anyway
 				tiddlers = $.grep(tiddlers, function(t, i) {
-					return t.bag.indexOf('ambit')!==-1 && t.bag!==tiddler.fields['server.bag'];
+					return t.bag.indexOf('ambit')!==-1;
 				});
 				plugin.processResults($place, tiddlers);
 			},
