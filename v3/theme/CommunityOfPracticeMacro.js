@@ -111,10 +111,7 @@ config.macros.communityOfPractice = {
 						.click(function(e) {
 							e.preventDefault();
 							// first localize the tiddler & make sure we can edit it
-							//newTiddler.fields['server.bag'] = config.extensions.tiddlyspace.getCurrentBag("public");
-							//newTiddler.fields['server.workspace'] = config.extensions.tiddlyspace.getCurrentWorkspace('public');
 							newTiddler.fields['server.permissions'] = 'read, write, create';
-
 							// this tiddler doesn't exist in this space - we need to add it so the cloneTiddler process work properly
 							store.addTiddler(newTiddler);
 							// editTiddler expects the tiddler to already be open, so open it (in edit mode so it doesn't change appearance)
