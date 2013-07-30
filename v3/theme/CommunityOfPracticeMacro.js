@@ -1,9 +1,11 @@
 /*
 	Title: Community of Practice macro
 	Description: provides display of editing activity across different manuals
-	Version: v0.3
+	Version: v0.4
 
 	Changelog:
+		v0.4: July 30th, 2013
+			- fixed problems with cloned tiddlers not acquiring correct fields and permissions
 		v0.3: June 25th, 2013
 			- removed core manuals from whitelist
 			- changed GO-TO button so it opens tiddlers in-situ in their manuals
@@ -30,6 +32,9 @@ config.macros.communityOfPractice = {
 	*/
 	searchURL: '/search.json?fat=1&q=',
 	feedPath: '/bags/%0_public/tiddlers.json?fat=1',
+	refresh: function() {
+		console.log('refreshing',arguments);
+	},
 	handler: function(place,macroName,params,wikifier,paramString,tiddler) {
 		var plugin = config.macros.communityOfPractice,
 			$ = jQuery,
