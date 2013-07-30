@@ -24,8 +24,8 @@ config.macros.communityOfPractice = {
 		- add hover popup
 		- add text
 		- add link to original
-		3.
-		- change snippet of text to centre on the area of difference - DONE
+		3. DONE
+		- change snippet of text to centre on the area of difference
 		- add styling for diff
 	*/
 	searchURL: '/search.json?fat=1&q=',
@@ -110,8 +110,14 @@ config.macros.communityOfPractice = {
 					$('<a href="#" class="button" title="Click to make a clone of this page in your manual for customisation">Clone and customise</a>')
 						.click(function(e) {
 							e.preventDefault();
+							// first localize the tiddler
+							newTiddler.fields['server.bag'] = config.extensions.tiddlyspace.getCurrentBag("public");
+							newTiddler.fields['server.workspace'] = config.extensions.tiddlyspace.getCurrentWorkspace('public');
+							newTiddler.modifier = config.extensions.tiddlyweb.username;
 							// this tiddler doesn't exist in this space - we need to add it so the cloneTiddler process work properly
 							store.addTiddler(newTiddler);
+							console.log(newTiddler);
+							window.newTiddler = newTiddler;
 							// editTiddler expects the tiddler to already be open, so open it (in edit mode so it doesn't change appearance)
 							story.displayTiddler(e,newTiddler.title,DEFAULT_EDIT_TEMPLATE);
 							config.commands.cloneTiddler.handler(null,null,newTiddler.title);
