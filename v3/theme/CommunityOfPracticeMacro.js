@@ -110,16 +110,15 @@ config.macros.communityOfPractice = {
 					$('<a href="#" class="button" title="Click to make a clone of this page in your manual for customisation">Clone and customise</a>')
 						.click(function(e) {
 							e.preventDefault();
-							// first localize the tiddler
-							newTiddler.fields['server.bag'] = config.extensions.tiddlyspace.getCurrentBag("public");
-							newTiddler.fields['server.workspace'] = config.extensions.tiddlyspace.getCurrentWorkspace('public');
-							newTiddler.modifier = config.extensions.tiddlyweb.username;
+							// first localize the tiddler & make sure we can edit it
+							//newTiddler.fields['server.bag'] = config.extensions.tiddlyspace.getCurrentBag("public");
+							//newTiddler.fields['server.workspace'] = config.extensions.tiddlyspace.getCurrentWorkspace('public');
+							newTiddler.fields['server.permissions'] = 'read, write, create';
+
 							// this tiddler doesn't exist in this space - we need to add it so the cloneTiddler process work properly
 							store.addTiddler(newTiddler);
-							console.log(newTiddler);
-							window.newTiddler = newTiddler;
 							// editTiddler expects the tiddler to already be open, so open it (in edit mode so it doesn't change appearance)
-							story.displayTiddler(e,newTiddler.title,DEFAULT_EDIT_TEMPLATE);
+							story.displayTiddler(e,newTiddler.title,DEFAULT_EDIT_TEMPLATE,null,null,newTiddler.fields);
 							config.commands.cloneTiddler.handler(null,null,newTiddler.title);
 							Popup.remove();
 							return false;
