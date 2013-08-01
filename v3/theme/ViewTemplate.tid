@@ -3,6 +3,7 @@ title: ViewTemplate
 <!--{{{-->
 <h2 macro='view title text'></h2>
 <p class="provenanceLabel" macro='provenance'></p>
+<p class="voteOfConfidenceLabel" macro='voteOfConfidence'></p>
 <div class="toolbar" macro='toolbar [[ToolbarCommands::ViewToolbar]]'>
 	<!--<a class="close" title="Close this page" href="#">Close</a>
 	<a class="edit" title="Edit this page" href="#">Edit</a>
