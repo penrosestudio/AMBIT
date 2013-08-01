@@ -12,16 +12,13 @@
 
 var voteOfConfidenceMacro = config.macros.voteOfConfidence = {
 	/* Vote of Confidence macro checks how many times a tiddler has been cloned and display some information about those clones. */
-	searchURL: '/search.json?fat=1&q=',
 	clonedTiddlers: [],
 	init: function() {
-		var plugin = config.macros.communityOfPractice,
-			$ = jQuery,		
-			whitelist = store.getTiddler('AMBIT community of practice - members').text.split('\n'),
-			bagFilters = [],
+		var plugin = config.macros.voteOfConfidence,
+			$ = jQuery,
 			currentSpace = config.extensions.tiddlyspace.currentSpace.name,
-			url = "http://tiddlyspace.com/search?q=tiddler.source:"+currentSpace;
-
+			//url = "/search?q=tiddler.source:"+currentSpace+"_public";
+			url = "/search?q=tiddler.source:ambit-content_public"; // this is for debug
 		$.ajax({
 			url: url,
 			dataType: "json",
@@ -45,12 +42,13 @@ var voteOfConfidenceMacro = config.macros.voteOfConfidence = {
 		});
 	},
 	handler: function(place,macroName,params,wikifier,paramString,tiddler) {
-		var plugin = config.macros.communityOfPractice,
+		var plugin = config.macros.voteOfConfidence,
 			$ = jQuery,
 			$place = $(place),
 			title = tiddler.title,
 			clones = plugin.clonedTiddlers[title],
 			clonedCount = clones && clones.length;
+		console.log(clones);
 		if(!clonedCount) {
 			return;
 		}
@@ -62,7 +60,7 @@ var voteOfConfidenceMacro = config.macros.voteOfConfidence = {
 					$popup = $(popup),
 					htmlPieces = ["<div>"];
 				$.each(clones, function(i, t) {
-					"<div class='grid2col left'></div><div class='grid2col left'></div><div class='grid2col left'></div><br class='clearboth' />"
+					htmlPieces.push("<div class='grid2col left'>"+t.title+"</div><div class='grid2col left'>"+t.bag+"</div><div class='grid2col left'>"+t.created+"</div><br class='clearboth' />");
 				});
 				htmlPieces.push("</div>");
 				html = htmlPieces.join("\n");
