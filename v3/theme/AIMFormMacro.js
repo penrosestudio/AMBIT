@@ -291,4 +291,36 @@ config.macros.AIMForm = {
 	}
 };
 
+
+/* Add a custom type of option that doesn't store a cookie */
+config.macros.option.privateOnChange = function(e) {
+	// based on config.macros.option.genericOnChange
+	var opt = this.getAttribute('option');
+	if(opt) {
+		var optType = opt.substr(0,3);
+		var handler = config.macros.option.types[optType];
+		if(handler.elementType && handler.valueField)
+			config.macros.option.propagateOptionPrivate(opt,handler.valueField,this[handler.valueField],handler.elementType,this);
+	}
+	return true;
+};
+config.macros.option.propagateOptionPrivate = function(opt,valueField,value,elementType,elem) {
+	// based on config.macros.option.propagateOption
+	config.options[opt] = value;
+	// saveOption(opt); // don't do this in this function!
+	var t,nodes = document.getElementsByTagName(elementType);
+	for(t=0; t<nodes.length; t++) {
+		var optNode = nodes[t].getAttribute('option');
+		if(opt == optNode && nodes[t]!=elem)
+			nodes[t][valueField] = value;
+	}
+};
+config.macros.option.types.pri = {
+	elementType: 'input',
+	valueField: 'value',
+	eventName: 'onchange',
+	className: 'txtOptionInput',
+	create: config.macros.option.genericCreate,
+	onChange: config.macros.option.privateOnChange
+};
 /*}}}*/
