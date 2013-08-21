@@ -20,6 +20,12 @@ config.macros.exportAIM = {
 		});
 		this.setup = true;
 	},
+	onWindowOpen: function(newDocument) {
+		var $textarea = $('textarea', newDocument),
+			textarea = $textarea.get(0),
+			str = $textarea.val();
+		textarea.rows = str.split("\n").length+1;
+	},
 	exportCSV: function() {
 		var aimFormItems = config.macros.AIMForm.getAllItems(),
 			csv = "",
@@ -53,7 +59,7 @@ config.macros.exportAIM = {
 		newWindow = window.open("", "sourceWindow", "width=700,height=600,scrollbars=yes");
 		newWindow.focus();
 		newDocument = newWindow.document;
-		newDocument.write("<html><head><title>AIM export to CSV</title>" +
+		newDocument.write("<html><head><script type='text/javascript' src='//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script><title>AIM export to CSV</title>" +
 			'<style type="text/css">textarea { border: 2px inset #B5B5B5; width: 100%; }</style>' +
 			"</head><body onload=\"var exp = function() { window.opener.config.macros.exportAIM.save(); window.close(); }; var button = document.getElementsByTagName('button')[0]; if(button) { button.onclick=exp; } document.getElementsByTagName('textarea')[0].select();  \">" +
 			"<h1>AIM export to CSV</h1>" +
@@ -87,7 +93,7 @@ config.macros.exportAIM = {
 		config.macros.AIMResults.analyseResults(interventions, "focal_ranking");
 		newDocument.write("<h3>Focal ranking (all results):</h3>");
 		writeInterventionsList(newDocument, interventions);
-		newDocument.write("</body></html>");
+		newDocument.write("<script type='text/javascript'>$(document).ready(function() { window.opener.config.macros.exportAIM.onWindowOpen(document); });</script></body></html>");
 		newDocument.close();
 	},
 	save: function() {
