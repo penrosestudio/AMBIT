@@ -22,6 +22,7 @@ var provenanceMacro = config.macros.provenance = {
 		isLocal = config.filterHelpers.is.local(tiddler);
 		if (isLocal) {
 			if (source) {
+				source = source.replace(/_public$/,''); // so we don't show <space>_public
 				labelText = "Derived from <a href='http://" + source + ".tiddlyspace.com/#[[" + encodeURIComponent(tiddler.title) + "]]' target='_blank'>" + source + "</a>";
 			} else {
 				labelText = currentSpace + " original content";
