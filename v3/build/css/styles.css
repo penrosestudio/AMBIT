@@ -1377,10 +1377,22 @@ ol.popup table td {
 	margin-bottom: 20px;
 }
 
-.provenanceLabel {
+/*
+----- Provenance label, Vote of Confidence label
+*/
+
+.provenanceLabel, .voteOfConfidenceLabel {
     padding-left: 50px;
     font-size: 12px;
     color: #696969;
     margin-bottom: -15px;
     margin-top: -10px;
+}
+
+.voteOfConfidenceLabel {
+	margin-top: 10px;
+}
+
+.voteOfConfidence div.grid2col {
+	line-height: 18px;
 }
