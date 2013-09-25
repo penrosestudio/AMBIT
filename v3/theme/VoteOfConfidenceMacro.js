@@ -70,7 +70,6 @@ var voteOfConfidenceMacro = config.macros.voteOfConfidence = {
 		return '/bags/'+(currentSpace||space)+'_public/tiddlers/'+encodeURIComponent(title);
 	},
 	handler: function(place,macroName,params,wikifier,paramString,tiddler) {
-		console.log('handler');
 		var plugin = config.macros.voteOfConfidence,
 			displayCloneCount = function() {
 				var plugin = config.macros.voteOfConfidence,
@@ -113,7 +112,7 @@ var voteOfConfidenceMacro = config.macros.voteOfConfidence = {
 };
 
 /* addition to cloneTiddler so that it saves the cloned tiddler title as _source field */
-/*var _cloneHandler = config.commands.cloneTiddler.handler;
+var _cloneHandler = config.commands.cloneTiddler.handler;
 config.commands.cloneTiddler.handler = function(event, src, title) {
 	var _tiddler = store.getTiddler(title);
 	var source = _tiddler ? _tiddler.fields["server.bag"] : false;
@@ -125,6 +124,6 @@ config.commands.cloneTiddler.handler = function(event, src, title) {
 	if(_source) {
 		$("<input />").attr("type", "hidden").attr("edit", "tiddler._source").val(_source).appendTo(tidEl);
 	}
-};*/
+};
 
 /*}}}*/
