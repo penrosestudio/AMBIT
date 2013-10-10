@@ -157,7 +157,7 @@ config.macros.search.handler = function(place,macroName,params)
 };
 
 config.macros.search.elsewhereSearch = function(text) {
-	var url = '/search.json?q="%0"'.format(encodeURIComponent(text)),
+	var url = '/search.json?q=%0'.format(encodeURIComponent(text)),
 		$ = jQuery,
 		whitelist = store.getTiddler('AMBIT community of practice - members').text.split('\n'),
 		bagFilters = [];
