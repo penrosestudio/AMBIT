@@ -8,10 +8,10 @@ config.macros.AIMForm = {
 		// item.title is like "04 Young person daily life - Other talents and abilities"
 		var regex = config.macros.AIMForm.parseItemTitleRegex,
 			matches = regex.exec(item),
-			tiddlerTitle = matches ? matches[0] || null,
-			number = matches ? matches[1] || null,
-			category = matches ? matches[2] || null,
-			label = matches ? matches[3] || null,
+			tiddlerTitle = matches ? matches[0] : null,
+			number = matches ? matches[1] : null,
+			category = matches ? matches[2] : null,
+			label = matches ? matches[3] : null,
 			itemData = {
 				tiddlerTitle: tiddlerTitle,
 				number: number,
