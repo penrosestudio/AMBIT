@@ -8,16 +8,19 @@ config.macros.AIMForm = {
 		// item.title is like "04 Young person daily life - Other talents and abilities"
 		var regex = config.macros.AIMForm.parseItemTitleRegex,
 			matches = regex.exec(item),
-			tiddlerTitle = matches[0],
-			number = matches[1],
-			category = matches[2],
-			label = matches[3],
+			tiddlerTitle = matches ? matches[0] || null,
+			number = matches ? matches[1] || null,
+			category = matches ? matches[2] || null,
+			label = matches ? matches[3] || null,
 			itemData = {
 				tiddlerTitle: tiddlerTitle,
 				number: number,
 				category: category,
 				label: label
 			};
+			if(!tiddlerTitle) {
+  			return false;
+			}
 			return itemData;
 	},
 	loadItems: function(tag) {
@@ -34,6 +37,9 @@ config.macros.AIMForm = {
 			categories = {};
 			$.each(items, function(i, item) {
 				itemData = config.macros.AIMForm.parseItemTitle(item.title);
+				if(!itemData) {
+  				return true; // ignore this item
+				}
 				category = itemData.category;
 				if(!categories[category]) {
 					categories[category] = [];
